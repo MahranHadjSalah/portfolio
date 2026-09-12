@@ -46,6 +46,34 @@ export const portfolioData = {
     ]
   },
 
+  // Focus Areas / What I Build
+  whatIBuild: [
+    {
+      id: "ai-products",
+      title: "AI-Powered Products",
+      description: "AI agents, LLM applications, RAG systems, and intelligent workflows grounded in real data.",
+      technologies: ["LangGraph", "LangChain", "RAG & GraphRAG", "Embeddings", "FastAPI"]
+    },
+    {
+      id: "saas-platforms",
+      title: "SaaS Platforms",
+      description: "Multi-tenant cloud applications with authentication, RBAC, relational schemas, and structured business workflows.",
+      technologies: ["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"]
+    },
+    {
+      id: "backend-systems",
+      title: "Backend & Systems",
+      description: "Asynchronous APIs, job queues, webhooks, rate limiting, and event-driven architectures built for stability.",
+      technologies: ["FastAPI", "Redis Queues", "PostgreSQL", "Docker", "RESTful APIs"]
+    },
+    {
+      id: "intelligent-automation",
+      title: "Intelligent Automation",
+      description: "Autonomous agents capable of calling tools, querying databases, and executing end-to-end commercial operations.",
+      technologies: ["Tool Calling", "Meta Webhooks", "State Machines", "Python"]
+    }
+  ],
+
   // From Idea -> Product Lifecycle
   productLifecycle: {
     title: "From idea → product",

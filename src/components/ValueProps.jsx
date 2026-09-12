@@ -25,7 +25,7 @@ export default function ValueProps() {
 
         {/* 4 Clean Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {portfolioData.whatIBuild.map((item, idx) => {
+          {(portfolioData.whatIBuild || []).map((item, idx) => {
             const IconComponent = icons[idx] || Cpu;
             return (
               <div
