@@ -25,7 +25,7 @@ export default function Contact() {
         
         {/* Section Header */}
         <div className="max-w-2xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest font-bold">
             <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
             Get in Touch
           </div>

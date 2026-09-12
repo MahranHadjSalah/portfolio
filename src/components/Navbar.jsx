@@ -64,10 +64,10 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
             <button
               onClick={onOpenCommandMenu}
               className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-white hover:bg-slate-50 border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] text-xs font-mono transition-colors shadow-xs"
-              title="Quick Search (Ctrl + K)"
+              title="Quick Search (Ctrl + K / ⌘K)"
             >
               <Search className="w-3.5 h-3.5 text-[#475569]" />
-              <kbd className="text-[10px] bg-slate-100 px-1 rounded text-[#475569] border border-[#E2E8F0]">⌘K</kbd>
+              <kbd className="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-[#475569] border border-[#E2E8F0]">Ctrl K</kbd>
             </button>
 
             {/* Social Icons */}

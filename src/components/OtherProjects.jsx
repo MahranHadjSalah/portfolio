@@ -8,15 +8,15 @@ export default function OtherProjects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest mb-2">
-            <GitBranch className="w-3.5 h-3.5" />
+        <div className="max-w-2xl mb-12 space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest font-bold">
+            <GitBranch className="w-3.5 h-3.5 text-[#0F766E]" />
             Engineering Experiments
           </div>
-          <h3 className="text-2xl font-bold text-[#0F172A] tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-bold text-[#0F172A] tracking-tight font-sans">
             Specialized Architectures & Open Experiments
           </h3>
-          <p className="text-xs font-mono text-[#475569] mt-1">
+          <p className="text-base text-[#475569] leading-relaxed font-sans">
             Focused technical modules, distributed algorithms, and agent workflows.
           </p>
         </div>

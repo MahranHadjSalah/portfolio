@@ -9,17 +9,15 @@ export default function TechStack() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest mb-3">
-              <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
-              Technical Competencies
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight font-sans">
-              Engineering at a Glance
-            </h2>
+        <div className="max-w-2xl mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest font-bold">
+            <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
+            Technical Competencies
           </div>
-          <p className="text-sm text-[#475569] max-w-md font-mono">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
+            Engineering at a Glance
+          </h2>
+          <p className="text-base sm:text-lg text-[#475569] leading-relaxed font-sans">
             A purposeful, production-proven stack focused on applied AI, resilient backends, and reactive interfaces.
           </p>
         </div>

@@ -2,9 +2,9 @@ import React from 'react';
 import { 
   Zap, 
   Calendar, 
-  Network,
-  BookOpen,
-  ArrowRight
+  Network, 
+  BookOpen, 
+  ArrowRight 
 } from 'lucide-react';
 import { GithubIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
@@ -15,18 +15,16 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest mb-3">
-              <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
-              Selected Software Products
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight font-sans">
-              Featured Case Studies
-            </h2>
+        <div className="max-w-2xl mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest font-bold">
+            <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
+            Selected Software Products
           </div>
-          <p className="text-sm text-[#475569] max-w-md font-mono">
-            Production-oriented systems engineered from zero to deployment. Click any project for full architectural details.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
+            Featured Case Studies
+          </h2>
+          <p className="text-base sm:text-lg text-[#475569] leading-relaxed font-sans">
+            Production-oriented systems engineered from zero to deployment. Click any project for full architectural details and live simulators.
           </p>
         </div>
 
@@ -35,13 +33,13 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
           {portfolioData.featuredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="rounded-2xl bg-white border border-[#E2E8F0] shadow-sm overflow-hidden hover:border-[#0F766E]/50 hover:shadow-md transition-all duration-300"
+              className="rounded-2xl bg-white border border-[#E2E8F0] shadow-sm overflow-hidden hover:border-[#0F766E]/40 hover:shadow-md transition-all duration-300"
             >
               {/* Card Header Bar */}
               <div className="px-6 py-4 bg-slate-50 border-b border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <span className="font-mono text-xs text-[#475569]">0{index + 1} //</span>
-                  <span className="px-2.5 py-0.5 rounded text-xs font-mono bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 font-medium">
+                  <span className="px-2.5 py-0.5 rounded text-xs font-mono bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 font-semibold">
                     {project.category}
                   </span>
                 </div>
@@ -49,7 +47,7 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => onSelectCaseStudy(project)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-mono bg-white hover:bg-slate-100 text-[#0F172A] border border-[#E2E8F0] shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white hover:bg-slate-100 text-[#0F172A] border border-[#E2E8F0] shadow-2xs transition-colors"
                   >
                     <BookOpen className="w-3.5 h-3.5 text-[#0F766E]" />
                     <span>Case Study</span>
@@ -58,7 +56,7 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-mono bg-white hover:bg-slate-100 text-[#475569] hover:text-[#0F172A] border border-[#E2E8F0] shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white hover:bg-slate-100 text-[#475569] hover:text-[#0F172A] border border-[#E2E8F0] shadow-2xs transition-colors"
                   >
                     <GithubIcon className="w-3.5 h-3.5" />
                     <span>Source</span>
@@ -67,7 +65,7 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-mono bg-[#E6FFFA] hover:bg-teal-100 text-[#0F766E] border border-[#0F766E]/30 font-medium shadow-2xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-[#E6FFFA] hover:bg-teal-100 text-[#0F766E] border border-[#0F766E]/30 shadow-2xs transition-colors"
                   >
                     <span>Request Demo</span>
                     <WhatsAppIcon className="w-3.5 h-3.5" />
@@ -76,29 +74,32 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
               </div>
 
               {/* Card Body */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 items-stretch">
                 
                 {/* Left: Product Information */}
                 <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight mb-2 font-sans">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm font-mono text-[#0F766E] mb-4 font-medium">
-                      {project.tagline}
-                    </p>
-                    <p className="text-[#475569] text-sm leading-relaxed mb-6 font-sans">
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight mb-2 font-sans">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm sm:text-base font-sans font-semibold text-[#0F766E] leading-snug">
+                        {project.tagline}
+                      </p>
+                    </div>
+
+                    <p className="text-[#475569] text-sm sm:text-base leading-relaxed font-sans">
                       {project.summary}
                     </p>
 
                     {/* Engineering Facts (Honest Evidence) */}
-                    <div className="space-y-2 mb-6">
+                    <div className="space-y-2 pt-2">
                       <div className="text-xs font-mono text-[#475569] uppercase tracking-wider font-semibold">
                         Key Engineering Facts:
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {project.engineeringFacts.map((fact, fIdx) => (
-                          <div key={fIdx} className="p-2.5 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-center gap-2 text-xs font-mono text-[#0F172A]">
+                          <div key={fIdx} className="p-2.5 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-center gap-2 text-xs text-[#0F172A] font-sans font-medium">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E] shrink-0" />
                             <span>{fact}</span>
                           </div>
@@ -107,13 +108,13 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                     </div>
 
                     {/* Architectural Bullet Points */}
-                    <div className="space-y-2">
+                    <div className="space-y-2 pt-1">
                       <div className="text-xs font-mono text-[#475569] uppercase tracking-wider font-semibold">
-                        Architecture Breakdown:
+                        Architecture Highlights:
                       </div>
                       <ul className="space-y-1.5">
                         {project.architectureHighlights.slice(0, 3).map((arch, aIdx) => (
-                          <li key={aIdx} className="flex items-start gap-2 text-xs text-[#475569] font-sans">
+                          <li key={aIdx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569] font-sans leading-relaxed">
                             <span className="text-[#0F766E] mt-0.5 font-bold">•</span>
                             <span>{arch}</span>
                           </li>
@@ -128,7 +129,7 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-slate-100 text-[#0F172A] border border-[#E2E8F0]"
+                          className="px-2.5 py-1 rounded text-xs font-mono bg-slate-100 text-[#0F172A] border border-[#E2E8F0]"
                         >
                           {tech}
                         </span>
@@ -137,17 +138,17 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
 
                     <button
                       onClick={() => onSelectCaseStudy(project)}
-                      className="inline-flex items-center gap-1 text-xs font-mono text-[#0F766E] hover:text-[#115E59] font-semibold transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-[#0F766E] hover:text-[#115E59] font-semibold transition-colors group"
                     >
                       <span>Read Full Case Study</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                     </button>
                   </div>
                 </div>
 
                 {/* Right: Realistic In-Browser System Simulation */}
                 <div className="lg:col-span-6 flex flex-col justify-center">
-                  <div className="rounded-xl bg-white border border-[#E2E8F0] overflow-hidden shadow-lg">
+                  <div className="rounded-xl bg-white border border-[#E2E8F0] overflow-hidden shadow-md">
                     
                     {/* Window Header */}
                     <div className="px-4 py-2.5 bg-slate-50 border-b border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#475569]">
