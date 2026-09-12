@@ -1,10 +1,11 @@
 import React from 'react';
-import { Layers, CheckCircle2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function TechStack() {
+  const { coreDaily, categories } = portfolioData.techStack;
+
   return (
-    <section id="tech-stack" className="py-24 border-b border-zinc-800/80 relative">
+    <section id="engineering" className="py-24 border-b border-zinc-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -12,67 +13,64 @@ export default function TechStack() {
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-widest mb-3">
               <span className="w-2 h-2 rounded-sm bg-emerald-500" />
-              Technical Arsenal
+              Technical Competencies
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Production Tech Stack & Tools
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
+              Engineering at a Glance
             </h2>
           </div>
           <p className="text-sm text-zinc-400 max-w-md font-mono">
-            A purposeful, production-proven stack selected for speed, type safety, and real-time AI execution.
+            A purposeful, production-proven stack focused on applied AI, resilient backends, and reactive interfaces.
           </p>
         </div>
 
-        {/* 4 Architectural Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {portfolioData.techStack.map((group, idx) => (
+        {/* Primary Daily Stack Banner */}
+        <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold block mb-1">
+              Core Daily Stack:
+            </span>
+            <p className="text-xs text-zinc-400 font-sans">
+              Technologies I reach for first when architecting production products from scratch.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            {coreDaily.map((item) => (
+              <span
+                key={item}
+                className="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 shadow-sm"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* 4 Categorized Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((group, idx) => (
             <div
               key={idx}
-              className="rounded-xl bg-zinc-900/40 border border-zinc-800 p-7 hover:border-zinc-700 transition-all flex flex-col justify-between"
+              className="rounded-xl bg-zinc-900/30 border border-zinc-800/90 p-6 flex flex-col justify-between hover:border-zinc-750 transition-colors"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                    {group.category}
-                  </h3>
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">Layer 0{idx + 1}</span>
-                </div>
-                <p className="text-xs text-zinc-400 font-mono mb-6">
-                  {group.description}
-                </p>
+                <h3 className="text-sm font-bold text-white mb-4 pb-3 border-b border-zinc-800 flex items-center gap-2 font-mono">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  {group.name}
+                </h3>
 
-                {/* Skill Chips Grid */}
-                <div className="grid grid-cols-2 gap-2.5">
-                  {group.skills.map((skill, sIdx) => (
-                    <div
-                      key={sIdx}
-                      className={`p-3 rounded-lg border transition-all flex items-center justify-between ${
-                        skill.highlight
-                          ? 'bg-zinc-850/90 border-emerald-500/30 text-white shadow-sm'
-                          : 'bg-zinc-900/60 border-zinc-800/80 text-zinc-300'
-                      }`}
+                <ul className="space-y-2">
+                  {group.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="text-xs font-mono text-zinc-300 flex items-center gap-2"
                     >
-                      <div className="flex items-center gap-2">
-                        {skill.highlight ? (
-                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                        ) : (
-                          <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
-                        )}
-                        <span className="text-xs font-mono font-medium">{skill.name}</span>
-                      </div>
-                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400">
-                        {skill.level}
-                      </span>
-                    </div>
+                      <span className="text-zinc-600">•</span>
+                      <span>{skill}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
-
-              {/* Bottom Note */}
-              <div className="mt-6 pt-4 border-t border-zinc-800/60 flex items-center justify-between text-[11px] font-mono text-zinc-500">
-                <span>Integrated in production pipelines</span>
-                <span className="text-emerald-400/80">Active</span>
+                </ul>
               </div>
             </div>
           ))}

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Menu, X, ArrowUpRight, Mail } from 'lucide-react';
+import { Terminal, Menu, X, ArrowUpRight, Mail, FileText, Search } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 
-export default function Navbar() {
+export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,52 +16,62 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "What I Do", href: "#what-i-do" },
-    { name: "Projects", href: "#projects" },
-    { name: "Tech Stack", href: "#tech-stack" },
+    { name: "Work", href: "#work" },
+    { name: "Skills", href: "#engineering" },
+    { name: "Process", href: "#process" },
+    { name: "Experience", href: "#experience" },
     { name: "About", href: "#about" },
-    { name: "Education", href: "#education" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-[#08090d]/85 backdrop-blur-md border-b border-zinc-800/80 py-3.5 shadow-2xl shadow-black/40' 
-        : 'bg-transparent py-5'
+        ? 'bg-[#08090d]/90 backdrop-blur-md border-b border-zinc-800/80 py-3 shadow-2xl shadow-black/50' 
+        : 'bg-transparent py-4 sm:py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand / Terminal Monogram */}
-          <a href="#" className="group flex items-center gap-3 text-zinc-100 hover:text-white transition-colors">
-            <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-700/80 flex items-center justify-center group-hover:border-emerald-500/60 transition-all duration-300">
-              <Terminal className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+          
+          {/* Brand Logo */}
+          <a href="#" className="group flex items-center gap-2.5 text-zinc-100 hover:text-white transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-750 flex items-center justify-center group-hover:border-emerald-500/60 transition-all duration-300">
+              <Terminal className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
             </div>
-            <div className="flex flex-col">
-              <span className="font-mono font-semibold text-sm tracking-tight flex items-center gap-1.5">
-                mahran.dev
-                <span className="inline-block w-1.5 h-3 bg-emerald-400 animate-pulse" />
-              </span>
-              <span className="text-[10px] text-zinc-400 font-mono">Software Engineer</span>
+            <div className="flex items-center gap-1.5 font-mono font-bold text-sm tracking-tight">
+              <span>mahran.dev</span>
+              <span className="w-1.5 h-3 bg-emerald-400 animate-pulse" />
             </div>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 bg-zinc-900/60 border border-zinc-800/80 px-3 py-1.5 rounded-full backdrop-blur-sm">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1 bg-zinc-900/60 border border-zinc-800/80 px-3 py-1.5 rounded-full backdrop-blur-sm">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs font-mono text-zinc-400 hover:text-zinc-100 px-3 py-1.5 rounded-full transition-colors hover:bg-zinc-800/60"
+                className="text-xs font-mono text-zinc-400 hover:text-zinc-100 px-3 py-1 rounded-full transition-colors hover:bg-zinc-800/60"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* Action / Socials */}
-          <div className="hidden md:flex items-center gap-3">
-            <div className="flex items-center gap-1.5 border-r border-zinc-800 pr-3">
+          {/* Right Actions & Socials */}
+          <div className="hidden md:flex items-center gap-2.5">
+            
+            {/* Quick Cmd+K Button */}
+            <button
+              onClick={onOpenCommandMenu}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-zinc-900/80 hover:bg-zinc-850 border border-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono transition-colors"
+              title="Quick Search (Ctrl + K)"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <kbd className="text-[10px] bg-zinc-800 px-1 rounded text-zinc-500">⌘K</kbd>
+            </button>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-1 border-r border-zinc-800 pr-2.5">
               <a
                 href={portfolioData.personal.github}
                 target="_blank"
@@ -69,7 +79,7 @@ export default function Navbar() {
                 className="w-8 h-8 rounded-md bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
                 aria-label="GitHub Profile"
               >
-                <GithubIcon className="w-4 h-4" />
+                <GithubIcon className="w-3.5 h-3.5" />
               </a>
               <a
                 href={portfolioData.personal.linkedin}
@@ -78,17 +88,7 @@ export default function Navbar() {
                 className="w-8 h-8 rounded-md bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
                 aria-label="LinkedIn Profile"
               >
-                <LinkedinIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(portfolioData.personal.email)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-md bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
-                aria-label="Send Email"
-                title={`Send Email to ${portfolioData.personal.email}`}
-              >
-                <Mail className="w-4 h-4" />
+                <LinkedinIcon className="w-3.5 h-3.5" />
               </a>
               <a
                 href={portfolioData.personal.whatsapp}
@@ -96,37 +96,48 @@ export default function Navbar() {
                 rel="noreferrer"
                 className="w-8 h-8 rounded-md bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors"
                 aria-label="Chat on WhatsApp"
-                title={`WhatsApp: ${portfolioData.personal.phone}`}
               >
-                <WhatsAppIcon className="w-4 h-4" />
+                <WhatsAppIcon className="w-3.5 h-3.5" />
               </a>
             </div>
 
+            {/* Real Resume / CV Button */}
+            <button
+              onClick={onOpenResume}
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3 py-1.5 rounded-md bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white border border-zinc-750 transition-colors"
+            >
+              <FileText className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Resume / CV</span>
+            </button>
+
+            {/* Contact CTA */}
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3.5 py-1.5 rounded-md bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all duration-200"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3.5 py-1.5 rounded-md bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 shadow-sm shadow-emerald-500/20 transition-all"
             >
-              <span>Get in Touch</span>
+              <span>Let's Talk</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <a
-              href="#contact"
-              className="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+            <button
+              onClick={onOpenResume}
+              className="text-xs font-mono px-2.5 py-1 rounded bg-zinc-900 text-zinc-300 border border-zinc-800 flex items-center gap-1"
             >
-              Contact
-            </a>
+              <FileText className="w-3 h-3 text-emerald-400" />
+              <span>CV</span>
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white"
-              aria-label="Toggle Menu"
+              aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 
@@ -144,6 +155,7 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+
             <div className="flex items-center gap-4 pt-4 mt-2">
               <a
                 href={portfolioData.personal.github}
@@ -162,15 +174,6 @@ export default function Navbar() {
               >
                 <LinkedinIcon className="w-4 h-4" />
                 <span>LinkedIn</span>
-              </a>
-              <a
-                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(portfolioData.personal.email)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Email</span>
               </a>
               <a
                 href={portfolioData.personal.whatsapp}

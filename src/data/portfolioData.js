@@ -1,63 +1,78 @@
 export const portfolioData = {
   personal: {
     name: "Mahran Hadj Salah",
-    title: "Software Engineering Student · AI & Full-Stack Developer",
+    title: "Software Engineering Student building AI-powered products and SaaS systems",
+    headline: "I design and engineer production-oriented applications across AI agents, GraphRAG, automation, and full-stack systems.",
+    institution: "ISIMS — Université de Sfax",
     location: "Sfax, Tunisia",
-    status: "Available for internships & high-impact projects",
-    statusAvailable: true,
-    tagline: "I build intelligent software products that combine AI, automation, and modern web technologies.",
-    bio: [
-      "I am a Software Engineering Student at ISIMS (Université de Sfax) with a passionate obsession for building real-world software products.",
-      "My work bridges the gap between deep generative AI capabilities—including LLMs, RAG, GraphRAG, and LangGraph multi-agent workflows—and production-ready full-stack architectures. I don't just experiment with models; I engineer full-scale SaaS platforms, automated sales pipelines, and resilient backend systems.",
-      "Always focused on clean architecture, high throughput, and tangible business value."
-    ],
+    availability: "Available for internships · AI / Software Engineering / Full-Stack",
+    workPreference: "Remote (Worldwide) · On-site / Hybrid (Tunisia)",
+    timezone: "GMT+1 (Tunis)",
     email: "mahranhadjsalah56@gmail.com",
     phone: "+216 56 187 082",
+    phoneRaw: "21656187082",
     whatsapp: "https://wa.me/21656187082",
     github: "https://github.com/MahranHadjSalah",
-    linkedin: "https://www.linkedin.com/in/mahran-hadj-salah-4b98bb393/"
+    linkedin: "https://www.linkedin.com/in/mahran-hadj-salah-4b98bb393/",
+    bio: [
+      "I'm a Software Engineering student at ISIMS — Université de Sfax, focused on building AI-powered software and full-stack products.",
+      "My work sits at the intersection of software engineering and applied AI. I enjoy turning ideas into complete systems — from APIs and databases to AI agents, retrieval pipelines, and responsive web interfaces.",
+      "I'm particularly interested in AI engineering, backend systems, SaaS architecture, and intelligent automation."
+    ]
   },
 
-  whatIDo: [
+  whatIBuild: [
     {
-      id: "ai-apps",
-      title: "AI Applications",
-      short: "LLMs & Intelligent Interfaces",
-      description: "Developing production-grade generative AI interfaces that solve complex enterprise problems with deterministic guardrails.",
-      tags: ["LLMs", "Context Guardrails", "Streaming UI", "Function Calling"],
-      icon: "Cpu"
+      id: "ai-products",
+      title: "AI-Powered Products",
+      description: "AI agents, LLM applications, RAG systems, and intelligent workflows grounded in source documents.",
+      technologies: ["LangGraph", "LangChain", "RAG & GraphRAG", "Embeddings", "FastAPI"]
     },
     {
-      id: "fullstack-saas",
-      title: "Full-Stack SaaS",
-      short: "End-to-End Modern Products",
-      description: "Architecting end-to-end cloud platforms with reactive frontends, resilient microservices, authentication, and billing.",
-      tags: ["React / Vite", "Node.js / FastAPI", "PostgreSQL", "Tailwind CSS"],
-      icon: "Layers"
+      id: "saas-platforms",
+      title: "SaaS Platforms",
+      description: "Multi-tenant cloud applications with authentication, RBAC, relational schemas, and billing workflows.",
+      technologies: ["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"]
     },
     {
-      id: "ai-agents",
-      title: "AI Agents & Automation",
-      short: "Multi-Agent Workflows",
-      description: "Designing autonomous multi-agent state machines with LangGraph that execute multi-step research, sales, and operations.",
-      tags: ["LangGraph", "State Machines", "Tool Calling", "Meta Webhooks"],
-      icon: "Bot"
+      id: "backend-systems",
+      title: "Backend & Systems",
+      description: "Asynchronous APIs, job queues, webhooks, rate limiting, and event-driven architectures built for stability.",
+      technologies: ["FastAPI", "Redis Queues", "PostgreSQL", "Docker", "RESTful APIs"]
     },
     {
-      id: "rag-systems",
-      title: "RAG & Knowledge Systems",
-      short: "GraphRAG & Hybrid Retrieval",
-      description: "Implementing advanced RAG pipelines with graph context augmentation, dense vector embeddings, and citation verification.",
-      tags: ["GraphRAG", "Vector Search", "Knowledge Graphs", "Reranking"],
-      icon: "Network"
+      id: "intelligent-automation",
+      title: "Intelligent Automation",
+      description: "Autonomous agents capable of calling tools, querying databases, and executing end-to-end commercial operations.",
+      technologies: ["Tool Calling", "Meta Webhooks", "State Machines", "Python"]
+    }
+  ],
+
+  howIBuild: [
+    {
+      step: "01",
+      title: "Understand & Scope",
+      desc: "Deconstruct business requirements and define exact data contracts before writing code."
     },
     {
-      id: "backend-apis",
-      title: "Backend & APIs",
-      short: "High-Throughput Systems",
-      description: "Engineering asynchronous APIs, rate-limited queuing pipelines, and low-latency database schemas built for reliability.",
-      tags: ["FastAPI", "Express", "Redis Queues", "PostgreSQL"],
-      icon: "Server"
+      step: "02",
+      title: "Architect & Model",
+      desc: "Design normalized database schemas, API contracts, state graphs, and asynchronous queues."
+    },
+    {
+      step: "03",
+      title: "Engineer & Optimize",
+      desc: "Build type-safe, modular services with clean separation between business logic and UI."
+    },
+    {
+      step: "04",
+      title: "Test & Validate",
+      desc: "Verify error handling, API boundaries, rate-limit edge cases, and retrieval accuracy."
+    },
+    {
+      step: "05",
+      title: "Deploy & Monitor",
+      desc: "Containerize with Docker, establish CI/CD routines, and log runtime telemetry."
     }
   ],
 
@@ -65,80 +80,110 @@ export const portfolioData = {
     {
       id: "autoreply",
       title: "Autoreply",
-      badge: "Commercial SaaS · AI Sales Agent",
-      tagline: "AI-powered Facebook & Instagram sales automation platform",
-      description: "An enterprise automation platform that transforms social media channels into 24/7 autonomous sales engines. It intercepts customer inquiries via webhooks, classifies purchase intent, queries dynamic inventory, and negotiates/closes sales automatically.",
-      highlight: "Replaces manual customer support with sub-second intelligent responses, reducing lead drop-off by over 70%.",
-      impactMetrics: [
-        { label: "Response Latency", value: "< 850ms" },
-        { label: "Intent Accuracy", value: "96.4%" },
-        { label: "Automation Rate", value: "85%+" },
-        { label: "Supported Channels", value: "IG + FB" }
+      category: "AI Sales Automation",
+      tagline: "AI-powered sales automation platform for Facebook & Instagram merchants.",
+      summary: "Intercepts social inquiries via webhooks, classifies purchase intent in real time, queries dynamic catalog data, and automates order checkout flows.",
+      problem: "E-commerce merchants lose high-intent leads during non-business hours because manual DM responses take hours or days, causing customers to buy from competitors.",
+      solution: "Engineered an event-driven automation engine that processes Meta webhooks, passes conversation state through a LangGraph intent router, queries live inventory, and responds autonomously.",
+      myRole: "Designed the full-stack architecture, webhook listener, Redis queuing layer, LLM tool-calling logic, and merchant dashboard.",
+      architectureHighlights: [
+        "FastAPI webhook ingest layer acknowledging Meta webhooks under 200ms to prevent duplicate retries",
+        "Redis task queue with token-bucket rate limiting to respect Meta Graph API quotas",
+        "LangGraph state machine routing inquiries between catalog queries and human handoff",
+        "PostgreSQL schema maintaining conversation history, session state, and order funnels"
       ],
-      architecture: [
-        "Event-driven webhook ingest layer built with FastAPI & Node.js for zero message loss",
-        "Redis debounce & token-bucket rate limiter to comply with Meta Graph API quotas",
-        "Agentic conversation state machine utilizing LLM tool-calling for catalog querying",
-        "Multi-tenant PostgreSQL schema tracking conversation funnels, orders, and customer CRM"
+      technicalDecisions: [
+        {
+          decision: "Why Redis + BullMQ/Celery Queue?",
+          reason: "Webhook events must be acknowledged immediately. Offloading AI inference to asynchronous background workers prevents HTTP timeouts."
+        },
+        {
+          decision: "Why LangGraph for conversation flow?",
+          reason: "Multi-turn sales negotiations require cyclical state machines with rollback and human-in-the-loop triggers rather than linear chains."
+        }
       ],
-      techStack: ["FastAPI", "Node.js", "Meta Graph API", "Redis", "PostgreSQL", "LangChain", "React"],
-      links: {
-        demo: "mailto:mahranhadjsalah56@gmail.com?subject=Live%20Demo%20Request%20-%20Autoreply",
-        github: "https://github.com/MahranHadjSalah"
-      },
-      previewType: "autoreply"
+      engineeringFacts: [
+        "Sub-second end-to-end response pipeline",
+        "Real-time purchase intent classification",
+        "Automated catalog queries & checkout link generation",
+        "Full Meta Graph API webhook compliance"
+      ],
+      whatILearned: "Learned how to handle high-concurrency webhook bursts, implement distributed idempotency keys in Redis, and manage token budgets effectively.",
+      techStack: ["FastAPI", "Node.js", "Redis", "PostgreSQL", "Meta Graph API", "LangGraph", "React"],
+      githubUrl: "https://github.com/MahranHadjSalah",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20Autoreply"
     },
     {
       id: "lux-dental",
       title: "LUX Dental",
-      badge: "Healthcare SaaS · Clinical Workflow",
-      tagline: "Comprehensive modern SaaS for dental-office management",
-      description: "A tailored practice-management suite designed to eliminate operational friction in dental clinics. Features real-time appointment scheduling, interactive dental charting (odontogram), automated SMS/email reminders, digital medical history, and invoicing.",
-      highlight: "Replaces fragmented legacy desktop software with a sleek, cloud-first collaborative workspace.",
-      impactMetrics: [
-        { label: "Schedule Efficiency", value: "+35%" },
-        { label: "No-Show Reduction", value: "45%" },
-        { label: "Role Levels", value: "Admin / MD / Staff" },
-        { label: "Architecture", value: "Cloud-Native" }
+      category: "Healthcare SaaS",
+      tagline: "Modern practice-management SaaS for dental clinics and practitioner workflows.",
+      summary: "A unified clinical operations platform providing real-time chair scheduling, digital patient health dossiers, interactive dental charting (odontogram), and automated reminders.",
+      problem: "Independent dental clinics often rely on fragmented paper records or outdated desktop software, resulting in missed appointments, billing friction, and poor record accessibility.",
+      solution: "Developed a cloud-native SaaS suite with role-based access control (RBAC), multi-chair agenda synchronization, patient record tracking, and automated SMS/email reminders.",
+      myRole: "Sole developer across frontend UI, REST API design, relational schema modeling, authentication, and dockerized deployment.",
+      architectureHighlights: [
+        "React frontend with optimistic schedule updates and reactive calendar views",
+        "Express & Node.js REST API with granular RBAC (Practitioner, Assistant, Receptionist)",
+        "PostgreSQL relational schema with audit logging and encrypted sensitive patient dossiers",
+        "Background cron worker for automated appointment reminder dispatches"
       ],
-      architecture: [
-        "Modular React frontend with optimistic state updates and fluid drag-and-drop scheduling",
-        "REST API with strict Role-Based Access Control (RBAC) protecting sensitive patient data",
-        "Relational PostgreSQL database with audit logging and automated daily backup routines",
-        "Background task worker for appointment reminder dispatches and financial report generation"
+      technicalDecisions: [
+        {
+          decision: "Why PostgreSQL with Strict Foreign Keys?",
+          reason: "Medical treatments, patient history, and invoices require strict ACID guarantees and audit trails that non-relational databases can't enforce easily."
+        },
+        {
+          decision: "Why granular RBAC?",
+          reason: "Receptionists must manage appointments without accessing sensitive diagnosis histories, ensuring patient data confidentiality."
+        }
       ],
+      engineeringFacts: [
+        "RBAC architecture with 3 permission tiers",
+        "Optimistic calendar UI with conflict prevention",
+        "Relational audit logging for all patient modifications",
+        "Containerized with Docker for repeatable deployments"
+      ],
+      whatILearned: "Gained hands-on experience designing normalized relational schemas for complex real-world workflows and securing API routes with signed JWTs and refresh tokens.",
       techStack: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Docker"],
-      links: {
-        demo: "mailto:mahranhadjsalah56@gmail.com?subject=Live%20Demo%20Request%20-%20LUX%20Dental",
-        github: "https://github.com/MahranHadjSalah"
-      },
-      previewType: "dental"
+      githubUrl: "https://github.com/MahranHadjSalah",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20LUX%20Dental"
     },
     {
       id: "supportai",
       title: "SupportAi",
-      badge: "Enterprise AI · GraphRAG Platform",
-      tagline: "Enterprise conversational AI and GraphRAG knowledge platform",
-      description: "A sophisticated knowledge retrieval system engineered to overcome standard vector RAG limitations. By fusing knowledge graphs with vector embeddings (GraphRAG), SupportAi accurately maps multi-hop relationships across enterprise documentation with verified citations.",
-      highlight: "Virtually eliminates hallucinations by grounding answers in explicit graph relationship paths.",
-      impactMetrics: [
-        { label: "Hallucination Drop", value: "-60%" },
-        { label: "Retrieval F1", value: "0.92" },
-        { label: "Context Window", value: "128k Tokens" },
-        { label: "Reasoning Steps", value: "Multi-Hop" }
+      category: "GraphRAG Platform",
+      tagline: "Enterprise conversational AI platform combining vector search with knowledge graphs.",
+      summary: "An advanced retrieval system designed to eliminate context hallucinations by augmenting dense vector similarity with explicit entity-relationship graphs.",
+      problem: "Standard naive RAG breaks down on multi-hop questions across complex technical documentation because vector similarity misses indirect entity relationships.",
+      solution: "Built a hybrid GraphRAG retrieval pipeline that maps structured knowledge graphs alongside vector embeddings, retrieving verifiable citations for every generated answer.",
+      myRole: "Engineered the vector indexing pipeline, graph traversal logic, LangGraph iterative reasoning loop, and FastAPI streaming API.",
+      architectureHighlights: [
+        "Hybrid retrieval combining dense pgvector embeddings with entity relationship graph traversal",
+        "LangGraph stateful workflow managing query decomposition, retrieval self-checking, and synthesis",
+        "Citation grounding engine mapping every claim directly back to source document chunks",
+        "FastAPI asynchronous backend streaming response tokens via Server-Sent Events (SSE)"
       ],
-      architecture: [
-        "Hybrid retrieval pipeline: Dense embeddings + BM25 keyword + Graph entity relationships",
-        "LangGraph stateful workflow managing iterative query refinement and answer self-checking",
-        "Vector database indexing alongside structured entity graphs for fast cross-document traversal",
-        "FastAPI async backend streaming token responses via Server-Sent Events (SSE)"
+      technicalDecisions: [
+        {
+          decision: "Why Graph-Augmented RAG over Pure Vector Search?",
+          reason: "Vectors capture semantic similarity but struggle with multi-hop relationships (e.g. 'Which warranty applies to equipment installed under contract X?'). Graphs provide deterministic relational paths."
+        },
+        {
+          decision: "Why Server-Sent Events (SSE)?",
+          reason: "SSE provides lightweight unidirectional streaming for generative AI tokens without the WebSocket overhead of bidirectional handshake management."
+        }
       ],
-      techStack: ["Python", "FastAPI", "LangGraph", "GraphRAG", "PostgreSQL / pgvector", "Redis", "Docker"],
-      links: {
-        demo: "mailto:mahranhadjsalah56@gmail.com?subject=Live%20Demo%20Request%20-%20SupportAi",
-        github: "https://github.com/MahranHadjSalah"
-      },
-      previewType: "supportai"
+      engineeringFacts: [
+        "Hybrid vector + graph retrieval architecture",
+        "Citation-grounded synthesis with chunk references",
+        "Streaming token generation via SSE",
+        "Multi-step query decomposition with LangGraph"
+      ],
+      whatILearned: "Deepened practical understanding of embedding spaces, chunking boundary strategies, entity extraction pipelines, and hallucination reduction techniques.",
+      techStack: ["Python", "FastAPI", "LangGraph", "pgvector", "PostgreSQL", "Redis", "Docker"],
+      githubUrl: "https://github.com/MahranHadjSalah",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20SupportAi"
     }
   ],
 
@@ -146,116 +191,74 @@ export const portfolioData = {
     {
       title: "LangGraph Multi-Agent Research Swarm",
       category: "AI Agentic Workflow",
-      description: "A team of autonomous specialized agents (Researcher, Fact-Checker, Writer) collaborating in a state graph to produce in-depth technical analysis reports.",
+      description: "A collaborative state graph of specialized agents (Searcher, Synthesizer, Fact-Checker) orchestrating multi-step research reports.",
       stack: ["Python", "LangGraph", "Tavily API", "FastAPI"]
     },
     {
-      title: "High-Throughput Redis Task Broker",
-      category: "Backend & Systems",
-      description: "Distributed task processing queue with delayed job execution, exponential backoff retries, and dead-letter queue monitoring.",
+      title: "High-Throughput Task Broker",
+      category: "Distributed Systems",
+      description: "Asynchronous task queue with exponential backoff retries, delayed executions, and dead-letter queue monitoring.",
       stack: ["Node.js", "Redis", "Docker", "TypeScript"]
     },
     {
-      title: "Document Vectorization & Chunking Pipeline",
+      title: "Semantic Document Chunking Pipeline",
       category: "Data & Retrieval",
-      description: "Asynchronous document parsing engine extracting semantic hierarchies from PDFs, markdown, and docx with token-aware chunking.",
+      description: "Document parsing engine extracting structural hierarchies from PDFs and markdown with token-aware chunking for RAG pipelines.",
       stack: ["Python", "pgvector", "FastAPI", "PyMuPDF"]
     }
   ],
 
-  techStack: [
-    {
-      category: "AI, Agents & Intelligence",
-      description: "Core technologies powering autonomous workflows, semantic search, and intelligent automation.",
-      skills: [
-        { name: "LLMs / Prompt Engineering", level: "Advanced", highlight: true },
-        { name: "LangGraph", level: "Advanced", highlight: true },
-        { name: "RAG & GraphRAG", level: "Advanced", highlight: true },
-        { name: "LangChain", level: "Experienced", highlight: false },
-        { name: "Embeddings & Vector Stores", level: "Advanced", highlight: true },
-        { name: "Agent Tool Calling", level: "Advanced", highlight: false }
-      ]
-    },
-    {
-      category: "Backend & Distributed Systems",
-      description: "High-performance API design, asynchronous workers, and robust business logic.",
-      skills: [
-        { name: "Python", level: "Advanced", highlight: true },
-        { name: "FastAPI", level: "Advanced", highlight: true },
-        { name: "Node.js", level: "Advanced", highlight: true },
-        { name: "Express", level: "Experienced", highlight: false },
-        { name: "RESTful APIs", level: "Advanced", highlight: false },
-        { name: "Webhooks Architecture", level: "Advanced", highlight: true }
-      ]
-    },
-    {
-      category: "Frontend & Interfaces",
-      description: "Clean, responsive, interactive user experiences built with modern toolchains.",
-      skills: [
-        { name: "React", level: "Advanced", highlight: true },
-        { name: "Vite", level: "Advanced", highlight: false },
-        { name: "Tailwind CSS", level: "Advanced", highlight: true },
-        { name: "JavaScript (ESNext)", level: "Advanced", highlight: false },
-        { name: "HTML5 / Modern CSS", level: "Advanced", highlight: false }
-      ]
-    },
-    {
-      category: "Data, Cloud & DevOps",
-      description: "Persistent storage, low-latency caching, containerization, and version control.",
-      skills: [
-        { name: "PostgreSQL", level: "Advanced", highlight: true },
-        { name: "Redis", level: "Advanced", highlight: true },
-        { name: "Docker", level: "Proficient", highlight: true },
-        { name: "Git / GitHub", level: "Advanced", highlight: false },
-        { name: "Linux / Bash", level: "Proficient", highlight: false }
-      ]
-    }
-  ],
-
-  educationExperience: {
-    education: [
+  techStack: {
+    coreDaily: ["Python", "React", "FastAPI", "PostgreSQL", "Docker", "Redis"],
+    categories: [
       {
-        degree: "National Engineering Diploma in Software Engineering (1st Year)",
-        institution: "ISIMS — Institut Supérieur d'Informatique et de Multimédia de Sfax",
-        university: "Université de Sfax",
-        period: "2024 — Present",
-        status: "In Progress",
-        description: "Enrolled in the prestigious Software Engineering cycle. Deepening formal foundations in distributed systems, advanced algorithmics, software design patterns, and database engineering.",
-        highlights: [
-          "Core focus on Software Architecture & Object-Oriented Design",
-          "Advanced Operating Systems & Network Protocols",
-          "Active builder in academic and student developer initiatives"
-        ]
-      }
-    ],
-    experience: [
+        name: "AI & Intelligence",
+        skills: ["Python", "LangGraph", "LangChain", "RAG & GraphRAG", "LLMs", "Embeddings", "Tool Calling"]
+      },
       {
-        role: "Software & AI Product Builder",
-        company: "Independent Projects / Freelance",
-        period: "2023 — Present",
-        type: "Product Development",
-        description: "Designing, building, and deploying full-scale commercial software products from zero to production.",
-        highlights: [
-          "Built Autoreply: automated social media sales platform handling real-time Meta webhooks",
-          "Engineered LUX Dental: end-to-end practice management SaaS with scheduling and RBAC",
-          "Architected SupportAi: GraphRAG platform solving multi-hop retrieval hallucinations"
-        ]
+        name: "Backend & Systems",
+        skills: ["FastAPI", "Node.js", "Express", "REST APIs", "Webhooks Architecture", "Async Queues"]
+      },
+      {
+        name: "Frontend & UI",
+        skills: ["React", "Vite", "Tailwind CSS", "JavaScript (ESNext)", "Responsive Design"]
+      },
+      {
+        name: "Data & Cloud",
+        skills: ["PostgreSQL", "pgvector", "Redis", "Docker", "Git / GitHub", "Linux"]
       }
     ]
   },
 
-  philosophy: [
+  experienceTimeline: [
     {
-      title: "Product-First Engineering",
-      desc: "Code is a tool to solve tangible user and business problems. I focus on creating products that work reliably in production, not toy prototypes."
+      period: "2024 — Present",
+      role: "Software Engineering Student (Engineering Cycle)",
+      organization: "ISIMS — Institut Supérieur d'Informatique et de Multimédia de Sfax",
+      location: "Sfax, Tunisia",
+      description: "Enrolled in the Software Engineering cycle. Deepening formal foundations in distributed software architecture, advanced algorithmics, database systems, and operating system internals.",
+      points: [
+        "Core study: Distributed Systems, Software Design Patterns, Database Engineering",
+        "Active builder participating in technical workshops and engineering initiatives"
+      ]
     },
     {
-      title: "Intelligent Autonomy",
-      desc: "Moving beyond passive chatbots to proactive agents capable of executing tools, querying live databases, and taking real actions."
-    },
-    {
-      title: "Speed & Reliability",
-      desc: "Fast interfaces, sub-second API responses, and resilient data models engineered to handle real-world edge cases."
+      period: "2023 — Present",
+      role: "AI & Full-Stack Product Builder",
+      organization: "Independent Software Products",
+      location: "Tunisia / Remote",
+      description: "Designing, building, and deploying real commercial products from idea to architecture and code.",
+      points: [
+        "Autoreply: Engineered AI sales automation handling real-time Meta webhooks and catalog tool calling",
+        "LUX Dental: Built healthcare SaaS with multi-chair agenda, RBAC, and relational audit logging",
+        "SupportAi: Architected GraphRAG platform solving multi-hop retrieval with citation-grounded synthesis"
+      ]
     }
-  ]
+  ],
+
+  beyondCode: {
+    currentlyLearning: ["Web Security & Auth", "AI Agent Swarms", "Distributed Cloud Architecture"],
+    location: "Sfax, Tunisia (Open to Remote Worldwide)",
+    focus: "Shipping real products instead of tutorial clones"
+  }
 };
