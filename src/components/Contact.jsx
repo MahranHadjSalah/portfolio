@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Check, Copy, ArrowUpRight } from 'lucide-react';
+import { Mail, Check, Copy, ArrowUpRight, Target, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 
@@ -7,6 +7,7 @@ export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const customMsg = "Hi Mahran, I reviewed your portfolio and would like to discuss an opportunity.";
 
+  const { whatImLookingFor } = portfolioData;
   const recipientEmail = portfolioData.personal.email;
   const whatsappUrl = `https://wa.me/${portfolioData.personal.phoneRaw}?text=${encodeURIComponent(customMsg)}`;
   const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
@@ -24,16 +25,40 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-2xl mb-16 space-y-4">
+        <div className="max-w-2xl mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest font-bold">
             <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
-            Get in Touch
+            Opportunities & Contact
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
             Let's build something.
           </h2>
           <p className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans">
-            I'm currently open to software engineering internships, commercial AI product builds, and technical collaborations. Reach out via direct WhatsApp chat or email.
+            I'm currently seeking engineering opportunities where I can solve real friction, architect scalable backends, and build intelligent software products.
+          </p>
+        </div>
+
+        {/* What I'm Looking For (Conversion Box) */}
+        <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#0F766E]/30 shadow-sm mb-12 max-w-4xl space-y-4">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#0F766E] font-bold uppercase tracking-wider">
+            <Target className="w-4 h-4" />
+            <span>{whatImLookingFor.title}</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            {whatImLookingFor.opportunities.map((opp, idx) => (
+              <div 
+                key={idx}
+                className="p-3 rounded-xl bg-slate-50 border border-[#E2E8F0] text-xs font-mono text-[#0F172A] font-semibold flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
+                <span>{opp}</span>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-xs sm:text-sm text-[#475569] font-sans pt-1">
+            {whatImLookingFor.note}
           </p>
         </div>
 

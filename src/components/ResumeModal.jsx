@@ -63,7 +63,10 @@ export default function ResumeModal({ isOpen, onClose }) {
               {portfolioData.personal.name}
             </h1>
             <p className="text-sm font-mono text-[#0F766E] font-semibold">
-              Software Engineering Student · AI & Full-Stack Developer
+              {portfolioData.personal.mainTitle}
+            </p>
+            <p className="text-xs italic text-[#475569] font-sans">
+              "{portfolioData.personal.builderCredo.statement}"
             </p>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs font-mono text-[#475569] pt-1">
               <span className="flex items-center gap-1">
@@ -88,39 +91,41 @@ export default function ResumeModal({ isOpen, onClose }) {
           {/* Education */}
           <div className="space-y-3">
             <h2 className="text-xs font-mono text-[#0F766E] uppercase tracking-wider font-bold">
-              Education
+              Education & Engineering Formation
             </h2>
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <div className="flex items-start justify-between">
                 <div>
                   <h3 className="text-sm font-bold text-[#0F172A]">National Engineering Diploma in Software Engineering</h3>
                   <p className="text-xs font-mono text-[#475569]">ISIMS — Institut Supérieur d'Informatique et de Multimédia de Sfax</p>
                 </div>
-                <span className="text-xs font-mono text-[#475569]">2024 — Present</span>
+                <span className="text-xs font-mono text-[#475569]">2025 — Present</span>
               </div>
               <p className="text-xs text-[#475569]">
-                Focus: Software Architecture, Advanced Algorithms, Database Systems, Distributed Computing.
+                Core focus: Distributed Software Architecture, Advanced Algorithms, Relational & Vector Databases, Operating Systems.
               </p>
             </div>
           </div>
 
-          {/* Featured Software Products */}
+          {/* Key Engineering Projects */}
           <div className="space-y-4">
             <h2 className="text-xs font-mono text-[#0F766E] uppercase tracking-wider font-bold">
-              Key Engineering Projects
+              Major Software Products
             </h2>
 
             {portfolioData.featuredProjects.map((proj) => (
               <div key={proj.id} className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-[#0F172A] font-mono">{proj.title} <span className="font-normal text-[#475569]">— {proj.category}</span></h3>
+                  <h3 className="text-sm font-bold text-[#0F172A] font-mono">
+                    {proj.title} <span className="font-normal text-[#0F766E]">({proj.role})</span>
+                  </h3>
                   <span className="text-[11px] font-mono text-[#475569]">{proj.techStack.slice(0, 4).join(" · ")}</span>
                 </div>
                 <p className="text-xs text-[#475569] leading-relaxed">
                   {proj.summary}
                 </p>
                 <ul className="list-disc list-inside text-xs text-[#475569] space-y-0.5">
-                  {proj.architectureHighlights.slice(0, 2).map((point, idx) => (
+                  {proj.whatIBuilt.slice(0, 3).map((point, idx) => (
                     <li key={idx}>{point}</li>
                   ))}
                 </ul>
@@ -128,35 +133,35 @@ export default function ResumeModal({ isOpen, onClose }) {
             ))}
           </div>
 
-          {/* Technical Skills */}
+          {/* Technical Capabilities */}
           <div className="space-y-3">
             <h2 className="text-xs font-mono text-[#0F766E] uppercase tracking-wider font-bold">
-              Technical Capabilities
+              Production Stack & Capabilities
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
               <div>
                 <span className="text-[#475569] block font-semibold">AI & Intelligence:</span>
-                <span className="text-[#0F172A]">LangGraph, LangChain, RAG, GraphRAG, LLMs, Embeddings</span>
+                <span className="text-[#0F172A]">Python, LangGraph, LangChain, RAG, GraphRAG, pgvector</span>
               </div>
               <div>
-                <span className="text-[#475569] block font-semibold">Backend:</span>
-                <span className="text-[#0F172A]">FastAPI, Node.js, Express, PostgreSQL, Redis, REST APIs</span>
+                <span className="text-[#475569] block font-semibold">Backend & Architecture:</span>
+                <span className="text-[#0F172A]">FastAPI, Node.js, Express, REST APIs, Webhooks, Redis</span>
               </div>
               <div>
                 <span className="text-[#475569] block font-semibold">Frontend:</span>
                 <span className="text-[#0F172A]">React, Vite, Tailwind CSS, JavaScript (ESNext)</span>
               </div>
               <div>
-                <span className="text-[#475569] block font-semibold">DevOps & Cloud:</span>
-                <span className="text-[#0F172A]">Docker, Git / GitHub, Linux</span>
+                <span className="text-[#475569] block font-semibold">Data & DevOps:</span>
+                <span className="text-[#0F172A]">PostgreSQL, Docker, Git / GitHub, Linux</span>
               </div>
             </div>
           </div>
 
-          {/* Availability */}
-          <div className="pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#475569]">
-            <span>Availability: Open for Internships & Projects</span>
-            <span className="text-[#0F766E] font-semibold">Sfax, Tunisia (Remote / Hybrid)</span>
+          {/* Availability & Objective */}
+          <div className="pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-[#475569]">
+            <span>Objective: Seeking Software Engineering & AI Internships</span>
+            <span className="text-[#0F766E] font-semibold">Sfax, Tunisia (Remote Worldwide / Hybrid)</span>
           </div>
 
         </div>

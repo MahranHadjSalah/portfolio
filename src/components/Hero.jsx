@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Download, Check, Copy, MapPin } from 'lucide-react';
+import { ArrowRight, Download, Check, Copy, MapPin, Sparkles, Target, Compass } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Hero({ onOpenResume }) {
@@ -25,12 +25,12 @@ export default function Hero({ onOpenResume }) {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-[#0F766E]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Positioning & Clear Identity */}
+          {/* Left Column: Positioning & Clear Builder Identity */}
           <div className="lg:col-span-7 flex flex-col items-start space-y-6">
             
-            {/* Top Currently Building / Open To Badges */}
+            {/* Top Currently Building / Location Badges */}
             <div className="flex flex-wrap items-center gap-2.5">
               <a
                 href="#work"
@@ -45,30 +45,54 @@ export default function Hero({ onOpenResume }) {
                 <MapPin className="w-3.5 h-3.5 text-[#0F766E]" />
                 <span>ISIMS · Université de Sfax</span>
               </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E6FFFA] border border-[#0F766E]/30 shadow-xs text-xs font-mono text-[#0F766E]">
+                <Target className="w-3.5 h-3.5" />
+                <span className="font-semibold">Open for Internships</span>
+              </div>
             </div>
 
-            {/* Name and Direct Title */}
+            {/* Name and Direct Personal Branding */}
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#0F766E] font-bold">
                 <span className="w-2 h-2 rounded-full bg-[#0F766E]" />
-                Software Engineering Student & Builder
+                Software Engineering Student · AI & Full-Stack Builder
               </div>
+              
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-[#0F172A] leading-[1.08] font-sans">
-                Mahran Hadj Salah
+                {portfolioData.personal.name}
               </h1>
+
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-[#1E293B] leading-snug font-sans max-w-2xl">
-                Building{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F766E] via-[#115E59] to-teal-600">
-                  AI-powered products
-                </span>{' '}
-                and SaaS systems.
+                {portfolioData.personal.shortTagline}
               </h2>
             </div>
 
+            {/* Builder Credo Callout */}
+            <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs max-w-2xl border-l-4 border-l-[#0F766E]">
+              <p className="text-sm sm:text-base font-bold text-[#0F172A] font-sans">
+                "{portfolioData.personal.builderCredo.statement}"
+              </p>
+              <p className="text-xs sm:text-sm text-[#475569] mt-1 font-sans">
+                {portfolioData.personal.builderCredo.subtext}
+              </p>
+            </div>
+
             {/* Subtitle / Focus */}
-            <p className="text-base sm:text-lg text-[#475569] max-w-2xl leading-relaxed font-sans">
-              {portfolioData.personal.headline}
+            <p className="text-sm sm:text-base text-[#475569] max-w-2xl leading-relaxed font-sans">
+              {portfolioData.personal.description}
             </p>
+
+            {/* Verifiable Honest Stats Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-2xl pt-1">
+              {portfolioData.personal.honestStats.map((stat, sIdx) => (
+                <div key={sIdx} className="p-3 rounded-xl bg-white border border-[#E2E8F0] shadow-2xs">
+                  <div className="text-2xl font-extrabold text-[#0F766E] font-mono">{stat.value}</div>
+                  <div className="text-xs font-bold text-[#0F172A] font-sans leading-tight mt-0.5">{stat.label}</div>
+                  <div className="text-[10px] text-[#475569] font-mono mt-1 truncate">{stat.note}</div>
+                </div>
+              ))}
+            </div>
 
             {/* Primary Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -76,7 +100,7 @@ export default function Hero({ onOpenResume }) {
                 href="#work"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#0F766E] text-white font-bold text-sm hover:bg-[#115E59] shadow-md shadow-[#0F766E]/20 hover:shadow-[#0F766E]/30 transition-all duration-200 group font-sans"
               >
-                <span>View My Work</span>
+                <span>View Flagship Projects</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
@@ -98,16 +122,17 @@ export default function Hero({ onOpenResume }) {
               </button>
             </div>
 
-            {/* Availability Pill */}
-            <div className="pt-2 text-xs font-mono text-[#475569] flex items-center gap-2">
+            {/* Availability & Internship Conversion Note */}
+            <div className="pt-2 text-xs font-mono text-[#475569] flex flex-wrap items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#0F766E]" />
-              <span>{portfolioData.personal.availability}</span>
+              <span className="font-semibold text-[#0F172A]">Target:</span>
+              <span>{portfolioData.whatImLookingFor.opportunities.join(" · ")}</span>
             </div>
 
           </div>
 
           {/* Right Column: Visual Architecture Pipeline Panel */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
             <div className="rounded-xl bg-white border border-[#E2E8F0] shadow-xl overflow-hidden font-mono text-xs">
               
               {/* Window Bar */}

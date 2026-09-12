@@ -4,7 +4,11 @@ import {
   Calendar, 
   Network, 
   BookOpen, 
-  ArrowRight 
+  ArrowRight,
+  CheckCircle2,
+  GitBranch,
+  Layers,
+  ArrowDown
 } from 'lucide-react';
 import { GithubIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
@@ -18,13 +22,13 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
         <div className="max-w-2xl mb-14 space-y-3">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest font-bold">
             <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
-            Selected Software Products
+            Personal Identity & Core Projects
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
-            Featured Case Studies
+            Featured Products
           </h2>
           <p className="text-base sm:text-lg text-[#475569] leading-relaxed font-sans">
-            Production-oriented systems engineered from zero to deployment. Click any project for full architectural details and live simulators.
+            These are my strongest portfolio assets: three complete, production-oriented systems engineered from architecture to deployment.
           </p>
         </div>
 
@@ -37,10 +41,17 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
             >
               {/* Card Header Bar */}
               <div className="px-6 py-4 bg-slate-50 border-b border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-2.5">
                   <span className="font-mono text-xs text-[#475569]">0{index + 1} //</span>
-                  <span className="px-2.5 py-0.5 rounded text-xs font-mono bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 font-semibold">
-                    {project.category}
+                  
+                  {/* Exact Requested Badge */}
+                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 font-bold">
+                    {project.badge}
+                  </span>
+
+                  {/* Context Note / Status */}
+                  <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-white text-[#475569] border border-[#E2E8F0]">
+                    {project.contextNote}
                   </span>
                 </div>
 
@@ -76,10 +87,16 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
               {/* Card Body */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 items-stretch">
                 
-                {/* Left: Product Information */}
+                {/* Left: Product Information & What I Built */}
                 <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
+                    
+                    {/* Role Pill & Title */}
                     <div>
+                      <div className="text-xs font-mono text-[#0F766E] font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
+                        <span>Role: {project.role}</span>
+                      </div>
                       <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight mb-2 font-sans">
                         {project.title}
                       </h3>
@@ -92,22 +109,23 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                       {project.summary}
                     </p>
 
-                    {/* Engineering Facts (Honest Evidence) */}
-                    <div className="space-y-2 pt-2">
-                      <div className="text-xs font-mono text-[#475569] uppercase tracking-wider font-semibold">
-                        Key Engineering Facts:
+                    {/* What I Built / Contribution Checklist */}
+                    <div className="p-4 rounded-xl bg-slate-50 border border-[#E2E8F0] space-y-2.5">
+                      <div className="text-xs font-mono text-[#0F172A] font-bold uppercase tracking-wider flex items-center justify-between">
+                        <span>{project.id === 'lux-dental' ? 'My Contribution:' : 'What I Built:'}</span>
+                        <span className="text-[10px] text-[#0F766E] font-medium">{project.whatIBuilt.length} key components</span>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {project.engineeringFacts.map((fact, fIdx) => (
-                          <div key={fIdx} className="p-2.5 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-center gap-2 text-xs text-[#0F172A] font-sans font-medium">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E] shrink-0" />
-                            <span>{fact}</span>
+                        {project.whatIBuilt.map((item, bIdx) => (
+                          <div key={bIdx} className="flex items-start gap-2 text-xs text-[#334155] font-sans">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#0F766E] shrink-0 mt-0.5" />
+                            <span>{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Architectural Bullet Points */}
+                    {/* Architectural Highlights */}
                     <div className="space-y-2 pt-1">
                       <div className="text-xs font-mono text-[#475569] uppercase tracking-wider font-semibold">
                         Architecture Highlights:
@@ -121,6 +139,7 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                         ))}
                       </ul>
                     </div>
+
                   </div>
 
                   {/* Tech Stack & Deep Dive CTA */}
@@ -146,10 +165,35 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                   </div>
                 </div>
 
-                {/* Right: Realistic In-Browser System Simulation */}
-                <div className="lg:col-span-6 flex flex-col justify-center">
+                {/* Right: Realistic In-Browser System Simulation & Architecture Diagram */}
+                <div className="lg:col-span-6 flex flex-col justify-center space-y-4">
+                  
+                  {/* For SupportAi: Show Visual Architecture Diagram Above Simulator */}
+                  {project.id === 'supportai' && project.architectureFlow && (
+                    <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-2xs space-y-2 text-xs font-mono">
+                      <div className="flex items-center justify-between text-[11px] font-bold text-[#0F172A] border-b border-[#E2E8F0] pb-2">
+                        <span className="flex items-center gap-1.5 text-[#0F766E]">
+                          <GitBranch className="w-3.5 h-3.5" />
+                          Hybrid GraphRAG Pipeline
+                        </span>
+                        <span className="text-[10px] text-[#475569]">pgvector + Knowledge Graph</span>
+                      </div>
+                      
+                      <div className="flex flex-wrap items-center justify-between gap-1.5 pt-1 text-[11px]">
+                        <span className="px-2 py-1 rounded bg-slate-100 text-[#0F172A] border border-[#E2E8F0]">User Query</span>
+                        <span className="text-[#0F766E]">→</span>
+                        <span className="px-2 py-1 rounded bg-slate-100 text-[#0F172A] border border-[#E2E8F0]">Intent Analysis</span>
+                        <span className="text-[#0F766E]">→</span>
+                        <span className="px-2 py-1 rounded bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 font-bold">Hybrid Retrieval</span>
+                        <span className="text-[#0F766E]">→</span>
+                        <span className="px-2 py-1 rounded bg-slate-100 text-[#0F172A] border border-[#E2E8F0]">Context Check</span>
+                        <span className="text-[#0F766E]">→</span>
+                        <span className="px-2 py-1 rounded bg-[#0F766E] text-white font-bold">Grounded Answer</span>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="rounded-xl bg-white border border-[#E2E8F0] overflow-hidden shadow-md">
-                    
                     {/* Window Header */}
                     <div className="px-4 py-2.5 bg-slate-50 border-b border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#475569]">
                       <div className="flex items-center gap-2">
@@ -171,8 +215,8 @@ export default function FeaturedProjects({ onSelectCaseStudy }) {
                       {project.id === 'lux-dental' && <DentalPreview />}
                       {project.id === 'supportai' && <SupportAiPreview />}
                     </div>
-
                   </div>
+
                 </div>
 
               </div>

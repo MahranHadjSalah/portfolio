@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, CheckCircle2, Layers, Lightbulb, AlertCircle } from 'lucide-react';
+import { X, CheckCircle2, Layers, Lightbulb, AlertCircle, GitBranch } from 'lucide-react';
 import { GithubIcon, WhatsAppIcon } from './Icons';
 
 export default function CaseStudyModal({ project, isOpen, onClose }) {
@@ -27,9 +27,9 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
       >
         {/* Sticky Header */}
         <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0]">
-          <div className="flex items-center gap-3">
-            <span className="px-2.5 py-1 rounded text-xs font-mono bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 font-medium">
-              {project.category}
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 font-bold">
+              {project.badge || project.category}
             </span>
             <h2 className="text-xl font-bold text-[#0F172A] font-mono">{project.title} — Case Study</h2>
           </div>
@@ -47,7 +47,11 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
           
           {/* Headline & Overview */}
           <div className="space-y-3">
-            <p className="text-lg font-medium text-[#0F766E] font-mono">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] font-bold uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
+              Role: {project.role}
+            </div>
+            <p className="text-lg font-semibold text-[#0F172A] font-sans">
               {project.tagline}
             </p>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
@@ -94,10 +98,50 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
             <h3 className="text-xs font-mono text-[#0F766E] uppercase tracking-wider font-bold">
               My Engineering Role:
             </h3>
-            <p className="text-sm text-[#0F172A] leading-relaxed">
+            <p className="text-sm font-bold text-[#0F172A]">
+              {project.role}
+            </p>
+            <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
               {project.myRole}
             </p>
           </div>
+
+          {/* Detailed Deliverables / What I Built */}
+          {project.whatIBuilt && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-mono text-[#0F172A] uppercase tracking-wider font-bold flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#0F766E]" />
+                {project.id === 'lux-dental' ? 'My Contribution:' : 'What I Built:'}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {project.whatIBuilt.map((item, idx) => (
+                  <div key={idx} className="p-2.5 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-start gap-2 text-xs text-[#334155]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E] shrink-0 mt-1.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* SupportAi Visual Flow if present */}
+          {project.architectureFlow && (
+            <div className="p-5 rounded-xl bg-slate-50 border border-[#E2E8F0] space-y-3">
+              <div className="text-xs font-mono text-[#0F766E] font-bold uppercase tracking-wider flex items-center gap-1.5">
+                <GitBranch className="w-4 h-4" />
+                <span>SupportAi Hybrid Retrieval Pipeline:</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 text-xs">
+                {project.architectureFlow.map((step, idx) => (
+                  <div key={idx} className="p-3 rounded-lg bg-white border border-[#E2E8F0] shadow-2xs">
+                    <div className="font-mono text-[10px] text-[#0F766E] font-bold">Stage 0{idx + 1}</div>
+                    <div className="font-bold text-[#0F172A] text-xs mt-0.5">{step.step}</div>
+                    <div className="text-[11px] text-[#475569] mt-1">{step.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Architectural Implementation */}
           <div className="space-y-4">
@@ -135,22 +179,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Verified Results */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-mono text-[#0F172A] uppercase tracking-wider font-bold">
-              Verified Engineering Deliverables
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {project.engineeringFacts.map((fact, idx) => (
-                <div key={idx} className="p-3 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-center gap-2.5 text-xs font-mono text-[#0F172A]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
-                  <span>{fact}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* What I Learned */}
+          {/* Key Takeaways */}
           <div className="p-5 rounded-xl bg-slate-50 border border-[#E2E8F0] space-y-2">
             <h3 className="text-xs font-mono text-[#475569] uppercase tracking-wider font-bold">
               Key Takeaway & What I Learned:
