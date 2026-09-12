@@ -8,6 +8,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        brand: {
+          primary: '#0F766E',
+          dark: '#115E59',
+          accent: '#E6FFFA',
+          bg: '#F8FAFC',
+          surface: '#FFFFFF',
+          text: '#0F172A',
+          muted: '#475569',
+          border: '#E2E8F0',
+        },
         dark: {
           950: '#050608',
           900: '#090a0f',
@@ -15,6 +25,11 @@ export default {
           800: '#141820',
           750: '#1a202c',
           700: '#222938',
+        },
+        teal: {
+          primary: '#0F766E',
+          dark: '#115E59',
+          accent: '#E6FFFA',
         },
         emerald: {
           glow: '#10b981',

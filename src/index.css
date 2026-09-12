@@ -7,53 +7,61 @@
     scroll-behavior: smooth;
   }
   
-  /* Custom technical scrollbar */
+  /* Clean technical scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #08090d;
+    background: #F8FAFC;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1f2937;
+    background: #CBD5E1;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #10b981;
+    background: #0F766E;
   }
 }
 
-/* Subtle engineering dot matrix background */
+/* Subtle light engineering dot matrix background */
 .bg-tech-grid {
   background-size: 32px 32px;
   background-image: 
-    radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    radial-gradient(circle, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
 }
 
 .bg-tech-lines {
   background-size: 64px 64px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
 }
 
-/* Glassmorphism card */
+/* Glassmorphism light card */
 .glass-panel {
-  background: rgba(14, 17, 23, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid #E2E8F0;
 }
 
 .glass-panel:hover {
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(15, 118, 110, 0.4);
 }
 
 /* Technical glowing accent */
+.teal-glow {
+  box-shadow: 0 0 25px -5px rgba(15, 118, 110, 0.18);
+}
+
+.teal-glow-sm {
+  box-shadow: 0 0 15px -3px rgba(15, 118, 110, 0.12);
+}
+
 .emerald-glow {
-  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 25px -5px rgba(15, 118, 110, 0.18);
 }
 
 .emerald-glow-sm {
-  box-shadow: 0 0 15px -3px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 15px -3px rgba(15, 118, 110, 0.12);
 }

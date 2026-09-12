@@ -20,7 +20,7 @@ export default function App() {
   const [isCommandMenuOpen, setIsCommandMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#08090d] text-zinc-100 font-sans selection:bg-emerald-500/20 selection:text-emerald-300">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans selection:bg-[#E6FFFA] selection:text-[#0F766E]">
       <Navbar 
         onOpenResume={() => setIsResumeOpen(true)}
         onOpenCommandMenu={() => setIsCommandMenuOpen(true)}

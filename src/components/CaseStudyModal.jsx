@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, CheckCircle2, ArrowRight, Layers, Cpu, Database, Server, Lightbulb, AlertCircle } from 'lucide-react';
+import { X, CheckCircle2, Layers, Lightbulb, AlertCircle } from 'lucide-react';
 import { GithubIcon, WhatsAppIcon } from './Icons';
 
 export default function CaseStudyModal({ project, isOpen, onClose }) {
@@ -20,22 +20,22 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
   if (!isOpen || !project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#090b10] border border-zinc-800 shadow-2xl text-zinc-200 font-sans"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white border border-[#E2E8F0] shadow-2xl text-[#0F172A] font-sans"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Sticky Header */}
-        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-[#090b10]/95 backdrop-blur-md border-b border-zinc-800">
+        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0]">
           <div className="flex items-center gap-3">
-            <span className="px-2.5 py-1 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            <span className="px-2.5 py-1 rounded text-xs font-mono bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 font-medium">
               {project.category}
             </span>
-            <h2 className="text-xl font-bold text-white font-mono">{project.title} — Case Study</h2>
+            <h2 className="text-xl font-bold text-[#0F172A] font-mono">{project.title} — Case Study</h2>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
+            className="p-2 rounded-lg bg-slate-50 border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] hover:bg-slate-100 transition-colors shadow-2xs"
             aria-label="Close Case Study"
           >
             <X className="w-5 h-5" />
@@ -47,10 +47,10 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
           
           {/* Headline & Overview */}
           <div className="space-y-3">
-            <p className="text-lg font-medium text-emerald-300 font-mono">
+            <p className="text-lg font-medium text-[#0F766E] font-mono">
               {project.tagline}
             </p>
-            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
               {project.summary}
             </p>
 
@@ -58,7 +58,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded text-xs font-mono bg-zinc-900 text-zinc-300 border border-zinc-800"
+                  className="px-2.5 py-1 rounded text-xs font-mono bg-slate-100 text-[#0F172A] border border-[#E2E8F0]"
                 >
                   {tech}
                 </span>
@@ -68,48 +68,48 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
 
           {/* Problem vs Solution Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-zinc-950 border border-red-500/20 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-mono text-red-400 font-bold uppercase tracking-wider">
+            <div className="p-5 rounded-xl bg-red-50/50 border border-red-200 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-mono text-red-700 font-bold uppercase tracking-wider">
                 <AlertCircle className="w-4 h-4" />
                 The Problem
               </div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#0F172A] leading-relaxed">
                 {project.problem}
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-zinc-950 border border-emerald-500/20 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">
+            <div className="p-5 rounded-xl bg-[#E6FFFA]/50 border border-[#0F766E]/30 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#0F766E] font-bold uppercase tracking-wider">
                 <CheckCircle2 className="w-4 h-4" />
                 The Solution
               </div>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#0F172A] leading-relaxed">
                 {project.solution}
               </p>
             </div>
           </div>
 
           {/* My Role */}
-          <div className="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800 space-y-2">
-            <h3 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">
+          <div className="p-5 rounded-xl bg-slate-50 border border-[#E2E8F0] space-y-2">
+            <h3 className="text-xs font-mono text-[#0F766E] uppercase tracking-wider font-bold">
               My Engineering Role:
             </h3>
-            <p className="text-sm text-zinc-200 leading-relaxed">
+            <p className="text-sm text-[#0F172A] leading-relaxed">
               {project.myRole}
             </p>
           </div>
 
           {/* Architectural Implementation */}
           <div className="space-y-4">
-            <h3 className="text-sm font-mono text-white uppercase tracking-wider font-bold flex items-center gap-2">
-              <Layers className="w-4 h-4 text-emerald-400" />
+            <h3 className="text-sm font-mono text-[#0F172A] uppercase tracking-wider font-bold flex items-center gap-2">
+              <Layers className="w-4 h-4 text-[#0F766E]" />
               System Architecture & Implementation
             </h3>
             <div className="grid grid-cols-1 gap-2.5">
               {project.architectureHighlights.map((arch, idx) => (
-                <div key={idx} className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800/80 flex items-start gap-3">
-                  <span className="text-xs font-mono font-bold text-emerald-400 mt-0.5">0{idx + 1}</span>
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">{arch}</p>
+                <div key={idx} className="p-3.5 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-start gap-3">
+                  <span className="text-xs font-mono font-bold text-[#0F766E] mt-0.5">0{idx + 1}</span>
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">{arch}</p>
                 </div>
               ))}
             </div>
@@ -117,17 +117,17 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
 
           {/* Technical Decisions & Trade-Offs */}
           <div className="space-y-4">
-            <h3 className="text-sm font-mono text-white uppercase tracking-wider font-bold flex items-center gap-2">
-              <Lightbulb className="w-4 h-4 text-amber-400" />
+            <h3 className="text-sm font-mono text-[#0F172A] uppercase tracking-wider font-bold flex items-center gap-2">
+              <Lightbulb className="w-4 h-4 text-amber-600" />
               Technical Decisions & Trade-Offs
             </h3>
             <div className="space-y-3">
               {project.technicalDecisions.map((item, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1.5">
-                  <h4 className="text-xs sm:text-sm font-mono font-bold text-zinc-100">
+                <div key={idx} className="p-4 rounded-xl bg-slate-50 border border-[#E2E8F0] space-y-1.5">
+                  <h4 className="text-xs sm:text-sm font-mono font-bold text-[#0F172A]">
                     {item.decision}
                   </h4>
-                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                     {item.reason}
                   </p>
                 </div>
@@ -137,13 +137,13 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
 
           {/* Verified Results */}
           <div className="space-y-3">
-            <h3 className="text-sm font-mono text-white uppercase tracking-wider font-bold">
+            <h3 className="text-sm font-mono text-[#0F172A] uppercase tracking-wider font-bold">
               Verified Engineering Deliverables
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {project.engineeringFacts.map((fact, idx) => (
-                <div key={idx} className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800 flex items-center gap-2.5 text-xs font-mono text-zinc-200">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <div key={idx} className="p-3 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-center gap-2.5 text-xs font-mono text-[#0F172A]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
                   <span>{fact}</span>
                 </div>
               ))}
@@ -151,23 +151,23 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
           </div>
 
           {/* What I Learned */}
-          <div className="p-5 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2">
-            <h3 className="text-xs font-mono text-zinc-400 uppercase tracking-wider font-bold">
+          <div className="p-5 rounded-xl bg-slate-50 border border-[#E2E8F0] space-y-2">
+            <h3 className="text-xs font-mono text-[#475569] uppercase tracking-wider font-bold">
               Key Takeaway & What I Learned:
             </h3>
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#0F172A] leading-relaxed">
               {project.whatILearned}
             </p>
           </div>
 
           {/* Action CTAs */}
-          <div className="pt-4 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-4">
+          <div className="pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs font-mono transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#0F766E] hover:bg-[#115E59] text-white font-bold text-xs font-mono shadow-sm shadow-[#0F766E]/20 transition-colors"
               >
                 <span>Request Live Demo</span>
                 <WhatsAppIcon className="w-4 h-4" />
@@ -176,7 +176,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white border border-zinc-800 text-xs font-mono transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white hover:bg-slate-50 text-[#475569] hover:text-[#0F172A] border border-[#E2E8F0] text-xs font-mono shadow-2xs transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>GitHub Profile</span>
@@ -185,7 +185,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
 
             <button
               onClick={onClose}
-              className="text-xs font-mono text-zinc-500 hover:text-zinc-300 underline"
+              className="text-xs font-mono text-[#475569] hover:text-[#0F172A] underline"
             >
               Close Case Study
             </button>

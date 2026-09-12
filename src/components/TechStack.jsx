@@ -5,32 +5,32 @@ export default function TechStack() {
   const { coreDaily, categories } = portfolioData.techStack;
 
   return (
-    <section id="engineering" className="py-24 border-b border-zinc-800/80 relative">
+    <section id="engineering" className="py-24 border-b border-[#E2E8F0] relative bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-widest mb-3">
-              <span className="w-2 h-2 rounded-sm bg-emerald-500" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest mb-3">
+              <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
               Technical Competencies
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight font-sans">
               Engineering at a Glance
             </h2>
           </div>
-          <p className="text-sm text-zinc-400 max-w-md font-mono">
+          <p className="text-sm text-[#475569] max-w-md font-mono">
             A purposeful, production-proven stack focused on applied AI, resilient backends, and reactive interfaces.
           </p>
         </div>
 
         {/* Primary Daily Stack Banner */}
-        <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold block mb-1">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#0F766E] font-bold block mb-1">
               Core Daily Stack:
             </span>
-            <p className="text-xs text-zinc-400 font-sans">
+            <p className="text-xs text-[#475569] font-sans">
               Technologies I reach for first when architecting production products from scratch.
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function TechStack() {
             {coreDaily.map((item) => (
               <span
                 key={item}
-                className="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 shadow-sm"
+                className="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-[#E6FFFA] text-[#0F766E] border border-[#0F766E]/30 shadow-2xs"
               >
                 {item}
               </span>
@@ -52,11 +52,11 @@ export default function TechStack() {
           {categories.map((group, idx) => (
             <div
               key={idx}
-              className="rounded-xl bg-zinc-900/30 border border-zinc-800/90 p-6 flex flex-col justify-between hover:border-zinc-750 transition-colors"
+              className="rounded-xl bg-white border border-[#E2E8F0] p-6 flex flex-col justify-between hover:border-[#0F766E]/40 hover:shadow-md shadow-sm transition-all"
             >
               <div>
-                <h3 className="text-sm font-bold text-white mb-4 pb-3 border-b border-zinc-800 flex items-center gap-2 font-mono">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <h3 className="text-sm font-bold text-[#0F172A] mb-4 pb-3 border-b border-[#E2E8F0] flex items-center gap-2 font-mono">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
                   {group.name}
                 </h3>
 
@@ -64,9 +64,9 @@ export default function TechStack() {
                   {group.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="text-xs font-mono text-zinc-300 flex items-center gap-2"
+                      className="text-xs font-mono text-[#475569] flex items-center gap-2"
                     >
-                      <span className="text-zinc-600">•</span>
+                      <span className="text-slate-400">•</span>
                       <span>{skill}</span>
                     </li>
                   ))}

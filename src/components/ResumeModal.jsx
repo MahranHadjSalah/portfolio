@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Printer, Download, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, WhatsAppIcon } from './Icons';
+import { X, Printer, MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function ResumeModal({ isOpen, onClose }) {
@@ -25,29 +24,29 @@ export default function ResumeModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto rounded-2xl bg-[#0b0e14] border border-zinc-800 shadow-2xl text-zinc-100 font-sans"
+        className="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto rounded-2xl bg-white border border-[#E2E8F0] shadow-2xl text-[#0F172A] font-sans"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Controls Bar */}
-        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-[#0b0e14]/95 backdrop-blur-md border-b border-zinc-800">
+        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="text-xs font-mono text-zinc-400">Curriculum Vitae · Mahran Hadj Salah</span>
+            <span className="w-2 h-2 rounded-full bg-[#0F766E]" />
+            <span className="text-xs font-mono text-[#475569]">Curriculum Vitae · Mahran Hadj Salah</span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-mono transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#0F172A] text-xs font-mono border border-[#E2E8F0] shadow-2xs transition-colors"
             >
-              <Printer className="w-3.5 h-3.5" />
+              <Printer className="w-3.5 h-3.5 text-[#0F766E]" />
               <span>Print / Save PDF</span>
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white"
+              className="p-1.5 rounded-lg bg-slate-50 border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] shadow-2xs transition-colors"
               aria-label="Close CV Modal"
             >
               <X className="w-5 h-5" />
@@ -56,31 +55,31 @@ export default function ResumeModal({ isOpen, onClose }) {
         </div>
 
         {/* Printable Resume Sheet */}
-        <div className="p-8 sm:p-12 space-y-8 bg-zinc-950 text-zinc-300 print:bg-white print:text-black print:p-0">
+        <div className="p-8 sm:p-12 space-y-8 bg-white text-[#0F172A] print:p-0">
           
           {/* Header */}
-          <div className="border-b border-zinc-800 pb-6 space-y-2">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <div className="border-b border-[#E2E8F0] pb-6 space-y-2">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
               {portfolioData.personal.name}
             </h1>
-            <p className="text-sm font-mono text-emerald-400 font-medium">
+            <p className="text-sm font-mono text-[#0F766E] font-semibold">
               Software Engineering Student · AI & Full-Stack Developer
             </p>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs font-mono text-zinc-400 pt-1">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs font-mono text-[#475569] pt-1">
               <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+                <MapPin className="w-3.5 h-3.5 text-[#0F766E]" />
                 {portfolioData.personal.location}
               </span>
               <span>•</span>
-              <a href={`mailto:${portfolioData.personal.email}`} className="hover:text-emerald-400">
+              <a href={`mailto:${portfolioData.personal.email}`} className="hover:text-[#0F766E]">
                 {portfolioData.personal.email}
               </a>
               <span>•</span>
-              <a href={portfolioData.personal.whatsapp} target="_blank" rel="noreferrer" className="hover:text-emerald-400">
+              <a href={portfolioData.personal.whatsapp} target="_blank" rel="noreferrer" className="hover:text-[#0F766E]">
                 {portfolioData.personal.phone}
               </a>
               <span>•</span>
-              <a href={portfolioData.personal.github} target="_blank" rel="noreferrer" className="hover:text-emerald-400">
+              <a href={portfolioData.personal.github} target="_blank" rel="noreferrer" className="hover:text-[#0F766E]">
                 github.com/MahranHadjSalah
               </a>
             </div>
@@ -88,18 +87,18 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Education */}
           <div className="space-y-3">
-            <h2 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">
+            <h2 className="text-xs font-mono text-[#0F766E] uppercase tracking-wider font-bold">
               Education
             </h2>
             <div className="space-y-1.5">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-sm font-bold text-white">National Engineering Diploma in Software Engineering</h3>
-                  <p className="text-xs font-mono text-zinc-400">ISIMS — Institut Supérieur d'Informatique et de Multimédia de Sfax</p>
+                  <h3 className="text-sm font-bold text-[#0F172A]">National Engineering Diploma in Software Engineering</h3>
+                  <p className="text-xs font-mono text-[#475569]">ISIMS — Institut Supérieur d'Informatique et de Multimédia de Sfax</p>
                 </div>
-                <span className="text-xs font-mono text-zinc-500">2024 — Present</span>
+                <span className="text-xs font-mono text-[#475569]">2024 — Present</span>
               </div>
-              <p className="text-xs text-zinc-400">
+              <p className="text-xs text-[#475569]">
                 Focus: Software Architecture, Advanced Algorithms, Database Systems, Distributed Computing.
               </p>
             </div>
@@ -107,20 +106,20 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Featured Software Products */}
           <div className="space-y-4">
-            <h2 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">
+            <h2 className="text-xs font-mono text-[#0F766E] uppercase tracking-wider font-bold">
               Key Engineering Projects
             </h2>
 
             {portfolioData.featuredProjects.map((proj) => (
               <div key={proj.id} className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-white font-mono">{proj.title} <span className="font-normal text-zinc-400">— {proj.category}</span></h3>
-                  <span className="text-[11px] font-mono text-zinc-500">{proj.techStack.slice(0, 4).join(" · ")}</span>
+                  <h3 className="text-sm font-bold text-[#0F172A] font-mono">{proj.title} <span className="font-normal text-[#475569]">— {proj.category}</span></h3>
+                  <span className="text-[11px] font-mono text-[#475569]">{proj.techStack.slice(0, 4).join(" · ")}</span>
                 </div>
-                <p className="text-xs text-zinc-300 leading-relaxed">
+                <p className="text-xs text-[#475569] leading-relaxed">
                   {proj.summary}
                 </p>
-                <ul className="list-disc list-inside text-xs text-zinc-400 space-y-0.5">
+                <ul className="list-disc list-inside text-xs text-[#475569] space-y-0.5">
                   {proj.architectureHighlights.slice(0, 2).map((point, idx) => (
                     <li key={idx}>{point}</li>
                   ))}
@@ -131,33 +130,33 @@ export default function ResumeModal({ isOpen, onClose }) {
 
           {/* Technical Skills */}
           <div className="space-y-3">
-            <h2 className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-bold">
+            <h2 className="text-xs font-mono text-[#0F766E] uppercase tracking-wider font-bold">
               Technical Capabilities
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
               <div>
-                <span className="text-zinc-500 block">AI & Intelligence:</span>
-                <span className="text-zinc-300">LangGraph, LangChain, RAG, GraphRAG, LLMs, Embeddings</span>
+                <span className="text-[#475569] block font-semibold">AI & Intelligence:</span>
+                <span className="text-[#0F172A]">LangGraph, LangChain, RAG, GraphRAG, LLMs, Embeddings</span>
               </div>
               <div>
-                <span className="text-zinc-500 block">Backend:</span>
-                <span className="text-zinc-300">FastAPI, Node.js, Express, PostgreSQL, Redis, REST APIs</span>
+                <span className="text-[#475569] block font-semibold">Backend:</span>
+                <span className="text-[#0F172A]">FastAPI, Node.js, Express, PostgreSQL, Redis, REST APIs</span>
               </div>
               <div>
-                <span className="text-zinc-500 block">Frontend:</span>
-                <span className="text-zinc-300">React, Vite, Tailwind CSS, JavaScript (ESNext)</span>
+                <span className="text-[#475569] block font-semibold">Frontend:</span>
+                <span className="text-[#0F172A]">React, Vite, Tailwind CSS, JavaScript (ESNext)</span>
               </div>
               <div>
-                <span className="text-zinc-500 block">DevOps & Cloud:</span>
-                <span className="text-zinc-300">Docker, Git / GitHub, Linux</span>
+                <span className="text-[#475569] block font-semibold">DevOps & Cloud:</span>
+                <span className="text-[#0F172A]">Docker, Git / GitHub, Linux</span>
               </div>
             </div>
           </div>
 
           {/* Availability */}
-          <div className="pt-4 border-t border-zinc-800 flex items-center justify-between text-xs font-mono text-zinc-400">
+          <div className="pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#475569]">
             <span>Availability: Open for Internships & Projects</span>
-            <span className="text-emerald-400">Sfax, Tunisia (Remote / Hybrid)</span>
+            <span className="text-[#0F766E] font-semibold">Sfax, Tunisia (Remote / Hybrid)</span>
           </div>
 
         </div>

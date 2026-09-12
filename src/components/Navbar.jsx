@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Menu, X, ArrowUpRight, Mail, FileText, Search } from 'lucide-react';
+import { Terminal, Menu, X, ArrowUpRight, Search, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 
@@ -27,30 +27,30 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
   return (
     <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-[#08090d]/90 backdrop-blur-md border-b border-zinc-800/80 py-3 shadow-2xl shadow-black/50' 
+        ? 'bg-white/90 backdrop-blur-md border-b border-[#E2E8F0] py-3 shadow-sm' 
         : 'bg-transparent py-4 sm:py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Brand Logo */}
-          <a href="#" className="group flex items-center gap-2.5 text-zinc-100 hover:text-white transition-colors">
-            <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-750 flex items-center justify-center group-hover:border-emerald-500/60 transition-all duration-300">
-              <Terminal className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
+          <a href="#" className="group flex items-center gap-2.5 text-[#0F172A] hover:text-[#0F766E] transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-white border border-[#E2E8F0] shadow-xs flex items-center justify-center group-hover:border-[#0F766E]/60 transition-all duration-300">
+              <Terminal className="w-3.5 h-3.5 text-[#0F766E] group-hover:scale-110 transition-transform" />
             </div>
             <div className="flex items-center gap-1.5 font-mono font-bold text-sm tracking-tight">
               <span>mahran.dev</span>
-              <span className="w-1.5 h-3 bg-emerald-400 animate-pulse" />
+              <span className="w-1.5 h-3 bg-[#0F766E] animate-pulse" />
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-zinc-900/60 border border-zinc-800/80 px-3 py-1.5 rounded-full backdrop-blur-sm">
+          <nav className="hidden lg:flex items-center gap-1 bg-white/90 border border-[#E2E8F0] px-3 py-1.5 rounded-full shadow-xs backdrop-blur-sm">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs font-mono text-zinc-400 hover:text-zinc-100 px-3 py-1 rounded-full transition-colors hover:bg-zinc-800/60"
+                className="text-xs font-mono text-[#475569] hover:text-[#0F172A] px-3 py-1 rounded-full transition-colors hover:bg-slate-100"
               >
                 {link.name}
               </a>
@@ -63,20 +63,20 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
             {/* Quick Cmd+K Button */}
             <button
               onClick={onOpenCommandMenu}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-zinc-900/80 hover:bg-zinc-850 border border-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono transition-colors"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-white hover:bg-slate-50 border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] text-xs font-mono transition-colors shadow-xs"
               title="Quick Search (Ctrl + K)"
             >
-              <Search className="w-3.5 h-3.5" />
-              <kbd className="text-[10px] bg-zinc-800 px-1 rounded text-zinc-500">⌘K</kbd>
+              <Search className="w-3.5 h-3.5 text-[#475569]" />
+              <kbd className="text-[10px] bg-slate-100 px-1 rounded text-[#475569] border border-[#E2E8F0]">⌘K</kbd>
             </button>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-1 border-r border-zinc-800 pr-2.5">
+            <div className="flex items-center gap-1 border-r border-[#E2E8F0] pr-2.5">
               <a
                 href={portfolioData.personal.github}
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-md bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
+                className="w-8 h-8 rounded-md bg-white border border-[#E2E8F0] flex items-center justify-center text-[#475569] hover:text-[#0F172A] hover:border-slate-300 transition-colors shadow-xs"
                 aria-label="GitHub Profile"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
@@ -85,7 +85,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 href={portfolioData.personal.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-md bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
+                className="w-8 h-8 rounded-md bg-white border border-[#E2E8F0] flex items-center justify-center text-[#475569] hover:text-[#0F172A] hover:border-slate-300 transition-colors shadow-xs"
                 aria-label="LinkedIn Profile"
               >
                 <LinkedinIcon className="w-3.5 h-3.5" />
@@ -94,7 +94,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 href={portfolioData.personal.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-md bg-zinc-900/80 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors"
+                className="w-8 h-8 rounded-md bg-white border border-[#E2E8F0] flex items-center justify-center text-[#475569] hover:text-[#0F766E] hover:border-[#0F766E]/40 transition-colors shadow-xs"
                 aria-label="Chat on WhatsApp"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5" />
@@ -104,16 +104,16 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
             {/* Real Resume / CV Button */}
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3 py-1.5 rounded-md bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white border border-zinc-750 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3 py-1.5 rounded-md bg-white hover:bg-slate-50 text-[#0F172A] border border-[#E2E8F0] shadow-xs transition-colors"
             >
-              <FileText className="w-3.5 h-3.5 text-emerald-400" />
+              <FileText className="w-3.5 h-3.5 text-[#0F766E]" />
               <span>Resume / CV</span>
             </button>
 
             {/* Contact CTA */}
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3.5 py-1.5 rounded-md bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 shadow-sm shadow-emerald-500/20 transition-all"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3.5 py-1.5 rounded-md bg-[#0F766E] text-white font-bold hover:bg-[#115E59] shadow-sm shadow-[#0F766E]/20 transition-all"
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -124,14 +124,14 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={onOpenResume}
-              className="text-xs font-mono px-2.5 py-1 rounded bg-zinc-900 text-zinc-300 border border-zinc-800 flex items-center gap-1"
+              className="text-xs font-mono px-2.5 py-1 rounded bg-white text-[#0F172A] border border-[#E2E8F0] flex items-center gap-1 shadow-xs"
             >
-              <FileText className="w-3 h-3 text-emerald-400" />
+              <FileText className="w-3 h-3 text-[#0F766E]" />
               <span>CV</span>
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white"
+              className="p-2 rounded-lg bg-white border border-[#E2E8F0] text-[#0F172A] hover:bg-slate-50 shadow-xs"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -143,14 +143,14 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0a0c10] border-b border-zinc-800 px-4 py-5 shadow-2xl transition-all">
+        <div className="md:hidden bg-white border-b border-[#E2E8F0] px-4 py-5 shadow-xl transition-all">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-mono text-zinc-300 hover:text-emerald-400 py-2 border-b border-zinc-800/40"
+                className="text-sm font-mono text-[#0F172A] hover:text-[#0F766E] py-2 border-b border-[#E2E8F0]"
               >
                 {link.name}
               </a>
@@ -161,7 +161,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 href={portfolioData.personal.github}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white"
+                className="flex items-center gap-2 text-xs font-mono text-[#475569] hover:text-[#0F766E]"
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>GitHub</span>
@@ -170,7 +170,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 href={portfolioData.personal.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-white"
+                className="flex items-center gap-2 text-xs font-mono text-[#475569] hover:text-[#0F766E]"
               >
                 <LinkedinIcon className="w-4 h-4" />
                 <span>LinkedIn</span>
@@ -179,7 +179,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 href={portfolioData.personal.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-emerald-400"
+                className="flex items-center gap-2 text-xs font-mono text-[#475569] hover:text-[#0F766E]"
               >
                 <WhatsAppIcon className="w-4 h-4" />
                 <span>WhatsApp</span>
