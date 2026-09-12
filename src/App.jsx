@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ValueProps from './components/ValueProps';
 import FeaturedProjects from './components/FeaturedProjects';
-import OtherProjects from './components/OtherProjects';
 import TechStack from './components/TechStack';
 import Process from './components/Process';
 import ExperienceEducation from './components/ExperienceEducation';
@@ -37,7 +36,6 @@ export default function App() {
         <TechStack />
         <Process />
         <ExperienceEducation />
-        <OtherProjects />
         <About />
         <Contact />
       </main>
