@@ -49,16 +49,20 @@ export default function Hero({ onOpenResume }) {
 
             {/* Name and Direct Title */}
             <div className="space-y-3">
-              <div className="text-xs font-mono uppercase tracking-widest text-[#0F766E] font-semibold">
-                Mahran Hadj Salah
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#0F766E] font-bold">
+                <span className="w-2 h-2 rounded-full bg-[#0F766E]" />
+                Software Engineering Student & Builder
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-tight font-sans">
-                Software Engineering Student building{' '}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-[#0F172A] leading-[1.08] font-sans">
+                Mahran Hadj Salah
+              </h1>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-[#1E293B] leading-snug font-sans max-w-2xl">
+                Building{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F766E] via-[#115E59] to-teal-600">
                   AI-powered products
                 </span>{' '}
                 and SaaS systems.
-              </h1>
+              </h2>
             </div>
 
             {/* Subtitle / Focus */}
