@@ -1,9 +1,9 @@
 import React from 'react';
-import { ShieldCheck, CheckCircle2, Cpu } from 'lucide-react';
+import { CheckCircle2, Cpu } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function TechStack() {
-  const { realProjectTech, securityFocusNote } = portfolioData;
+  const { realProjectTech } = portfolioData;
 
   return (
     <section id="engineering" className="py-24 border-b border-[#E2E8F0] relative bg-[#F8FAFC]">
@@ -55,11 +55,9 @@ export default function TechStack() {
           ))}
         </div>
 
-        {/* Proof of Production & Application Security Secondary Focus */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          
-          {/* Used across products proof */}
-          <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-3">
+        {/* Proof of Production Note */}
+        <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-[#E6FFFA] border border-[#0F766E]/25 flex items-center justify-center text-[#0F766E] shrink-0">
               <CheckCircle2 className="w-5 h-5" />
             </div>
@@ -72,22 +70,9 @@ export default function TechStack() {
               </div>
             </div>
           </div>
-
-          {/* Application Security secondary focus */}
-          <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-slate-100 border border-[#E2E8F0] flex items-center justify-center text-[#0F172A] shrink-0">
-              <ShieldCheck className="w-5 h-5 text-[#0F766E]" />
-            </div>
-            <div>
-              <div className="text-xs font-mono text-[#475569] font-bold uppercase tracking-wider">
-                Secondary Technical Interest
-              </div>
-              <div className="text-xs sm:text-sm text-[#0F172A] font-sans mt-0.5">
-                {securityFocusNote}
-              </div>
-            </div>
-          </div>
-
+          <span className="text-xs font-mono text-[#475569]">
+            Full-Stack · Applied AI · Distributed Systems
+          </span>
         </div>
 
       </div>

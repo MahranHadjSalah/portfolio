@@ -305,7 +305,7 @@ export const portfolioData = {
     }
   ],
 
-  // Currently Learning Roadmap
+  // Currently Learning
   currentlyLearning: [
     {
       topic: "AI Agents",
@@ -318,17 +318,12 @@ export const portfolioData = {
       details: "Hybrid dense-sparse retrieval, knowledge graph traversal, citation verification"
     },
     {
-      topic: "Web Security",
-      status: "Exploring",
-      details: "PortSwigger Web Security Academy, OWASP Top 10, JWT hardening, authorization flaws"
-    },
-    {
       topic: "Cloud & Deployment",
       status: "Building",
       details: "Dockerized microservices, reverse proxies, CI/CD routines, runtime telemetry"
     },
     {
-      topic: "Software Architecture",
+      topic: "Distributed Systems & Architecture",
       status: "Deepening",
       details: "Distributed systems patterns, event-driven backends, database indexing strategies"
     }

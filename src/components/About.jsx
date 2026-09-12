@@ -94,12 +94,12 @@ export default function About() {
           {/* Right Column: Currently Learning Roadmap & Engineering Interests */}
           <div className="lg:col-span-6 space-y-6">
             
-            {/* Currently Learning Roadmap */}
+            {/* Currently Learning */}
             <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm space-y-5">
               <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
                 <div className="flex items-center gap-2 text-xs font-mono text-[#0F766E] font-bold uppercase tracking-wider">
                   <BookOpen className="w-4 h-4" />
-                  <span>Currently Learning Roadmap</span>
+                  <span>Currently Learning</span>
                 </div>
                 <span className="text-[11px] font-mono text-[#475569]">Continuous Self-Study</span>
               </div>
