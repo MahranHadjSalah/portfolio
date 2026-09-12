@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Search, FolderGit2, Cpu, User, GraduationCap, Copy, Check, FileText, ArrowRight, MessageSquare } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-export default function CommandMenu({ isOpen, onClose, onOpenResume }) {
+export default function CommandMenu({ isOpen, onClose, onOpenResume, onOpenProject, onNavigateHome }) {
   const [query, setQuery] = useState('');
   const [copied, setCopied] = useState(false);
 
@@ -22,46 +22,65 @@ export default function CommandMenu({ isOpen, onClose, onOpenResume }) {
 
   if (!isOpen) return null;
 
+  const navigateTo = (target) => {
+    onClose(false);
+    if (onNavigateHome) {
+      onNavigateHome(target);
+    } else {
+      window.location.href = `/${target}`;
+    }
+  };
+
+  const openProject = (id) => {
+    onClose(false);
+    if (onOpenProject) {
+      onOpenProject(id);
+    } else {
+      window.history.pushState({ projectId: id }, '', `/${id}`);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
+  };
+
   const actions = [
     {
-      label: "View Featured Work",
+      label: "Project: Autoreply — AI Sales Automation",
       icon: FolderGit2,
-      action: () => {
-        window.location.href = '#work';
-        onClose(false);
-      }
+      action: () => openProject('autoreply')
+    },
+    {
+      label: "Project: LUX Dental — Clinical Practice OS",
+      icon: FolderGit2,
+      action: () => openProject('lux-dental')
+    },
+    {
+      label: "Project: SupportAi — GraphRAG Knowledge Engine",
+      icon: FolderGit2,
+      action: () => openProject('supportai')
+    },
+    {
+      label: "View All Projects Overview",
+      icon: FolderGit2,
+      action: () => navigateTo('#work')
     },
     {
       label: "Explore Engineering Stack",
       icon: Cpu,
-      action: () => {
-        window.location.href = '#engineering';
-        onClose(false);
-      }
+      action: () => navigateTo('#engineering')
     },
     {
       label: "How I Build (Engineering Process)",
       icon: ArrowRight,
-      action: () => {
-        window.location.href = '#process';
-        onClose(false);
-      }
+      action: () => navigateTo('#process')
     },
     {
       label: "Experience & Education Timeline",
       icon: GraduationCap,
-      action: () => {
-        window.location.href = '#experience';
-        onClose(false);
-      }
+      action: () => navigateTo('#experience')
     },
     {
       label: "Read About Me",
       icon: User,
-      action: () => {
-        window.location.href = '#about';
-        onClose(false);
-      }
+      action: () => navigateTo('#about')
     },
     {
       label: "View / Print Resume (CV)",

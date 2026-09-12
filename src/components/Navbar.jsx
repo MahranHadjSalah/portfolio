@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Menu, X, ArrowUpRight, Search, FileText } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { Terminal, Menu, X, ArrowUpRight, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +35,14 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
   return (
     <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/90 backdrop-blur-md border-b border-[#E2E8F0] py-3 shadow-sm' 
+        ? 'bg-white/90 backdrop-blur-md border-b border-[#E2E8F0] py-3 shadow-xs' 
         : 'bg-transparent py-4 sm:py-5'
     }`}>
+      {/* Sleek Scroll Progress Bar */}
+      <motion.div 
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#0F766E] origin-left pointer-events-none"
+        style={{ scaleX }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
@@ -59,16 +72,6 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
 
           {/* Right Actions & Socials */}
           <div className="hidden md:flex items-center gap-2.5">
-            
-            {/* Quick Cmd+K Button */}
-            <button
-              onClick={onOpenCommandMenu}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-white hover:bg-slate-50 border border-[#E2E8F0] text-[#475569] hover:text-[#0F172A] text-xs font-mono transition-colors shadow-xs"
-              title="Quick Search (Ctrl + K / ⌘K)"
-            >
-              <Search className="w-3.5 h-3.5 text-[#475569]" />
-              <kbd className="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-[#475569] border border-[#E2E8F0]">Ctrl K</kbd>
-            </button>
 
             {/* Social Icons */}
             <div className="flex items-center gap-1 border-r border-[#E2E8F0] pr-2.5">
@@ -104,7 +107,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
             {/* Real Resume / CV Button */}
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3 py-1.5 rounded-md bg-white hover:bg-slate-50 text-[#0F172A] border border-[#E2E8F0] shadow-xs transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3 py-1.5 rounded-md bg-white hover:bg-slate-50 text-[#0F172A] border border-[#E2E8F0] transition-colors focus-visible:ring-2 focus-visible:ring-[#0F766E] focus-visible:ring-offset-2"
             >
               <FileText className="w-3.5 h-3.5 text-[#0F766E]" />
               <span>Resume / CV</span>
@@ -113,10 +116,9 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
             {/* Contact CTA */}
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3.5 py-1.5 rounded-md bg-[#0F766E] text-white font-bold hover:bg-[#115E59] shadow-sm shadow-[#0F766E]/20 transition-all"
+              className="inline-flex items-center text-xs font-mono font-semibold px-4 py-1.5 rounded-md bg-[#0F766E] text-white hover:bg-[#115E59] transition-colors focus-visible:ring-2 focus-visible:ring-[#0F766E] focus-visible:ring-offset-2"
             >
               <span>Let's Talk</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 

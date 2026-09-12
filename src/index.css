@@ -21,13 +21,50 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #0F766E;
   }
+  /* Visible Keyboard Focus States for Accessibility */
+  :focus-visible {
+    outline: 2px solid #0F766E;
+    outline-offset: 2px;
+  }
+}
+
+/* Prefers Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Bold Outline Display Typography */
+.text-outline-teal {
+  -webkit-text-stroke: 1.5px #0F766E;
+  color: transparent;
+}
+
+.text-outline-slate {
+  -webkit-text-stroke: 1.5px #0F172A;
+  color: transparent;
+}
+
+@media (min-width: 768px) {
+  .text-outline-teal {
+    -webkit-text-stroke: 2px #0F766E;
+  }
+  .text-outline-slate {
+    -webkit-text-stroke: 2px #0F172A;
+  }
 }
 
 /* Subtle light engineering dot matrix background */
 .bg-tech-grid {
   background-size: 32px 32px;
   background-image: 
-    radial-gradient(circle, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+    radial-gradient(circle, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
 }
 
 .bg-tech-lines {
@@ -37,31 +74,13 @@
     linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
 }
 
-/* Glassmorphism light card */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* Disciplined quiet engineering surface */
+.quiet-card {
+  background-color: #FFFFFF;
   border: 1px solid #E2E8F0;
+  transition: border-color 0.15s ease;
 }
 
-.glass-panel:hover {
-  border-color: rgba(15, 118, 110, 0.4);
-}
-
-/* Technical glowing accent */
-.teal-glow {
-  box-shadow: 0 0 25px -5px rgba(15, 118, 110, 0.18);
-}
-
-.teal-glow-sm {
-  box-shadow: 0 0 15px -3px rgba(15, 118, 110, 0.12);
-}
-
-.emerald-glow {
-  box-shadow: 0 0 25px -5px rgba(15, 118, 110, 0.18);
-}
-
-.emerald-glow-sm {
-  box-shadow: 0 0 15px -3px rgba(15, 118, 110, 0.12);
+.quiet-card:hover {
+  border-color: #0F766E;
 }

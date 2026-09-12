@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { CheckCircle2, Cpu } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { staggerContainer, fadeInUp, scaleIn } from '../utils/motion';
 
 export default function TechStack() {
   const { realProjectTech } = portfolioData;
@@ -10,25 +12,38 @@ export default function TechStack() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-2xl mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest font-bold">
-            <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
-            Practical Engineering Stack
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
+        <motion.div 
+          variants={staggerContainer(0.1, 0)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-2xl mb-12 space-y-2"
+        >
+          <motion.div variants={fadeInUp(0.4, 15)} className="text-xs font-mono text-[#0F766E] font-medium tracking-wide">
+            Production Technologies
+          </motion.div>
+          <motion.h2 variants={fadeInUp(0.5, 20)} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
             {realProjectTech.title}
-          </h2>
-          <p className="text-base sm:text-lg text-[#475569] leading-relaxed font-sans">
+          </motion.h2>
+          <motion.p variants={fadeInUp(0.5, 20)} className="text-base text-[#475569] leading-relaxed font-sans">
             {realProjectTech.subtitle}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* 5 Categorized Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-8">
+        <motion.div 
+          variants={staggerContainer(0.08, 0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6"
+        >
           {realProjectTech.groups.map((group, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="rounded-xl bg-white border border-[#E2E8F0] p-5 flex flex-col justify-between hover:border-[#0F766E]/40 hover:shadow-md shadow-sm transition-all"
+              variants={fadeInUp(0.5, 20)}
+              whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
+              className="rounded-lg bg-white border border-[#E2E8F0] p-5 flex flex-col justify-between hover:border-[#0F766E]/50 hover:shadow-sm transition-all"
             >
               <div>
                 <h3 className="text-sm font-bold text-[#0F172A] mb-3 pb-2.5 border-b border-[#E2E8F0] flex items-center justify-between font-mono">
@@ -51,12 +66,18 @@ export default function TechStack() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Proof of Production Note */}
-        <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <motion.div 
+          variants={scaleIn(0.5, 0.98)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+        >
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-[#E6FFFA] border border-[#0F766E]/25 flex items-center justify-center text-[#0F766E] shrink-0">
               <CheckCircle2 className="w-5 h-5" />
@@ -73,7 +94,7 @@ export default function TechStack() {
           <span className="text-xs font-mono text-[#475569]">
             Full-Stack · Applied AI · Distributed Systems
           </span>
-        </div>
+        </motion.div>
 
       </div>
     </section>

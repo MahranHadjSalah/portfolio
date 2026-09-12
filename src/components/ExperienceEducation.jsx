@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { GraduationCap, Briefcase, Calendar, MapPin, CheckCircle2, Code2, Rocket } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { staggerContainer, fadeInUp, scaleIn } from '../utils/motion';
 
 export default function ExperienceEducation() {
   const { engineeringJourney } = portfolioData;
@@ -10,31 +12,46 @@ export default function ExperienceEducation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-2xl mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-[#0F766E] uppercase tracking-widest font-bold">
-            <span className="w-2 h-2 rounded-sm bg-[#0F766E]" />
-            Personal Evolution
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
+        <motion.div 
+          variants={staggerContainer(0.1, 0)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-2xl mb-12 space-y-2"
+        >
+          <motion.div variants={fadeInUp(0.4, 15)} className="text-xs font-mono text-[#0F766E] font-medium tracking-wide">
+            03 // Career & Academic Milestones
+          </motion.div>
+          <motion.h2 variants={fadeInUp(0.5, 20)} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
             My Engineering Journey
-          </h2>
-          <p className="text-base sm:text-lg text-[#475569] leading-relaxed font-sans">
+          </motion.h2>
+          <motion.p variants={fadeInUp(0.5, 20)} className="text-base text-[#475569] leading-relaxed font-sans">
             A disciplined trajectory combining formal computer science education at ISIMS with real commercial product delivery.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Chronological Timeline */}
-        <div className="max-w-3xl mx-auto space-y-10 relative before:absolute before:inset-0 before:left-[13px] before:w-0.5 before:bg-[#E2E8F0]">
+        <motion.div 
+          variants={staggerContainer(0.1, 0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-3xl mx-auto space-y-8 relative before:absolute before:inset-0 before:left-[11px] before:w-0.5 before:bg-[#E2E8F0]"
+        >
           {engineeringJourney.map((step, idx) => (
-            <div key={idx} className="relative flex items-start gap-6 group">
+            <motion.div 
+              key={idx} 
+              variants={fadeInUp(0.5, 25)}
+              className="relative flex items-start gap-5 group"
+            >
               
               {/* Timeline Dot */}
-              <div className="relative z-10 w-7 h-7 rounded-full bg-white border-2 border-[#0F766E] shadow-2xs flex items-center justify-center shrink-0 mt-1 group-hover:scale-110 transition-transform">
-                <span className="w-2 h-2 rounded-full bg-[#0F766E]" />
+              <div className="relative z-10 w-6 h-6 rounded-full bg-white border-2 border-[#0F766E] flex items-center justify-center shrink-0 mt-1 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
               </div>
 
               {/* Content Card */}
-              <div className="flex-1 p-6 rounded-2xl bg-white border border-[#E2E8F0] hover:border-[#0F766E]/40 hover:shadow-md shadow-sm transition-all space-y-3">
+              <div className="flex-1 p-5 sm:p-6 rounded-xl bg-white border border-[#E2E8F0] hover:border-[#0F766E]/50 hover:shadow-sm transition-all space-y-3">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#E2E8F0] pb-3">
                   <div>
                     <h3 className="text-base sm:text-lg font-bold text-[#0F172A] font-sans">
@@ -69,9 +86,9 @@ export default function ExperienceEducation() {
                 )}
               </div>
 
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>
