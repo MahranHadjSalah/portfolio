@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Cpu } from 'lucide-react';
+import { TechIcon } from './TechIcons';
 import { portfolioData } from '../data/portfolioData';
 import { staggerContainer, fadeInUp, scaleIn } from '../utils/motion';
 
@@ -58,10 +59,14 @@ export default function TechStack() {
                   {group.items.map((skill) => (
                     <li
                       key={skill}
-                      className="text-xs font-mono text-[#F8FAFC] flex items-center gap-2"
+                      className="text-xs font-mono text-[#F8FAFC] flex items-start gap-2 group/tech"
                     >
-                      <span className="text-[#38BDF8] text-[10px]">✔</span>
-                      <span>{skill}</span>
+                      <span className="shrink-0 mt-0.5 inline-flex items-center justify-center w-3.5 h-3.5">
+                        <TechIcon name={skill} className="w-3.5 h-3.5" />
+                      </span>
+                      <span className="leading-tight group-hover/tech:text-[#38BDF8] transition-colors">
+                        {skill}
+                      </span>
                     </li>
                   ))}
                 </ul>
