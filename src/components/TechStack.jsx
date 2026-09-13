@@ -30,13 +30,13 @@ export default function TechStack() {
           </motion.p>
         </motion.div>
 
-        {/* 5 Categorized Cards Grid */}
+        {/* 6 Categorized Production Stack Cards */}
         <motion.div 
           variants={staggerContainer(0.08, 0.1)}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6"
         >
           {realProjectTech.groups.map((group, idx) => (
             <motion.div
@@ -92,7 +92,7 @@ export default function TechStack() {
             </div>
           </div>
           <span className="text-xs font-mono text-[#94A3B8]">
-            Full-Stack · Applied AI · Distributed Systems
+            Full-Stack · Applied AI · DevOps & Cloud Systems
           </span>
         </motion.div>
 

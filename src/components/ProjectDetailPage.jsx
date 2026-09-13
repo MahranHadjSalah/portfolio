@@ -449,7 +449,7 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
             </button>
 
             <a
-              href={project.liveUrl}
+              href={project.demoUrl || project.liveUrl}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-mono font-bold px-3.5 py-1.5 rounded-md bg-[#3B82F6] text-white hover:bg-[#2563EB] transition-colors focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
@@ -496,11 +496,23 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
 
         {/* Primary Action Buttons */}
         <motion.div variants={fadeInUp(0.5, 20)} className="flex flex-wrap items-center justify-center gap-3">
+          {project.id === 'autoreply' && (
+            <a
+              href="https://autoreply.online/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold text-sm transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] shadow-lg shadow-[#3B82F6]/20 font-sans"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Visit autoreply.online ↗</span>
+            </a>
+          )}
+
           <a
-            href={project.liveUrl}
+            href={project.demoUrl || project.liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold text-sm transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] shadow-lg shadow-[#3B82F6]/20 font-sans"
+            className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl ${project.id === 'autoreply' ? 'bg-[#172033] hover:bg-[#1e2a42] text-[#F8FAFC] border border-[#263244]' : 'bg-[#3B82F6] hover:bg-[#2563EB] text-white shadow-lg shadow-[#3B82F6]/20'} font-bold text-sm transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] font-sans`}
           >
             <WhatsAppIcon className="w-4 h-4" />
             <span>Request Live Demo</span>

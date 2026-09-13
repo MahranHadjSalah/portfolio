@@ -57,14 +57,21 @@ export default function ExperienceEducation({ onOpenResume }) {
                   <div className="w-2.5 h-2.5 rounded-full bg-[#38BDF8] group-hover:scale-125 transition-transform" />
                 </div>
 
-                {/* 1-Line Milestone Title & 1-Line Org */}
-                <div className="space-y-1.5 flex-1">
-                  <h3 className="text-sm sm:text-base font-bold text-[#F8FAFC] font-sans group-hover:text-[#38BDF8] transition-colors leading-snug">
-                    {step.milestone}
-                  </h3>
-                  <p className="text-xs font-mono text-[#94A3B8] leading-tight">
-                    {step.organization}
-                  </p>
+                {/* Milestone Title, Org & Academic/Delivery Details */}
+                <div className="space-y-2 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-sm sm:text-base font-bold text-[#F8FAFC] font-sans group-hover:text-[#38BDF8] transition-colors leading-snug">
+                      {step.milestone}
+                    </h3>
+                    <p className="text-xs font-mono text-[#38BDF8] mt-1 font-semibold">
+                      {step.organization}
+                    </p>
+                  </div>
+                  {step.details && (
+                    <p className="text-[11px] text-[#94A3B8] leading-relaxed pt-2 border-t border-[#263244] font-sans">
+                      {step.details}
+                    </p>
+                  )}
                 </div>
               </motion.div>
             ))}

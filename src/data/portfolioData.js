@@ -31,6 +31,12 @@ export const portfolioData = {
       "SaaS"
     ],
 
+    languages: [
+      { language: "Arabic", level: "Native", note: "Mother tongue" },
+      { language: "French", level: "Fluent", note: "Written & spoken — professional level" },
+      { language: "English", level: "Intermediate", note: "Technical reading, documentation & communication" }
+    ],
+
     // Core Engineering Capabilities & Metrics
     honestStats: [
       { value: "3+", label: "Production Systems", note: "Shipped & deployed" },
@@ -122,7 +128,8 @@ export const portfolioData = {
         "FastAPI webhook ingest layer acknowledging Meta webhooks under 200ms to eliminate duplicate retries",
         "Redis task queue with token-bucket rate limiting to respect Meta Graph API quotas",
         "LangGraph state machine routing inquiries between product queries and human handoff",
-        "PostgreSQL relational schema maintaining conversation logs, tenant states, and purchase funnels"
+        "PostgreSQL relational schema maintaining conversation logs, tenant states, and purchase funnels",
+        "Production infrastructure deployed on Hetzner VPS with Nginx wildcard reverse proxy and automated Certbot SSL"
       ],
 
       technicalDecisions: [
@@ -144,9 +151,10 @@ export const portfolioData = {
       ],
 
       whatILearned: "Learned how to handle high-concurrency webhook bursts, implement distributed idempotency keys in Redis, and manage LLM token budgets effectively.",
-      techStack: ["FastAPI", "Python", "LangGraph", "Redis", "PostgreSQL", "React", "Meta Graph API"],
+      techStack: ["FastAPI", "Python", "LangChain", "FAISS", "Hetzner", "Nginx", "Meta Graph API", "React"],
       githubUrl: "https://github.com/MahranHadjSalah",
-      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20Autoreply"
+      liveUrl: "https://autoreply.online/",
+      demoUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20Autoreply"
     },
     {
       id: "lux-dental",
@@ -343,25 +351,41 @@ export const portfolioData = {
     }
   ],
 
+  // Education (CV Data)
+  education: [
+    {
+      degree: "Computer Engineering Degree — Software Engineering",
+      institution: "ISIMS Sfax",
+      period: "2025 – Present",
+      description: "Engineering program focused on modern software engineering: design and modeling (UML, design patterns), mathematics & optimization, complex & certifying systems, advanced database management, embedded systems & advanced networking, and fundamentals of computer security. Strong emphasis on Agile/Scrum methodologies, professional communication, and digital culture."
+    },
+    {
+      degree: "Integrated Preparatory Cycle — Computer Science & Multimedia",
+      institution: "ISIMS Sfax",
+      period: "2023 – 2025",
+      description: "High-level scientific and technical program spanning 4 semesters (120 credits), designed to build strong foundations in computer science and applied mathematics. Curriculum covers structured and object-oriented programming (C, Python, Java), advanced algorithms, data structures and complexity theory, mathematics (algebra, analysis, probability, graph theory, formal logic), operating systems and networking (TCP/IP, network services), relational database design, computer architecture, web development, multimedia technologies, and data compression. Complemented by cross-disciplinary modules in technical English and professional communication."
+    }
+  ],
+
   // My Engineering Journey (Chronological Milestones)
   engineeringJourney: [
     {
-      year: "2023",
-      milestone: "Computer Science & Multimedia Foundations",
+      year: "2023 — 2025",
+      milestone: "Cycle Préparatoire Intégré — CS & Multimedia",
       organization: "ISIMS — Université de Sfax",
-      details: "Core focus in algorithms, data structures, relational databases, and web architectures."
+      details: "120 ECTS · Advanced Math, Algorithmic Complexity, C/Python/Java, Systems & Networks"
     },
     {
-      year: "2025",
-      milestone: "National Software Engineering Diploma Cycle",
+      year: "2025 — Present",
+      milestone: "National Software Engineering Degree Cycle",
       organization: "ISIMS — Université de Sfax",
-      details: "Advanced software architecture, distributed systems, and backend engineering."
+      details: "Software Architecture, Design Patterns, Certifying Systems, Distributed Databases"
     },
     {
       year: "2025 — 2026",
       milestone: "Production Product Delivery (SaaS & AI)",
-      organization: "Autoreply · LUX Dental · AltiVox · SupportAi",
-      details: "Shipped commercial AI automation, clinical dental practice SaaS, and enterprise GraphRAG."
+      organization: "Autoreply · LUX Dental · AltiVox · SeniorVoice",
+      details: "Shipped Meta-integrated RAG, clinical dental SaaS, enterprise GraphRAG & Voice AI."
     },
     {
       year: "2026",
@@ -397,47 +421,57 @@ export const portfolioData = {
 
   // Engineering Interests
   engineeringInterests: [
-    "AI Engineering",
+    "Independent SaaS Development",
+    "AI Agents & Automation",
+    "n8n Workflows",
+    "Competitive Programming",
     "Software Architecture",
-    "Backend Systems",
-    "Cybersecurity",
-    "Cloud Infrastructure",
-    "SaaS Development"
+    "Cloud & DevOps"
   ],
 
   securityFocusNote: "Additional technical interest: Application Security (practicing via PortSwigger Web Security Academy).",
 
-  // Technologies I Use in Real Projects
+  // Technologies I Use in Real Projects (Enriched from CV)
   realProjectTech: {
     title: "Technologies I use in real projects",
     subtitle: "A proven, practical stack used to build and deploy real products — not arbitrary proficiency scores.",
-    proofNote: "Used across Autoreply, LUX Dental, AltiVox and SupportAi",
+    proofNote: "Used across Autoreply, SeniorVoice, LUX Dental, AltiVox and SupportAi",
     groups: [
       {
-        category: "AI",
-        items: ["Python", "LangGraph", "LangChain", "LLMs", "RAG", "GraphRAG"]
+        category: "Languages",
+        items: ["Python", "JavaScript", "Java", "C", "SQL"]
       },
       {
-        category: "Backend",
-        items: ["FastAPI", "Node.js", "Express", "REST", "Webhooks"]
+        category: "AI & LLM",
+        items: ["LangGraph", "LangChain", "Whisper (STT)", "FAISS", "Groq / Ollama", "RAG"]
+      },
+      {
+        category: "Backend & API",
+        items: ["FastAPI", "Node.js", "Express", "REST APIs", "Webhooks"]
       },
       {
         category: "Frontend",
-        items: ["React", "Vite", "JavaScript", "Tailwind CSS"]
+        items: ["React", "Vite", "Tailwind CSS", "HTML5 / CSS3"]
       },
       {
-        category: "Data",
-        items: ["PostgreSQL", "pgvector", "Redis"]
+        category: "DevOps & Cloud",
+        items: ["Hetzner VPS", "Docker", "Nginx", "Certbot SSL", "GitHub Actions (CI/CD)", "Linux"]
       },
       {
-        category: "DevOps",
-        items: ["Docker", "Git", "GitHub", "Linux"]
+        category: "Automation & Tools",
+        items: ["n8n Workflows", "Meta Graph API", "Postman", "PostgreSQL", "Redis"]
       }
     ]
   },
 
   // Featured Engineering Experiments
   engineeringExperiments: [
+    {
+      title: "SeniorVoice — AI Voice Assistant",
+      category: "Hackathon 38 Explorers · Multimodal AI",
+      description: "Voice assistant for elderly Tunisian users managing Darija / French code-switching with Whisper (STT), LLM comprehension, and TTS synthesis.",
+      stack: ["Whisper (STT)", "FastAPI", "React", "Python", "REST API"]
+    },
     {
       title: "LangGraph Multi-Agent Research Swarm",
       category: "AI Agentic Workflow",

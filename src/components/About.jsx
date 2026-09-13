@@ -106,6 +106,25 @@ export default function About() {
                 GMT+1 Timezone
               </span>
             </div>
+
+            {/* Trilingual Competence */}
+            <div className="pt-3 border-t border-[#263244]/60 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+              <span className="text-[#94A3B8] flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                Languages:
+              </span>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="text-[#F8FAFC] bg-[#111827] px-2 py-0.5 rounded border border-[#263244] text-[11px]">
+                  Arabic <span className="text-[#38BDF8] text-[10px] font-semibold">(Native)</span>
+                </span>
+                <span className="text-[#F8FAFC] bg-[#111827] px-2 py-0.5 rounded border border-[#263244] text-[11px]">
+                  French <span className="text-[#38BDF8] text-[10px] font-semibold">(Fluent)</span>
+                </span>
+                <span className="text-[#F8FAFC] bg-[#111827] px-2 py-0.5 rounded border border-[#263244] text-[11px]">
+                  English <span className="text-[#38BDF8] text-[10px] font-semibold">(Technical)</span>
+                </span>
+              </div>
+            </div>
           </motion.div>
 
           {/* Right Column: Currently Learning (Top) + Application Security (Bottom) (6 cols) */}
