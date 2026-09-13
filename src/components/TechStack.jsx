@@ -47,12 +47,9 @@ export default function TechStack() {
               className="rounded-lg bg-[#172033] border border-[#263244] p-5 flex flex-col justify-between hover:border-[#3B82F6]/60 hover:shadow-sm transition-all"
             >
               <div>
-                <h3 className="text-sm font-bold text-[#F8FAFC] mb-3 pb-2.5 border-b border-[#263244] flex items-center justify-between font-mono">
-                  <span className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
-                    {group.category}
-                  </span>
-                  <span className="text-[10px] text-[#94A3B8]">{group.items.length} tools</span>
+                <h3 className="text-sm font-bold text-[#F8FAFC] mb-3 pb-2.5 border-b border-[#263244] flex items-center gap-2 font-mono">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                  <span>{group.category}</span>
                 </h3>
 
                 <ul className="space-y-2">
