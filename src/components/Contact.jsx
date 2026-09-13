@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Check, Copy, Target, MessageSquare } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, WhatsAppIcon } from './Icons';
@@ -7,6 +7,27 @@ import { staggerContainer, fadeInUp, scaleIn } from '../utils/motion';
 
 export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      window.innerWidth < 768
+    );
+  });
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+      const isSmallScreen = window.innerWidth < 768;
+      setIsMobile(isMobileDevice || isSmallScreen);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const customMsg = "Hi Mahran, I reviewed your portfolio and would like to discuss an opportunity.";
 
   const { whatImLookingFor } = portfolioData;
@@ -15,6 +36,13 @@ export default function Contact() {
   const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
     recipientEmail
   )}&su=${encodeURIComponent('Software Engineering Opportunity')}&body=${encodeURIComponent(customMsg)}`;
+  const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(
+    'Software Engineering Opportunity'
+  )}&body=${encodeURIComponent(customMsg)}`;
+
+  const emailUrl = isMobile ? mailtoUrl : gmailWebUrl;
+  const emailTarget = isMobile ? undefined : '_blank';
+  const emailRel = isMobile ? undefined : 'noreferrer';
 
   const copyEmail = () => {
     navigator.clipboard.writeText(recipientEmail);
@@ -135,9 +163,9 @@ export default function Contact() {
 
               <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">Email</h3>
               <a 
-                href={gmailWebUrl}
-                target="_blank"
-                rel="noreferrer"
+                href={emailUrl}
+                target={emailTarget}
+                rel={emailRel}
                 className="text-xs font-mono text-[#38BDF8] hover:underline break-all focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
               >
                 {recipientEmail}
@@ -145,12 +173,12 @@ export default function Contact() {
             </div>
 
             <a
-              href={gmailWebUrl}
-              target="_blank"
-              rel="noreferrer"
+              href={emailUrl}
+              target={emailTarget}
+              rel={emailRel}
               className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8] transition-colors focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
             >
-              Compose in Gmail ↗
+              {isMobile ? "Open in Mail App ↗" : "Compose in Gmail ↗"}
             </a>
           </motion.div>
 

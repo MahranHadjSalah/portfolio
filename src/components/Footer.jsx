@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUp, MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Footer() {
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      window.innerWidth < 768
+    );
+  });
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+      const isSmallScreen = window.innerWidth < 768;
+      setIsMobile(isMobileDevice || isSmallScreen);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -60,9 +81,15 @@ export default function Footer() {
               </a>
               <span className="text-[#263244]">/</span>
               <a
-                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(portfolioData.personal.email)}`}
-                target="_blank"
-                rel="noreferrer"
+                href={
+                  isMobile
+                    ? `mailto:${portfolioData.personal.email}`
+                    : `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+                        portfolioData.personal.email
+                      )}`
+                }
+                target={isMobile ? undefined : "_blank"}
+                rel={isMobile ? undefined : "noreferrer"}
                 className="hover:text-[#38BDF8] transition-colors"
               >
                 Email
