@@ -442,8 +442,16 @@ export const portfolioData = {
         items: ["Python", "JavaScript", "Java", "C", "SQL"]
       },
       {
-        category: "AI & LLM",
-        items: ["LangGraph", "LangChain", "Whisper (STT)", "FAISS", "Groq / Ollama", "RAG"]
+        category: "AI, LLM & ML",
+        items: [
+          "LangGraph & LangChain",
+          "RAG & FAISS",
+          "Whisper (STT)",
+          "Groq & Ollama",
+          "Scikit-Learn (Pipelines)",
+          "XGBoost & Random Forest",
+          "GridSearchCV & Cross-Val"
+        ]
       },
       {
         category: "Backend & API",

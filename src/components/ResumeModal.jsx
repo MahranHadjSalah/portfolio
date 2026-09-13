@@ -348,8 +348,8 @@ export default function ResumeModal({ isOpen, onClose }) {
                 <span className="text-[#F8FAFC] print:text-slate-900">Python · JavaScript · Java · C · SQL · HTML/CSS</span>
               </div>
               <div>
-                <span className="text-[#94A3B8] print:text-slate-600 block font-semibold">AI & LLM:</span>
-                <span className="text-[#F8FAFC] print:text-slate-900">LangChain · LangGraph · Whisper (STT) · FAISS · Groq · Ollama · Claude API · HuggingFace</span>
+                <span className="text-[#94A3B8] print:text-slate-600 block font-semibold">AI, LLM & Machine Learning:</span>
+                <span className="text-[#F8FAFC] print:text-slate-900">LangGraph · LangChain · RAG · Whisper (STT) · Scikit-Learn · XGBoost · Random Forest · FAISS · Groq</span>
               </div>
               <div>
                 <span className="text-[#94A3B8] print:text-slate-600 block font-semibold">Backend & APIs:</span>
