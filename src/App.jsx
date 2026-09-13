@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import ValueProps from './components/ValueProps';
 import FeaturedProjects from './components/FeaturedProjects';
 import TechStack from './components/TechStack';
 import Process from './components/Process';
@@ -117,7 +116,7 @@ export default function App() {
   // If a single project is open, render the dedicated single project page
   if (currentProjectId) {
     return (
-      <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans selection:bg-[#E6FFFA] selection:text-[#0F766E]">
+      <div className="min-h-screen bg-[#0B1120] text-[#F8FAFC] font-sans selection:bg-[#3B82F6]/30 selection:text-[#38BDF8]">
         <ProjectDetailPage 
           projectId={currentProjectId}
           onBack={handleBackToHome}
@@ -144,7 +143,7 @@ export default function App() {
 
   // Otherwise, render the general home page
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans selection:bg-[#E6FFFA] selection:text-[#0F766E]">
+    <div className="min-h-screen bg-[#0B1120] text-[#F8FAFC] font-sans selection:bg-[#3B82F6]/30 selection:text-[#38BDF8]">
       <Navbar 
         onOpenResume={() => setIsResumeOpen(true)}
         onOpenCommandMenu={() => setIsCommandMenuOpen(true)}
@@ -158,10 +157,11 @@ export default function App() {
           onOpenProject={handleOpenProject}
           onSelectCaseStudy={(project) => setSelectedCaseStudy(project)} 
         />
-        <ValueProps />
         <TechStack />
         <Process />
-        <ExperienceEducation />
+        <ExperienceEducation 
+          onOpenResume={() => setIsResumeOpen(true)} 
+        />
         <About />
         <Contact />
       </main>

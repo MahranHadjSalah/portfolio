@@ -8,23 +8,23 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-14 bg-white border-t border-[#E2E8F0] text-xs font-mono text-[#475569]">
+    <footer className="py-14 bg-[#0B1120] border-t border-[#263244] text-xs font-mono text-[#94A3B8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Main Footer Row */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-[#E2E8F0]">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-[#263244]">
           
           {/* Identity */}
           <div className="space-y-1.5">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-[#0F172A] tracking-wider text-sm">MAHRAN.DEV</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
+              <span className="font-bold text-[#F8FAFC] tracking-wider text-sm">MAHRAN.DEV</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
             </div>
-            <div className="text-[#475569]">
+            <div className="text-[#94A3B8]">
               Software Engineering Student · ISIMS (Université de Sfax)
             </div>
-            <div className="flex items-center gap-1.5 text-[#475569] text-[11px]">
-              <MapPin className="w-3 h-3 text-[#0F766E]" />
+            <div className="flex items-center gap-1.5 text-[#94A3B8] text-[11px]">
+              <MapPin className="w-3 h-3 text-[#38BDF8]" />
               <span>Sfax, Tunisia · Open to Remote (Worldwide) & Hybrid</span>
             </div>
           </div>
@@ -36,34 +36,34 @@ export default function Footer() {
                 href={portfolioData.personal.github}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#0F766E] transition-colors"
+                className="hover:text-[#38BDF8] transition-colors"
               >
                 GitHub
               </a>
-              <span className="text-slate-300">/</span>
+              <span className="text-[#263244]">/</span>
               <a
                 href={portfolioData.personal.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#0F766E] transition-colors"
+                className="hover:text-[#38BDF8] transition-colors"
               >
                 LinkedIn
               </a>
-              <span className="text-slate-300">/</span>
+              <span className="text-[#263244]">/</span>
               <a
                 href={portfolioData.personal.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#0F766E] transition-colors"
+                className="hover:text-[#38BDF8] transition-colors"
               >
                 WhatsApp
               </a>
-              <span className="text-slate-300">/</span>
+              <span className="text-[#263244]">/</span>
               <a
                 href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(portfolioData.personal.email)}`}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-[#0F766E] transition-colors"
+                className="hover:text-[#38BDF8] transition-colors"
               >
                 Email
               </a>
@@ -71,7 +71,7 @@ export default function Footer() {
 
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-[#475569] hover:text-[#0F172A] border border-[#E2E8F0] shadow-2xs transition-colors"
+              className="p-2 rounded-lg bg-[#172033] hover:bg-[#1e2a42] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#263244] shadow-xs transition-colors"
               title="Back to Top"
               aria-label="Back to Top"
             >
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Colophon */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] text-slate-400">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] text-[#94A3B8]/70">
           <div>
             &copy; {new Date().getFullYear()} Mahran Hadj Salah. All rights reserved.
           </div>

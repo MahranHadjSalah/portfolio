@@ -5,25 +5,27 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: #0B1120;
+    color: #F8FAFC;
   }
   
-  /* Clean technical scrollbar */
+  /* Clean technical dark scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #F8FAFC;
+    background: #0B1120;
   }
   ::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
+    background: #263244;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #0F766E;
+    background: #3B82F6;
   }
   /* Visible Keyboard Focus States for Accessibility */
   :focus-visible {
-    outline: 2px solid #0F766E;
+    outline: 2px solid #38BDF8;
     outline-offset: 2px;
   }
 }
@@ -41,46 +43,175 @@
 }
 
 /* Bold Outline Display Typography */
-.text-outline-teal {
-  -webkit-text-stroke: 1.5px #0F766E;
+.text-outline-blue {
+  -webkit-text-stroke: 1.5px #38BDF8;
   color: transparent;
 }
 
 .text-outline-slate {
-  -webkit-text-stroke: 1.5px #0F172A;
+  -webkit-text-stroke: 1.5px #94A3B8;
   color: transparent;
 }
 
 @media (min-width: 768px) {
-  .text-outline-teal {
-    -webkit-text-stroke: 2px #0F766E;
+  .text-outline-blue {
+    -webkit-text-stroke: 2px #38BDF8;
   }
   .text-outline-slate {
-    -webkit-text-stroke: 2px #0F172A;
+    -webkit-text-stroke: 2px #94A3B8;
   }
 }
 
-/* Subtle light engineering dot matrix background */
+/* Modern dark engineering dot matrix background */
 .bg-tech-grid {
   background-size: 32px 32px;
   background-image: 
-    radial-gradient(circle, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    radial-gradient(circle, rgba(56, 189, 248, 0.09) 1px, transparent 1px);
 }
 
 .bg-tech-lines {
   background-size: 64px 64px;
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(38, 50, 68, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(38, 50, 68, 0.4) 1px, transparent 1px);
 }
 
-/* Disciplined quiet engineering surface */
+/* Modern Tech Blue surface */
 .quiet-card {
-  background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  transition: border-color 0.15s ease;
+  background-color: #172033;
+  border: 1px solid #263244;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .quiet-card:hover {
-  border-color: #0F766E;
+  border-color: #3B82F6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+/* ==========================================================================
+   PRINT STYLES FOR CV / RÉSUMÉ (PDF Export & Paper Print)
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 14mm 12mm 14mm;
+  }
+
+  html, body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide entire website structure */
+  nav,
+  header,
+  main,
+  footer,
+  #work,
+  #engineering,
+  #process,
+  #experience,
+  #about,
+  #contact,
+  .no-print,
+  .resume-controls-bar {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+
+  /* Flatten modal overlays so only the CV paper prints */
+  .resume-modal-overlay {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .resume-modal-card {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .printable-resume-sheet {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* High contrast colors for print */
+  .printable-resume-sheet h1 {
+    color: #0f172a !important;
+  }
+
+  .printable-resume-sheet h2 {
+    color: #1e3a8a !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  .printable-resume-sheet h3 {
+    color: #0f172a !important;
+  }
+
+  .printable-resume-sheet p,
+  .printable-resume-sheet li,
+  .printable-resume-sheet span,
+  .printable-resume-sheet div {
+    color: #334155 !important;
+  }
+
+  .printable-resume-sheet a {
+    color: #1d4ed8 !important;
+    text-decoration: none !important;
+  }
+
+  .resume-print-accent {
+    color: #1d4ed8 !important;
+  }
+
+  .resume-print-subtext {
+    color: #64748b !important;
+  }
+
+  /* Prevent awkward page break cuts across cards */
+  .resume-avoid-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
 }

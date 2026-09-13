@@ -2,7 +2,7 @@ export const portfolioData = {
   personal: {
     name: "Mahran Hadj Salah",
     mainTitle: "Software Engineering Student · AI Engineer · Full-Stack Developer",
-    shortTagline: "Building intelligent software products from idea to deployment.",
+    shortTagline: "Software engineering student building production RAG, agent workflows, and full-stack systems.",
     description: "I'm a Software Engineering student at ISIMS (Université de Sfax), focused on AI engineering, full-stack development and backend systems. I build real-world products combining AI agents, RAG/GraphRAG, automation and modern SaaS architecture.",
     institution: "ISIMS — Université de Sfax",
     location: "Sfax, Tunisia",
@@ -31,12 +31,12 @@ export const portfolioData = {
       "SaaS"
     ],
 
-    // Verifiable & Honest Metrics
+    // Core Engineering Capabilities & Metrics
     honestStats: [
-      { value: "03", label: "Major Products Built", note: "Autoreply, LUX Dental, SupportAi" },
-      { value: "02", label: "SaaS Platforms", note: "Cloud Multi-Tenant Systems" },
-      { value: "01", label: "Enterprise AI Internship", note: "Hybrid GraphRAG Research & Build" },
-      { value: "01", label: "Engineering Degree in Progress", note: "ISIMS — Université de Sfax" }
+      { value: "3+", label: "Production Systems", note: "Shipped & deployed" },
+      { value: "AI", label: "Agentic & RAG Systems", note: "LangGraph & pgvector" },
+      { value: "Cloud", label: "Cloud Infrastructure", note: "Docker, Linux & CI/CD" },
+      { value: "SaaS", label: "Full-Stack Delivery", note: "End-to-end products" }
     ],
 
     bio: [
@@ -274,6 +274,72 @@ export const portfolioData = {
       techStack: ["Python", "FastAPI", "LangGraph", "pgvector", "PostgreSQL", "Redis", "Docker"],
       githubUrl: "https://github.com/MahranHadjSalah",
       liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20SupportAi"
+    },
+    {
+      id: "altivox",
+      title: "AltiVox",
+      badge: "Enterprise AI Internship · PFE",
+      role: "AI Engineering Intern · Full-Stack",
+      status: "Production Architecture",
+      category: "Enterprise GraphRAG Support SaaS",
+      tagline: "Intelligence without noise. Answers grounded exclusively in validated enterprise knowledge.",
+      summary: "A multi-tenant enterprise customer support SaaS built on GraphRAG architecture, featuring role-tailored portals (Customer, Manager, Admin), dynamic LLM model selection (Llama 3.1, Mistral, Qwen 2.5), and automated anti-hallucination escalation.",
+      contextNote: "Multi-Tenant Enterprise GraphRAG SaaS",
+
+      // Architectural Flow
+      architectureFlow: [
+        { step: "User Query", desc: "Customer question received via Chat Widget" },
+        { step: "Ensemble Retrieval", desc: "Weighted Reciprocal Rank Fusion: pgvector (60%) + Neo4j (40%)" },
+        { step: "Confidence Scoring", desc: "Verification against Manager-validated knowledge boundaries" },
+        { step: "Dynamic Model Inference", desc: "Manager-selected LLM (Llama 3.1 / Mistral / Qwen 2.5 via HF API)" },
+        { step: "Escalation Gate", desc: "Low-confidence fallback triggers human manager resolution" }
+      ],
+
+      // What I Built checklist
+      whatIBuilt: [
+        "Multi-tenant SaaS architecture serving Customer, Manager, and Admin portals",
+        "Hybrid GraphRAG retrieval combining PostgreSQL (pgvector) and Neo4j entity relationships",
+        "Dynamic model switcher allowing managers to select Llama 3.1, Mistral, or Qwen 2.5",
+        "LLM benchmarking suite evaluating hallucination rates, ROUGE scores, and token throughput",
+        "Zero-hallucination escalation pipeline auto-routing low-confidence questions to managers",
+        "7-stage document ingestion pipeline converting Excel/PDF docs into semantic vector chunks",
+        "Redis-backed session conversation history ensuring persistent multi-turn memory",
+        "FastAPI asynchronous backend with Docker Compose multi-service orchestration"
+      ],
+
+      problem: "Enterprise customer service bots frequently hallucinate inaccurate policies or outdated company information, and standard vector search fails to resolve multi-hop relational dependencies between teams, products, and contracts.",
+      solution: "Engineered AltiVox with a dual PostgreSQL (pgvector) + Neo4j GraphRAG pipeline and strict anti-hallucination confidence gates. Any query falling outside validated knowledge is automatically escalated to a human manager.",
+      myRole: "AI Engineering Intern: architected the hybrid retrieval pipeline (pgvector + Neo4j), coded the FastAPI backend services, developed the manager model-benchmarking interface, and containerized the multi-service stack with Docker.",
+
+      architectureHighlights: [
+        "Separation of data storage: PostgreSQL + pgvector stores content & embeddings, while Neo4j stores relationship graphs",
+        "EnsembleRetriever combining dense vector search and knowledge graph traversal with reciprocal rank fusion",
+        "Dynamic LLM selection from Manager Portal allowing instant switching between Llama 3.1, Mistral, and Qwen 2.5",
+        "Deterministic escalation pipeline assembled in FastAPI to notify managers of ungrounded customer questions"
+      ],
+
+      technicalDecisions: [
+        {
+          decision: "Why decouple content in PostgreSQL from relationships in Neo4j?",
+          reason: "PostgreSQL with pgvector excels at storing text blobs and high-dimensional vector similarity, while Neo4j specializes strictly in relationship traversal. Keeping raw text out of Neo4j keeps graph indexing fast and lightweight."
+        },
+        {
+          decision: "Why dynamic LLM selection for Managers?",
+          reason: "Different enterprise departments have varying latency and reasoning priorities. Benchmarking informs managers (hallucination rate, tokens/sec, ROUGE) so they can choose the optimal model for their use case."
+        }
+      ],
+
+      engineeringFacts: [
+        "Ensemble retrieval weighting pgvector (60%) and Neo4j (40%)",
+        "Dynamic multi-model runtime (Llama 3.1, Mistral, Qwen 2.5)",
+        "3 dedicated role portals: Customer, Manager, and Admin",
+        "Automated human escalation for zero ungrounded responses"
+      ],
+
+      whatILearned: "Mastered hybrid retrieval mechanics combining dense embeddings with graph databases, fine-tuned retrieval confidence thresholds to eliminate hallucinations, and built multi-tenant isolation patterns.",
+      techStack: ["FastAPI", "Python", "Neo4j", "pgvector", "PostgreSQL", "LangChain", "Docker", "React"],
+      githubUrl: "https://github.com/MahranHadjSalah",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20AltiVox"
     }
   ],
 
@@ -281,27 +347,27 @@ export const portfolioData = {
   engineeringJourney: [
     {
       year: "2023",
-      milestone: "Started Computer Science & Multimedia",
+      milestone: "Computer Science & Multimedia Foundations",
       organization: "ISIMS — Université de Sfax",
-      details: "Built strong foundations in algorithms, data structures, relational databases, and modern web application development."
+      details: "Core focus in algorithms, data structures, relational databases, and web architectures."
     },
     {
       year: "2025",
-      milestone: "Entered the Software Engineering Cycle",
+      milestone: "National Software Engineering Diploma Cycle",
       organization: "ISIMS — Université de Sfax",
-      details: "Earned admission to the competitive National Engineering Diploma program, specializing in advanced software architecture, distributed systems, and backend engineering."
+      details: "Advanced software architecture, distributed systems, and backend engineering."
     },
     {
       year: "2025 — 2026",
-      milestone: "Built AI & Full-Stack Products",
-      organization: "Independent Products & Internship",
-      details: "Architected and deployed Autoreply (AI Sales Automation), LUX Dental (Clinical SaaS), and SupportAi (Enterprise GraphRAG platform during AI Engineering internship)."
+      milestone: "Production Product Delivery (SaaS & AI)",
+      organization: "Autoreply · LUX Dental · AltiVox · SupportAi",
+      details: "Shipped commercial AI automation, clinical dental practice SaaS, and enterprise GraphRAG."
     },
     {
       year: "2026",
-      milestone: "Focus on AI Engineering, Architecture & Security",
-      organization: "Current Horizon",
-      details: "Deepening practical expertise in autonomous AI agents, GraphRAG architectures, production systems design, and application web security."
+      milestone: "Advanced Systems Focus & Open to Internships",
+      organization: "Autonomous Agents · GraphRAG · Security",
+      details: "Focus on multi-agent workflows, citation-grounded retrieval, and application security."
     }
   ],
 
@@ -345,7 +411,7 @@ export const portfolioData = {
   realProjectTech: {
     title: "Technologies I use in real projects",
     subtitle: "A proven, practical stack used to build and deploy real products — not arbitrary proficiency scores.",
-    proofNote: "Used across Autoreply, LUX Dental and SupportAi",
+    proofNote: "Used across Autoreply, LUX Dental, AltiVox and SupportAi",
     groups: [
       {
         category: "AI",

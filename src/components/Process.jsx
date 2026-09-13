@@ -7,7 +7,7 @@ export default function Process() {
   const { productLifecycle } = portfolioData;
 
   return (
-    <section id="process" className="py-24 border-b border-[#E2E8F0] bg-slate-50/60 relative">
+    <section id="process" className="py-28 md:py-36 border-b border-[#263244] bg-[#111827] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -16,18 +16,18 @@ export default function Process() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-3xl mb-12 space-y-2"
+          className="max-w-3xl mb-14 space-y-3"
         >
-          <motion.div variants={fadeInUp(0.4, 15)} className="text-xs font-mono text-[#0F766E] font-medium tracking-wide">
-            02 // Product Lifecycle
+          <motion.div variants={fadeInUp(0.4, 15)} className="text-xs font-mono text-[#38BDF8] font-bold tracking-wider uppercase">
+            // 03 · Product Lifecycle
           </motion.div>
-          <motion.h2 variants={fadeInUp(0.5, 20)} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
+          <motion.h2 variants={fadeInUp(0.5, 20)} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F8FAFC] tracking-tight font-sans">
             {productLifecycle.title}
           </motion.h2>
-          <motion.p variants={fadeInUp(0.5, 20)} className="text-base sm:text-lg font-bold text-[#0F766E] font-sans">
+          <motion.p variants={fadeInUp(0.5, 20)} className="text-base sm:text-lg font-bold text-[#38BDF8] font-sans">
             "{productLifecycle.motto}"
           </motion.p>
-          <motion.p variants={fadeInUp(0.5, 20)} className="text-sm sm:text-base text-[#475569] leading-relaxed font-sans">
+          <motion.p variants={fadeInUp(0.5, 20)} className="text-sm sm:text-base text-[#94A3B8] leading-relaxed font-sans">
             {productLifecycle.description}
           </motion.p>
         </motion.div>
@@ -38,11 +38,11 @@ export default function Process() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="p-6 sm:p-7 rounded-xl bg-white border border-[#E2E8F0] shadow-xs"
+          className="p-6 sm:p-7 rounded-xl bg-[#172033] border border-[#263244] shadow-xs"
         >
-          <div className="text-xs font-mono uppercase tracking-wider text-[#475569] font-bold mb-4 flex items-center justify-between">
+          <div className="text-xs font-mono uppercase tracking-wider text-[#94A3B8] font-bold mb-4 flex items-center justify-between">
             <span>End-to-End Product Pipeline:</span>
-            <span className="text-[#0F766E] font-semibold">7 Sequential Stages</span>
+            <span className="text-[#38BDF8] font-semibold">7 Sequential Stages</span>
           </div>
 
           <motion.div 
@@ -57,17 +57,17 @@ export default function Process() {
                 key={stage.num}
                 variants={fadeInUp(0.4, 15)}
                 whileHover={{ y: -3, transition: { duration: 0.2, ease: 'easeOut' } }}
-                className="p-4 rounded-xl bg-slate-50 border border-[#E2E8F0] hover:border-[#0F766E]/50 hover:bg-[#E6FFFA]/30 hover:shadow-xs transition-all flex flex-col justify-between group"
+                className="p-4 rounded-xl bg-[#0B1120] border border-[#263244] hover:border-[#3B82F6]/60 hover:bg-[#111827] hover:shadow-xs transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <span className="font-mono text-[11px] font-bold text-[#0F766E] block mb-1.5 group-hover:scale-105 transition-transform origin-left">
+                  <span className="font-mono text-[11px] font-bold text-[#38BDF8] block mb-1.5 group-hover:scale-105 transition-transform origin-left">
                     {stage.num} //
                   </span>
-                  <h3 className="text-xs sm:text-sm font-bold text-[#0F172A] font-sans uppercase tracking-tight group-hover:text-[#0F766E] transition-colors">
+                  <h3 className="text-xs sm:text-sm font-bold text-[#F8FAFC] font-sans uppercase tracking-tight group-hover:text-[#38BDF8] transition-colors">
                     {stage.title}
                   </h3>
                 </div>
-                <p className="text-xs text-[#475569] mt-2.5 font-sans leading-relaxed">
+                <p className="text-xs text-[#94A3B8] mt-2.5 font-sans leading-relaxed">
                   {stage.desc}
                 </p>
               </motion.div>

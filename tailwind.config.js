@@ -8,15 +8,27 @@ export default {
   theme: {
     extend: {
       colors: {
+        tech: {
+          bg: '#0B1120',
+          secondary: '#111827',
+          card: '#172033',
+          cardHover: '#1E293B',
+          primary: '#3B82F6',
+          bright: '#38BDF8',
+          text: '#F8FAFC',
+          muted: '#94A3B8',
+          border: '#263244',
+          borderHover: 'rgba(59, 130, 246, 0.4)',
+        },
         brand: {
-          primary: '#0F766E',
-          dark: '#115E59',
-          accent: '#E6FFFA',
-          bg: '#F8FAFC',
-          surface: '#FFFFFF',
-          text: '#0F172A',
-          muted: '#475569',
-          border: '#E2E8F0',
+          primary: '#3B82F6',
+          dark: '#1D4ED8',
+          accent: '#38BDF8',
+          bg: '#0B1120',
+          surface: '#172033',
+          text: '#F8FAFC',
+          muted: '#94A3B8',
+          border: '#263244',
         },
         dark: {
           950: '#050608',

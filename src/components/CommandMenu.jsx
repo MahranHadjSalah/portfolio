@@ -58,6 +58,11 @@ export default function CommandMenu({ isOpen, onClose, onOpenResume, onOpenProje
       action: () => openProject('supportai')
     },
     {
+      label: "Project: AltiVox — Enterprise GraphRAG Platform",
+      icon: FolderGit2,
+      action: () => openProject('altivox')
+    },
+    {
       label: "View All Projects Overview",
       icon: FolderGit2,
       action: () => navigateTo('#work')
@@ -115,31 +120,31 @@ export default function CommandMenu({ isOpen, onClose, onOpenResume, onOpenProje
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-start justify-center pt-24 sm:pt-32 px-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-24 sm:pt-32 px-4 bg-[#0B1120]/80 backdrop-blur-sm animate-in fade-in duration-150"
       onClick={() => onClose(false)}
     >
       <div 
-        className="w-full max-w-lg rounded-xl bg-white border border-[#E2E8F0] shadow-2xl overflow-hidden font-mono text-xs"
+        className="w-full max-w-lg rounded-xl bg-[#172033] border border-[#263244] shadow-2xl overflow-hidden font-mono text-xs"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center px-4 py-3 border-b border-[#E2E8F0] bg-slate-50">
-          <Search className="w-4 h-4 text-[#475569] mr-2.5" />
+        <div className="flex items-center px-4 py-3 border-b border-[#263244] bg-[#111827]">
+          <Search className="w-4 h-4 text-[#94A3B8] mr-2.5" />
           <input
             autoFocus
             type="text"
             placeholder="Type a command or jump to section..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent text-[#0F172A] placeholder:text-slate-400 focus:outline-none text-xs"
+            className="w-full bg-transparent text-[#F8FAFC] placeholder:text-[#94A3B8]/60 focus:outline-none text-xs"
           />
-          <kbd className="px-1.5 py-0.5 rounded bg-white text-[10px] text-[#475569] border border-[#E2E8F0] shadow-2xs">
+          <kbd className="px-1.5 py-0.5 rounded bg-[#172033] text-[10px] text-[#94A3B8] border border-[#263244] shadow-2xs">
             ESC
           </kbd>
         </div>
 
         <div className="max-h-72 overflow-y-auto p-2 space-y-1">
           {filtered.length === 0 ? (
-            <div className="p-4 text-center text-slate-400">No commands found.</div>
+            <div className="p-4 text-center text-[#94A3B8]">No commands found.</div>
           ) : (
             filtered.map((item, idx) => {
               const Icon = item.icon;
@@ -147,20 +152,20 @@ export default function CommandMenu({ isOpen, onClose, onOpenResume, onOpenProje
                 <button
                   key={idx}
                   onClick={item.action}
-                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left text-[#475569] hover:text-[#0F172A] hover:bg-slate-100 transition-colors group"
+                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#111827] transition-colors group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Icon className="w-4 h-4 text-[#0F766E] group-hover:scale-110 transition-transform" />
+                    <Icon className="w-4 h-4 text-[#38BDF8] group-hover:scale-110 transition-transform" />
                     <span>{item.label}</span>
                   </div>
-                  <span className="text-[10px] text-slate-400 group-hover:text-[#0F766E]">Jump ↵</span>
+                  <span className="text-[10px] text-[#94A3B8] group-hover:text-[#38BDF8]">Jump ↵</span>
                 </button>
               );
             })
           )}
         </div>
 
-        <div className="px-4 py-2 bg-slate-50 border-t border-[#E2E8F0] flex items-center justify-between text-[10px] text-[#475569]">
+        <div className="px-4 py-2 bg-[#111827] border-t border-[#263244] flex items-center justify-between text-[10px] text-[#94A3B8]">
           <span>Navigation Quick Actions</span>
           <span>Press ESC to close</span>
         </div>

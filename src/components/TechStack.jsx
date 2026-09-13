@@ -8,7 +8,7 @@ export default function TechStack() {
   const { realProjectTech } = portfolioData;
 
   return (
-    <section id="engineering" className="py-24 border-b border-[#E2E8F0] relative bg-[#F8FAFC]">
+    <section id="engineering" className="py-28 md:py-36 border-b border-[#263244] relative bg-[#0B1120]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -17,15 +17,15 @@ export default function TechStack() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-2xl mb-12 space-y-2"
+          className="max-w-3xl mb-14 space-y-3"
         >
-          <motion.div variants={fadeInUp(0.4, 15)} className="text-xs font-mono text-[#0F766E] font-medium tracking-wide">
-            Production Technologies
+          <motion.div variants={fadeInUp(0.4, 15)} className="text-xs font-mono text-[#38BDF8] font-bold tracking-wider uppercase">
+            // 02 · Production Technologies
           </motion.div>
-          <motion.h2 variants={fadeInUp(0.5, 20)} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight font-sans">
+          <motion.h2 variants={fadeInUp(0.5, 20)} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F8FAFC] tracking-tight font-sans">
             {realProjectTech.title}
           </motion.h2>
-          <motion.p variants={fadeInUp(0.5, 20)} className="text-base text-[#475569] leading-relaxed font-sans">
+          <motion.p variants={fadeInUp(0.5, 20)} className="text-base sm:text-lg text-[#94A3B8] leading-relaxed font-sans">
             {realProjectTech.subtitle}
           </motion.p>
         </motion.div>
@@ -43,24 +43,24 @@ export default function TechStack() {
               key={idx}
               variants={fadeInUp(0.5, 20)}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-              className="rounded-lg bg-white border border-[#E2E8F0] p-5 flex flex-col justify-between hover:border-[#0F766E]/50 hover:shadow-sm transition-all"
+              className="rounded-lg bg-[#172033] border border-[#263244] p-5 flex flex-col justify-between hover:border-[#3B82F6]/60 hover:shadow-sm transition-all"
             >
               <div>
-                <h3 className="text-sm font-bold text-[#0F172A] mb-3 pb-2.5 border-b border-[#E2E8F0] flex items-center justify-between font-mono">
+                <h3 className="text-sm font-bold text-[#F8FAFC] mb-3 pb-2.5 border-b border-[#263244] flex items-center justify-between font-mono">
                   <span className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0F766E]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
                     {group.category}
                   </span>
-                  <span className="text-[10px] text-[#475569]">{group.items.length} tools</span>
+                  <span className="text-[10px] text-[#94A3B8]">{group.items.length} tools</span>
                 </h3>
 
                 <ul className="space-y-2">
                   {group.items.map((skill) => (
                     <li
                       key={skill}
-                      className="text-xs font-mono text-[#334155] flex items-center gap-2"
+                      className="text-xs font-mono text-[#F8FAFC] flex items-center gap-2"
                     >
-                      <span className="text-[#0F766E] text-[10px]">✔</span>
+                      <span className="text-[#38BDF8] text-[10px]">✔</span>
                       <span>{skill}</span>
                     </li>
                   ))}
@@ -76,22 +76,22 @@ export default function TechStack() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+          className="p-4 rounded-xl bg-[#172033] border border-[#263244] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3"
         >
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-[#E6FFFA] border border-[#0F766E]/25 flex items-center justify-center text-[#0F766E] shrink-0">
+            <div className="w-9 h-9 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 flex items-center justify-center text-[#38BDF8] shrink-0">
               <CheckCircle2 className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs font-mono text-[#0F766E] font-bold uppercase tracking-wider">
+              <div className="text-xs font-mono text-[#38BDF8] font-bold uppercase tracking-wider">
                 Production-Tested Stack
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#0F172A] font-sans mt-0.5">
+              <div className="text-xs sm:text-sm font-bold text-[#F8FAFC] font-sans mt-0.5">
                 {realProjectTech.proofNote}
               </div>
             </div>
           </div>
-          <span className="text-xs font-mono text-[#475569]">
+          <span className="text-xs font-mono text-[#94A3B8]">
             Full-Stack · Applied AI · Distributed Systems
           </span>
         </motion.div>
