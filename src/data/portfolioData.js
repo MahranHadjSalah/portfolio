@@ -2,7 +2,7 @@ export const portfolioData = {
   personal: {
     name: "Mahran Hadj Salah",
     mainTitle: "Software Engineering Student · AI Engineer · Full-Stack Developer",
-    shortTagline: "Software engineering student building production RAG, agent workflows, and full-stack systems.",
+    shortTagline: "Software Engineering student specializing in AI engineering and intelligent agents, with a focus on building AI-powered products, SaaS platforms, and full-stack systems that turn ideas into real-world solutions.",
     description: "I'm a Software Engineering student at ISIMS (Université de Sfax), focused on AI engineering, full-stack development and backend systems. I build real-world products combining AI agents, RAG/GraphRAG, automation and modern SaaS architecture.",
     institution: "ISIMS — Université de Sfax",
     location: "Sfax, Tunisia",
