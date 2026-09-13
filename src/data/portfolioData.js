@@ -507,8 +507,9 @@ export const portfolioData = {
       "Software Engineering Internships",
       "AI Engineering Internships",
       "Backend / Full-Stack Opportunities",
+      "DevOps",
       "AI Product Development"
     ],
-    note: "Particularly interested in teams working on AI products, intelligent automation, SaaS, and backend systems."
+    note: "Particularly interested in teams working on AI products, intelligent automation, SaaS, DevOps, and backend systems."
   }
 };

@@ -51,20 +51,20 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="p-6 sm:p-7 rounded-xl bg-[#172033] border border-[#263244] shadow-xs mb-10 max-w-4xl space-y-3.5"
+          className="p-6 sm:p-7 rounded-xl bg-[#172033] border border-[#263244] shadow-xs mb-10 max-w-5xl space-y-3.5"
         >
           <div className="flex items-center gap-2 text-xs font-mono text-[#38BDF8] font-bold uppercase tracking-wider">
             <Target className="w-4 h-4" />
             <span>{whatImLookingFor.title}</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5">
             {whatImLookingFor.opportunities.map((opp, idx) => (
               <div 
                 key={idx}
                 className="p-3 rounded-lg bg-[#0B1120] border border-[#263244] text-xs font-mono text-[#F8FAFC] font-semibold flex items-center gap-2"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] shrink-0" />
                 <span>{opp}</span>
               </div>
             ))}
