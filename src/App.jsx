@@ -36,7 +36,7 @@ export default function App() {
         );
         if (found) {
           setCurrentProjectId(found.id);
-          document.title = `${found.title} — Mahran Bouallegue`;
+          document.title = `${found.title} — Mahran Hadj Salah`;
           if (window.location.pathname !== `/${found.id}`) {
             window.history.replaceState({ projectId: found.id }, '', `/${found.id}`);
           }
@@ -53,7 +53,7 @@ export default function App() {
         );
         if (found) {
           setCurrentProjectId(found.id);
-          document.title = `${found.title} — Mahran Bouallegue`;
+          document.title = `${found.title} — Mahran Hadj Salah`;
           window.history.replaceState({ projectId: found.id }, '', `/${found.id}`);
           return;
         }
@@ -61,7 +61,7 @@ export default function App() {
 
       // 3. Otherwise we are on home page
       setCurrentProjectId(null);
-      document.title = 'Mahran Bouallegue — AI & Full-Stack Systems Engineer';
+      document.title = 'Mahran Hadj Salah — Software Engineering Student | AI & Full-Stack Developer';
     };
 
     parseRoute();
@@ -79,7 +79,7 @@ export default function App() {
     window.history.pushState({ projectId: id }, '', `/${id}`);
     const found = portfolioData.featuredProjects.find((p) => p.id === id);
     if (found) {
-      document.title = `${found.title} — Mahran Bouallegue`;
+      document.title = `${found.title} — Mahran Hadj Salah`;
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -87,7 +87,7 @@ export default function App() {
   const handleNavigateHome = (targetHash = '#work') => {
     setCurrentProjectId(null);
     window.history.pushState(null, '', `/${targetHash}`);
-    document.title = 'Mahran Bouallegue — AI & Full-Stack Systems Engineer';
+    document.title = 'Mahran Hadj Salah — Software Engineering Student | AI & Full-Stack Developer';
     setTimeout(() => {
       const elId = targetHash.replace(/^#/, '');
       const el = document.getElementById(elId);
@@ -108,7 +108,7 @@ export default function App() {
     window.history.pushState({ projectId: id }, '', `/${id}`);
     const found = portfolioData.featuredProjects.find((p) => p.id === id);
     if (found) {
-      document.title = `${found.title} — Mahran Bouallegue`;
+      document.title = `${found.title} — Mahran Hadj Salah`;
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
