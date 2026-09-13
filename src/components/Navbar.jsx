@@ -1,12 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Terminal, Menu, X, ArrowUpRight, FileText } from 'lucide-react';
+import { Terminal, Menu, X, ArrowUpRight, FileText, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      window.innerWidth < 768
+    );
+  });
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+      const isSmallScreen = window.innerWidth < 768;
+      setIsMobile(isMobileDevice || isSmallScreen);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -81,6 +101,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 rel="noreferrer"
                 className="w-8 h-8 rounded-md bg-[#172033] border border-[#263244] flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC] hover:border-[#3B82F6]/50 transition-colors shadow-xs"
                 aria-label="GitHub Profile"
+                title="GitHub Profile"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
               </a>
@@ -90,6 +111,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 rel="noreferrer"
                 className="w-8 h-8 rounded-md bg-[#172033] border border-[#263244] flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC] hover:border-[#3B82F6]/50 transition-colors shadow-xs"
                 aria-label="LinkedIn Profile"
+                title="LinkedIn Profile"
               >
                 <LinkedinIcon className="w-3.5 h-3.5" />
               </a>
@@ -99,8 +121,25 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 rel="noreferrer"
                 className="w-8 h-8 rounded-md bg-[#172033] border border-[#263244] flex items-center justify-center text-[#94A3B8] hover:text-[#38BDF8] hover:border-[#3B82F6]/50 transition-colors shadow-xs"
                 aria-label="Chat on WhatsApp"
+                title="Chat on WhatsApp"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href={
+                  isMobile
+                    ? `mailto:${portfolioData.personal.email}`
+                    : `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+                        portfolioData.personal.email
+                      )}`
+                }
+                target={isMobile ? undefined : "_blank"}
+                rel={isMobile ? undefined : "noreferrer"}
+                className="w-8 h-8 rounded-md bg-[#172033] border border-[#263244] flex items-center justify-center text-[#94A3B8] hover:text-[#38BDF8] hover:border-[#3B82F6]/50 transition-colors shadow-xs"
+                aria-label="Send Email"
+                title="Send Email"
+              >
+                <Mail className="w-3.5 h-3.5" />
               </a>
             </div>
 
@@ -158,12 +197,12 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
               </a>
             ))}
 
-            <div className="flex items-center gap-4 pt-4 mt-2">
+            <div className="flex items-center gap-3 sm:gap-4 flex-wrap pt-4 mt-2">
               <a
                 href={portfolioData.personal.github}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8]"
+                className="flex items-center gap-1.5 text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8]"
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>GitHub</span>
@@ -172,7 +211,7 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 href={portfolioData.personal.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8]"
+                className="flex items-center gap-1.5 text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8]"
               >
                 <LinkedinIcon className="w-4 h-4" />
                 <span>LinkedIn</span>
@@ -181,10 +220,17 @@ export default function Navbar({ onOpenResume, onOpenCommandMenu }) {
                 href={portfolioData.personal.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8]"
+                className="flex items-center gap-1.5 text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8]"
               >
                 <WhatsAppIcon className="w-4 h-4" />
                 <span>WhatsApp</span>
+              </a>
+              <a
+                href={`mailto:${portfolioData.personal.email}`}
+                className="flex items-center gap-1.5 text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8]"
+              >
+                <Mail className="w-4 h-4" />
+                <span>Email</span>
               </a>
             </div>
           </div>
