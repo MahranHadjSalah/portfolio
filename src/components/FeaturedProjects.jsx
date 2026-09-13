@@ -151,7 +151,7 @@ export default function FeaturedProjects({ onOpenProject }) {
               tabIndex={0}
               role="button"
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenProject(project.id); }}
-              className="rounded-xl bg-[#172033] border border-[#263244] overflow-hidden group cursor-pointer hover:border-[#3B82F6]/60 hover:shadow-lg hover:shadow-[#3B82F6]/5 transition-all flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
+              className="rounded-xl bg-[#172033] border border-[#3B82F6] hover:border-[#38BDF8] overflow-hidden group cursor-pointer hover:shadow-xl hover:shadow-[#3B82F6]/15 transition-all flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
             >
               {/* Top Half: Minimalist Visual Preview Box */}
               {renderCardPreview(project)}
