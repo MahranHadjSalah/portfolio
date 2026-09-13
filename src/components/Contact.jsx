@@ -84,35 +84,35 @@ export default function Contact() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           
-          {/* WhatsApp Direct */}
+          {/* LinkedIn First */}
           <motion.a
             variants={fadeInUp(0.5, 20)}
             whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-            href={whatsappUrl}
+            href={portfolioData.personal.linkedin}
             target="_blank"
             rel="noreferrer"
             className="p-5 sm:p-6 rounded-xl bg-[#172033] border border-[#263244] hover:border-[#3B82F6]/60 hover:shadow-lg transition-all flex flex-col justify-between group focus-visible:ring-2 focus-visible:ring-[#38BDF8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1120]"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-9 h-9 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 flex items-center justify-center text-[#38BDF8] group-hover:scale-105 transition-transform">
-                  <WhatsAppIcon className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 flex items-center justify-center text-[#38BDF8] group-hover:scale-105 transition-all">
+                  <LinkedinIcon className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-mono text-[#38BDF8] font-semibold">Instant</span>
+                <span className="text-[11px] font-mono text-[#38BDF8] font-semibold">Network</span>
               </div>
 
-              <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">WhatsApp</h3>
+              <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">LinkedIn</h3>
               <p className="text-xs text-[#94A3B8] font-sans">
-                Direct messaging and real-time project discussions.
+                Professional network and background verification.
               </p>
             </div>
 
-            <div className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#38BDF8] font-semibold">
-              wa.me/{portfolioData.personal.phoneRaw}
+            <div className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#38BDF8] group-hover:text-[#F8FAFC] transition-colors">
+              in/mahran-hadj-salah ↗
             </div>
           </motion.a>
 
-          {/* Email */}
+          {/* Email Second */}
           <motion.div 
             variants={fadeInUp(0.5, 20)}
             whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
@@ -154,35 +154,35 @@ export default function Contact() {
             </a>
           </motion.div>
 
-          {/* LinkedIn */}
+          {/* WhatsApp Third */}
           <motion.a
             variants={fadeInUp(0.5, 20)}
             whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-            href={portfolioData.personal.linkedin}
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
             className="p-5 sm:p-6 rounded-xl bg-[#172033] border border-[#263244] hover:border-[#3B82F6]/60 hover:shadow-lg transition-all flex flex-col justify-between group focus-visible:ring-2 focus-visible:ring-[#38BDF8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1120]"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-9 h-9 rounded-lg bg-[#111827] border border-[#263244] flex items-center justify-center text-[#F8FAFC] group-hover:text-[#38BDF8] group-hover:scale-105 transition-all">
-                  <LinkedinIcon className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-lg bg-[#111827] border border-[#263244] flex items-center justify-center text-[#F8FAFC] group-hover:scale-105 transition-transform">
+                  <WhatsAppIcon className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-mono text-[#94A3B8]">Network</span>
+                <span className="text-[11px] font-mono text-[#94A3B8]">Instant</span>
               </div>
 
-              <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">LinkedIn</h3>
+              <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">WhatsApp</h3>
               <p className="text-xs text-[#94A3B8] font-sans">
-                Professional network and background verification.
+                Direct messaging and real-time project discussions.
               </p>
             </div>
 
-            <div className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#94A3B8] group-hover:text-[#38BDF8] transition-colors">
-              in/mahran-hadj-salah ↗
+            <div className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#38BDF8] font-semibold">
+              wa.me/{portfolioData.personal.phoneRaw}
             </div>
           </motion.a>
 
-          {/* GitHub */}
+          {/* GitHub Fourth */}
           <motion.a
             variants={fadeInUp(0.5, 20)}
             whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
