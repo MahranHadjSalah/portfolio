@@ -12,6 +12,7 @@ import CaseStudyModal from './components/CaseStudyModal';
 import ResumeModal from './components/ResumeModal';
 import CommandMenu from './components/CommandMenu';
 import ProjectDetailPage from './components/ProjectDetailPage';
+import BackToTop from './components/BackToTop';
 import { portfolioData } from './data/portfolioData';
 
 export default function App() {
@@ -157,6 +158,9 @@ export default function App() {
           onOpenProject={handleOpenProject}
           onNavigateHome={handleNavigateHome}
         />
+
+        {/* Floating Back to Top Button */}
+        <BackToTop />
       </div>
     );
   }
@@ -209,6 +213,9 @@ export default function App() {
         onOpenProject={handleOpenProject}
         onNavigateHome={handleNavigateHome}
       />
+
+      {/* Floating Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }

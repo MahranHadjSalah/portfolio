@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Footer() {
@@ -23,10 +23,6 @@ export default function Footer() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <footer className="py-14 bg-[#0B1120] border-t border-[#263244] text-xs font-mono text-[#94A3B8]">
@@ -95,15 +91,6 @@ export default function Footer() {
                 Email
               </a>
             </div>
-
-            <button
-              onClick={scrollToTop}
-              className="p-2 rounded-lg bg-[#172033] hover:bg-[#1e2a42] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#263244] shadow-xs transition-colors"
-              title="Back to Top"
-              aria-label="Back to Top"
-            >
-              <ArrowUp className="w-4 h-4" />
-            </button>
           </div>
 
         </div>
