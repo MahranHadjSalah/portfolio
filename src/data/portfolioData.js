@@ -166,6 +166,78 @@ export const portfolioData = {
       liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20SupportAi"
     },
     {
+      id: "enterprise-ai",
+      title: "Enterprise AI Platform",
+      badge: "Multi-Agent System · LangGraph StateGraph",
+      role: "AI & Systems Architect",
+      status: "Production Blueprint",
+      category: "Autonomous Multi-Agent Enterprise OS",
+      tagline: "An autonomous, multi-agent operating system coordinating 16 specialized agents under LangGraph supervision, deterministic routing, and HITL governance.",
+      summary: "A dual-engine enterprise AI platform integrating verified corporate knowledge retrieval (6 agents with fact-checking claim verification) and autonomous full-stack software synthesis (10 agents with AST validation & sandbox smoke gates).",
+      contextNote: "LangGraph StateGraph · 16 Agents · HITL Governance · Sandbox Gates",
+
+      // Enterprise AI Architectural Flow
+      architectureFlow: [
+        { step: "User Action & Budget Check", desc: "Pre-flight monthly cap check ($) scoped by workspace_id" },
+        { step: "Supervisor Router", desc: "Classifies intent: Knowledge Team, Software Team, or Mixed" },
+        { step: "Coordinated Agent Execution", desc: "16 specialized agents across Knowledge & Software pipelines" },
+        { step: "Human-in-the-Loop Gate", desc: "Interrupts execution at milestone phases for manual human approval" },
+        { step: "Verification & Sandbox Gate", desc: "21-class AST static validator + isolated Docker container smoke test" }
+      ],
+
+      // Highlights
+      whatIBuilt: [
+        "Stateful multi-agent orchestration engine built with LangGraph StateGraph & AsyncPostgresSaver checkpointer",
+        "Knowledge Team pipeline (6 agents): vector retrieval (pgvector), Tavily search fallback, summarization, anti-hallucination fact-checker, and footnote citations",
+        "Software Team pipeline (10 agents): PM milestone breakdown, BA user stories, architectural contracts, backend/frontend engineers, and pytest QA generation",
+        "Human-in-the-Loop (HITL) gate pausing execution via interrupt() at milestone phases for manual human review and feedback loops",
+        "Deterministic Static Validator checking 21 structural defect classes (contract mismatches, unindexed FKs, Pydantic v1/v2 footguns)",
+        "Execution Sandbox Gate booting generated repos in isolated containers with TypeScript compile & pytest suites",
+        "Enterprise multi-tenancy & monthly financial spend caps scoped by workspace_id with pre-flight HTTP 402 checks",
+        "Full-stack monorepo with FastAPI asynchronous backend, SSE real-time streaming, and React 18 + TypeScript IDE frontend"
+      ],
+
+      problem: "Standard enterprise AI deployments struggle with unconstrained hallucination, lack of auditable citations, and fragile code generation that breaks runtime contracts or exceeds token budgets.",
+      solution: "Architected an autonomous multi-agent operating system coordinating 16 specialized agents under deterministic routing, strict HITL milestone gates, non-LLM static validation across 21 defect classes, and container execution sandboxes.",
+      myRole: "AI & Systems Architect: designed the LangGraph state machine, supervisor router, 16-agent workflows, static AST defect validator, and FastAPI streaming server.",
+      
+      architectureHighlights: [
+        "Dual-team multi-agent architecture (6 Knowledge agents + 10 Software agents) mediated strictly by a Supervisor Router",
+        "Human-in-the-Loop (HITL) milestone gates pausing execution via state graph interrupts until operator approval",
+        "Non-LLM deterministic static validator covering 21 structural defect classes before sandbox execution",
+        "Three-state build verification badge (Verified, Unverified, Failed) backed by Docker container smoke tests",
+        "Asynchronous FastAPI gateway with Server-Sent Events (SSE) streaming live agent state transitions"
+      ],
+
+      technicalDecisions: [
+        {
+          decision: "Why No Direct Agent-to-Agent Edges?",
+          reason: "Direct agent communication leads to cascading drift and non-deterministic loops. Strict Supervisor routing guarantees auditable state transitions and predictable token costs."
+        },
+        {
+          decision: "Why Deterministic Static Validation Before Sandbox Execution?",
+          reason: "Running Docker containers is computationally expensive and slow. Static AST checks catch 21 structural defect classes (schema mismatches, missing models, Pydantic footguns) in milliseconds."
+        },
+        {
+          decision: "Why Manifest-Driven Batched Generation?",
+          reason: "Generating 40+ file repositories in a single prompt risks truncation and token budget blowout. Generating a file manifest first and writing in cohesive batches guarantees complete delivery."
+        }
+      ],
+
+      engineeringFacts: [
+        "16 specialized agents + 4 deterministic shared services",
+        "LangGraph StateGraph with Postgres checkpointer",
+        "21 structural defect classes statically verified",
+        "HITL approval gates via state graph interrupts",
+        "FastAPI + SSE real-time streaming transport"
+      ],
+
+      whatILearned: "Mastered production-grade multi-agent state machines, deterministic guardrails around stochastic LLMs, isolated sandbox execution patterns, and enterprise-grade multi-tenancy scoping.",
+      techStack: ["Python", "FastAPI", "LangGraph", "PostgreSQL", "pgvector", "React", "TypeScript", "Tailwind CSS", "Docker"],
+      githubUrl: "https://github.com/MahranHadjSalah/Entreprise-Ai",
+      liveUrl: "https://github.com/MahranHadjSalah/Entreprise-Ai"
+    },
+    {
       id: "smart-finance-analyzer",
       title: "SmartFinanceAnalyzer",
       badge: "Full-Stack AI · FinTech",

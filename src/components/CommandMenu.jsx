@@ -43,6 +43,11 @@ export default function CommandMenu({ isOpen, onClose, onOpenResume, onOpenProje
 
   const actions = [
     {
+      label: "Project: Enterprise AI Platform — Multi-Agent OS",
+      icon: FolderGit2,
+      action: () => openProject('enterprise-ai')
+    },
+    {
       label: "Project: Smart Finance Analyzer — Financial AI",
       icon: FolderGit2,
       action: () => openProject('smart-finance-analyzer')

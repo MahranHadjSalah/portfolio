@@ -108,6 +108,12 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
             <Car className="w-9 h-9 text-[#22C55E]" />
           </div>
         );
+      case 'enterprise-ai':
+        return (
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#172033] border border-[#3B82F6]/50 shadow-lg shadow-[#3B82F6]/10 flex items-center justify-center text-[#38BDF8]">
+            <Bot className="w-9 h-9 text-[#38BDF8]" />
+          </div>
+        );
       case 'supportai':
       default:
         return (
@@ -554,6 +560,238 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
               </div>
             </div>
           </div>
+        </div>
+      );
+    }
+
+    // Enterprise AI Platform
+    if (project.id === 'enterprise-ai') {
+      return (
+        <div className="bg-[#172033] rounded-2xl p-4 sm:p-8 text-[#F8FAFC] border border-[#263244] font-mono shadow-2xl">
+          {/* Header Bar */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#263244] text-xs gap-2">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[#94A3B8] ml-2">enterprise-ai // LangGraph Multi-Agent OS</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] text-[#38BDF8] bg-[#3B82F6]/10 border border-[#3B82F6]/30 px-2 py-0.5 rounded">
+                Checkpointer: AsyncPostgresSaver
+              </span>
+              <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                VERIFIED (Static + Sandbox)
+              </span>
+            </div>
+          </div>
+
+          {/* Interactive Mode Selector */}
+          <div className="flex flex-wrap gap-2 pt-6">
+            {[
+              { id: 0, label: '1. Knowledge Team (6 Agents)' },
+              { id: 1, label: '2. Software Team (10 Agents)' },
+              { id: 2, label: '3. Static AST Validator (21 Defects)' },
+              { id: 3, label: '4. Architecture Blueprints' }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setSimStep(tab.id)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all ${
+                  simStep === tab.id
+                    ? 'bg-[#3B82F6] text-white shadow-md shadow-[#3B82F6]/20'
+                    : 'bg-[#111827] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#263244]'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content 0: Knowledge Team Pipeline */}
+          {simStep === 0 && (
+            <div className="pt-4 space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263244] space-y-1.5">
+                  <div className="text-[10px] text-[#38BDF8] font-bold">1 & 2 · RETRIEVAL & WEB SEARCH</div>
+                  <div className="text-xs font-bold text-[#F8FAFC]">pgvector (HNSW) + Tavily</div>
+                  <p className="text-[11px] text-[#94A3B8] font-sans">
+                    Embeds with text-embedding-3-small. Fallback to Tavily web search only if internal doc chunks &lt; 3.
+                  </p>
+                  <div className="text-[10px] text-emerald-400">Score: 0.932 cosine similarity</div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263244] space-y-1.5">
+                  <div className="text-[10px] text-[#38BDF8] font-bold">3 & 4 · SUMMARY & FACT CHECKER</div>
+                  <div className="text-xs font-bold text-[#F8FAFC]">Anti-Hallucination Gate</div>
+                  <p className="text-[11px] text-[#94A3B8] font-sans">
+                    Summarizer condenses multi-source context. Fact Checker rigorously validates every claim against raw chunks.
+                  </p>
+                  <div className="text-[10px] text-emerald-400">0 ungrounded claims detected</div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-[#111827] border border-emerald-500/30 space-y-1.5">
+                  <div className="text-[10px] text-emerald-400 font-bold">5 & 6 · ANSWER & CITATIONS</div>
+                  <div className="text-xs font-bold text-emerald-400">Exact Section Footnotes</div>
+                  <p className="text-[11px] text-[#94A3B8] font-sans">
+                    Binds exact footnote tags with source and section. Pauses for milestone approval when policy requires.
+                  </p>
+                  <div className="text-[10px] text-[#38BDF8]">HITL Approval: Granted ✓</div>
+                </div>
+              </div>
+
+              {/* Sample Knowledge Output Trace */}
+              <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
+                <div className="text-[10px] text-[#94A3B8] uppercase font-bold flex justify-between">
+                  <span>Live Grounded Answer Trace:</span>
+                  <span className="text-emerald-400">SSE Stream Completed (2.1s)</span>
+                </div>
+                <div className="bg-[#0B1120] border border-[#263244] p-3 rounded font-sans text-xs text-[#F8FAFC] leading-relaxed">
+                  "Under Enterprise SLA Agreement v4.2 <span className="text-[#38BDF8] font-mono">[1] SLA_Tier4.pdf § 3.1</span>, multi-region database failover RTO is guaranteed at <strong>&lt; 15 minutes</strong> with zero data loss (RPO = 0). Employee audit logs are immutably archived for <strong>7 years</strong> in cold storage <span className="text-[#38BDF8] font-mono">[2] Compliance_2026.pdf § 8.4</span>."
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Tab Content 1: Software Team Pipeline */}
+          {simStep === 1 && (
+            <div className="pt-4 space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="p-3 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+                  <div className="text-[10px] text-[#38BDF8] font-bold">1. PM & BA</div>
+                  <div className="text-xs font-bold text-[#F8FAFC]">Scope & Milestones</div>
+                  <div className="text-[10px] text-[#94A3B8] font-sans">3-6 milestones + user stories checklist</div>
+                  <div className="text-[9px] text-emerald-400 font-mono">Milestone Gate: Approved ✓</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+                  <div className="text-[10px] text-[#38BDF8] font-bold">2. ARCHITECT</div>
+                  <div className="text-xs font-bold text-[#F8FAFC]">ER & API Contract</div>
+                  <div className="text-[10px] text-[#94A3B8] font-sans">Binding api_contract.py + schema</div>
+                  <div className="text-[9px] text-emerald-400 font-mono">Milestone Gate: Approved ✓</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+                  <div className="text-[10px] text-[#38BDF8] font-bold">3. ENGINEERS</div>
+                  <div className="text-xs font-bold text-[#F8FAFC]">FastAPI + React 18</div>
+                  <div className="text-[10px] text-[#94A3B8] font-sans">TypeScript, Tailwind v4, SQLAlchemy</div>
+                  <div className="text-[9px] text-[#38BDF8] font-mono">Manifest batches: 42 files</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-[#111827] border border-emerald-500/30 space-y-1">
+                  <div className="text-[10px] text-emerald-400 font-bold">4. QA & SANDBOX</div>
+                  <div className="text-xs font-bold text-emerald-400">pytest & Container</div>
+                  <div className="text-[10px] text-[#94A3B8] font-sans">Full suite execution in Docker</div>
+                  <div className="text-[9px] text-emerald-400 font-mono">18 / 18 tests passing</div>
+                </div>
+              </div>
+
+              {/* Manifest Batch Breakdown */}
+              <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
+                <div className="text-[10px] text-[#94A3B8] uppercase font-bold flex justify-between">
+                  <span>Batch Execution Progress (42 Files Generated):</span>
+                  <span className="text-[#38BDF8]">Token Cost: $0.42 / $50 Cap</span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-[11px]">
+                  <div className="bg-[#0B1120] p-2 rounded border border-[#263244]">
+                    <span className="text-emerald-400">Batch 1: Models</span>
+                    <span className="block text-[9px] text-[#94A3B8]">SQLAlchemy & Schemas</span>
+                  </div>
+                  <div className="bg-[#0B1120] p-2 rounded border border-[#263244]">
+                    <span className="text-emerald-400">Batch 2: Endpoints</span>
+                    <span className="block text-[9px] text-[#94A3B8]">FastAPI async routes</span>
+                  </div>
+                  <div className="bg-[#0B1120] p-2 rounded border border-[#263244]">
+                    <span className="text-emerald-400">Batch 3: Frontend UI</span>
+                    <span className="block text-[9px] text-[#94A3B8]">React 18 + Tailwind v4</span>
+                  </div>
+                  <div className="bg-[#0B1120] p-2 rounded border border-[#263244]">
+                    <span className="text-emerald-400">Batch 4: Test Suites</span>
+                    <span className="block text-[9px] text-[#94A3B8]">pytest integration tests</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Tab Content 2: Static AST Validator */}
+          {simStep === 2 && (
+            <div className="pt-4 space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+                  <div className="text-xs font-bold text-[#38BDF8] uppercase flex items-center justify-between">
+                    <span>Deterministic Static Validator</span>
+                    <span className="text-emerald-400">21 / 21 Pass</span>
+                  </div>
+                  <p className="text-xs text-[#94A3B8] font-sans">
+                    Non-LLM deterministic checks preventing structural defects before container execution:
+                  </p>
+                  <ul className="space-y-1 text-[11px] text-[#F8FAFC]">
+                    <li className="flex items-center gap-1.5 text-emerald-400">✓ Frontend ↔ Backend contract matching</li>
+                    <li className="flex items-center gap-1.5 text-emerald-400">✓ Pydantic v1 vs v2 compatibility validation</li>
+                    <li className="flex items-center gap-1.5 text-emerald-400">✓ Foreign key index presence & relational integrity</li>
+                    <li className="flex items-center gap-1.5 text-emerald-400">✓ Brand token adherence (zero hardcoded hex codes)</li>
+                    <li className="flex items-center gap-1.5 text-emerald-400">✓ Feature checklist coverage check in generated source</li>
+                  </ul>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#111827] border border-emerald-500/30 space-y-2">
+                  <div className="text-xs font-bold text-emerald-400 uppercase flex items-center justify-between">
+                    <span>Execution Sandbox Gate</span>
+                    <span className="text-emerald-400">Container Healthy</span>
+                  </div>
+                  <p className="text-xs text-[#94A3B8] font-sans">
+                    Isolated runtime container execution for runtime smoke testing:
+                  </p>
+                  <div className="bg-[#0B1120] p-2.5 rounded font-mono text-[10px] space-y-1 text-[#94A3B8]">
+                    <div className="text-emerald-400">$ tsc --noEmit (TypeScript Type Checker)</div>
+                    <div className="text-[#F8FAFC]">✓ 0 errors, 0 warnings across 24 TSX files</div>
+                    <div className="text-emerald-400 pt-1">$ pytest -v tests/ (Backend Test Suite)</div>
+                    <div className="text-[#F8FAFC]">✓ 18 passed, 0 failed in 1.42s</div>
+                    <div className="text-emerald-400 pt-1">$ headless-smoke-check</div>
+                    <div className="text-[#F8FAFC]">✓ Hydration successful, 0 browser console errors</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Tab Content 3: Architecture Blueprints */}
+          {simStep === 3 && (
+            <div className="pt-4 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-3 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+                  <div className="text-xs font-bold text-[#38BDF8] flex items-center justify-between">
+                    <span>System Architecture Flow</span>
+                    <span className="text-[10px] text-[#94A3B8]">Three-Tier Multi-Agent Model</span>
+                  </div>
+                  <div className="rounded-lg overflow-hidden border border-[#263244] bg-[#0A0F1D]">
+                    <img 
+                      src="/projects/enterprise-ai/architecture_diagram.png" 
+                      alt="System Architecture Diagram" 
+                      className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+                  <div className="text-xs font-bold text-[#38BDF8] flex items-center justify-between">
+                    <span>Platform Blueprint</span>
+                    <span className="text-[10px] text-[#94A3B8]">16 Agents & Governance</span>
+                  </div>
+                  <div className="rounded-lg overflow-hidden border border-[#263244] bg-[#0A0F1D]">
+                    <img 
+                      src="/projects/enterprise-ai/enterprise_ai_platform_blueprint.png" 
+                      alt="Enterprise AI Platform Blueprint" 
+                      className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
       );
     }

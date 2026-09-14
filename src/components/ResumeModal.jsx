@@ -244,6 +244,29 @@ export default function ResumeModal({ isOpen, onClose }) {
               Projects & Experience
             </h2>
 
+            {/* Project 0: Enterprise AI Platform */}
+            <div className="space-y-1.5 resume-avoid-break print:mb-3">
+              <div className="flex items-baseline justify-between flex-wrap gap-1">
+                <h3 className="text-sm font-bold text-[#F8FAFC] print:text-slate-900 font-mono">
+                  Enterprise AI Platform — Autonomous Multi-Agent OS <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| AI Architecture (2026)</span>
+                </h3>
+                <span className="text-xs font-mono text-[#38BDF8] print:text-blue-700">
+                  LangGraph StateGraph & HITL
+                </span>
+              </div>
+              <p className="text-xs text-[#94A3B8] print:text-slate-700 leading-relaxed">
+                Autonomous multi-agent system coordinating 16 specialized agents for verified corporate knowledge retrieval and full-stack software synthesis.
+              </p>
+              <ul className="list-disc list-inside text-xs text-[#94A3B8] print:text-slate-700 space-y-0.5">
+                <li>LangGraph StateGraph architecture orchestrating 6 Knowledge agents (pgvector, anti-hallucination fact checking) and 10 Software agents.</li>
+                <li>Human-in-the-Loop (HITL) milestone approval gates pausing execution graphs via interrupt() for operator verification.</li>
+                <li>Four safety layers: batched manifests, golden scaffolds, non-LLM static AST validation (21 defect classes), and Docker sandbox smoke tests.</li>
+              </ul>
+              <div className="text-[11px] font-mono text-[#38BDF8] print:text-blue-700 pt-0.5">
+                Technologies: Python, FastAPI, LangGraph, PostgreSQL, pgvector, React 18, TypeScript, Docker
+              </div>
+            </div>
+
             {/* Project 1: Smart Finance Analyzer */}
             <div className="space-y-1.5 resume-avoid-break print:mb-3">
               <div className="flex items-baseline justify-between flex-wrap gap-1">

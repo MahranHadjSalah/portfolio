@@ -436,6 +436,87 @@ export default function FeaturedProjects({ onOpenProject }) {
       );
     }
 
+    // Enterprise AI Platform (LangGraph Multi-Agent Orchestration Cockpit)
+    if (project.id === 'enterprise-ai') {
+      return (
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0B1120] via-[#0F172A] to-[#0A0F1D] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12),transparent_70%)] pointer-events-none" />
+          
+          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+            {/* Window Chrome */}
+            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+              </div>
+              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
+                enterprise-ai // LangGraph OS
+              </div>
+              <div className="text-[7px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                VERIFIED
+              </div>
+            </div>
+
+            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
+              {/* Supervisor & Intent Bar */}
+              <div className="bg-[#111827] px-2 py-1 rounded border border-[#263244] text-[7px] font-mono flex justify-between items-center text-[#94A3B8]">
+                <div className="flex items-center gap-1">
+                  <span className="text-[#38BDF8] font-bold">⚡ Supervisor:</span>
+                  <span className="text-[#F8FAFC]">16 Agents Active</span>
+                </div>
+                <span className="bg-[#3B82F6]/20 text-[#38BDF8] px-1.5 py-0.5 rounded border border-[#3B82F6]/30">
+                  StateGraph
+                </span>
+              </div>
+
+              {/* 4 Multi-Agent Pipeline Steps */}
+              <div className="grid grid-cols-2 gap-1.5">
+                <div className="bg-[#172033] p-1.5 rounded border border-[#263244] space-y-0.5">
+                  <div className="flex items-center justify-between text-[6.5px] font-mono">
+                    <span className="text-[#94A3B8]">1. Architect & Contract</span>
+                    <span className="text-emerald-400 font-bold">✓</span>
+                  </div>
+                  <div className="text-[7px] font-mono text-[#F8FAFC] truncate">api_contract.py</div>
+                </div>
+
+                <div className="bg-[#172033] p-1.5 rounded border border-[#263244] space-y-0.5">
+                  <div className="flex items-center justify-between text-[6.5px] font-mono">
+                    <span className="text-[#94A3B8]">2. FastAPI & React 18</span>
+                    <span className="text-emerald-400 font-bold">✓</span>
+                  </div>
+                  <div className="text-[7px] font-mono text-[#F8FAFC] truncate">Manifest Batches (42 files)</div>
+                </div>
+
+                <div className="bg-[#172033] p-1.5 rounded border border-[#263244] space-y-0.5">
+                  <div className="flex items-center justify-between text-[6.5px] font-mono">
+                    <span className="text-[#94A3B8]">3. HITL Milestone Gate</span>
+                    <span className="text-[#38BDF8] font-bold">Approved</span>
+                  </div>
+                  <div className="text-[7px] font-mono text-emerald-400 truncate">interrupt() Resumed</div>
+                </div>
+
+                <div className="bg-[#172033] p-1.5 rounded border border-emerald-500/30 space-y-0.5">
+                  <div className="flex items-center justify-between text-[6.5px] font-mono">
+                    <span className="text-[#94A3B8]">4. Static AST & Sandbox</span>
+                    <span className="text-emerald-400 font-bold">21/21 Pass</span>
+                  </div>
+                  <div className="text-[7px] font-mono text-[#34D399] truncate">pytest: 18 passed</div>
+                </div>
+              </div>
+
+              {/* Bottom Console Bar */}
+              <div className="bg-[#111827] px-2 py-1 rounded border border-[#263244] flex justify-between items-center text-[6.5px] text-[#94A3B8] font-mono">
+                <span className="text-[#38BDF8] truncate">pgvector HNSW · Tavily · Fact-Checker Citations</span>
+                <span className="text-emerald-400 font-bold shrink-0">Docker Healthy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     // 10. SupportAi (pgvector + Neo4j GraphRAG Console)
     return (
       <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0E1C33]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
@@ -495,14 +576,14 @@ export default function FeaturedProjects({ onOpenProject }) {
 
   const categories = [
     { id: 'All', label: 'All Projects', count: portfolioData.featuredProjects.length },
-    { id: 'AI & ML', label: 'AI & LLM', count: 2 },
+    { id: 'AI & ML', label: 'AI & LLM', count: 3 },
     { id: 'Full-Stack SaaS', label: 'Full-Stack SaaS', count: 2 },
     { id: 'Mobile & Vision', label: 'Mobile & Vision', count: 3 }
   ];
 
   const filteredProjects = portfolioData.featuredProjects.filter((project) => {
     if (activeFilter === 'All') return true;
-    if (activeFilter === 'AI & ML') return ['supportai', 'senior-voice'].includes(project.id);
+    if (activeFilter === 'AI & ML') return ['supportai', 'enterprise-ai', 'senior-voice'].includes(project.id);
     if (activeFilter === 'Full-Stack SaaS') return ['smart-finance-analyzer', 'university-absence'].includes(project.id);
     if (activeFilter === 'Mobile & Vision') return ['flutter-ecommerce', 'hand-detectors', 'attt-mobile'].includes(project.id);
     return true;
