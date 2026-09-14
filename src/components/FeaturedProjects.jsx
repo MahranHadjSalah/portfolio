@@ -599,50 +599,62 @@ export default function FeaturedProjects({ onOpenProject }) {
 
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
+  const isTogglingRef = React.useRef(false);
+
   const handleToggleShowAll = (e) => {
     if (e && e.currentTarget) {
       e.currentTarget.blur();
     }
+    if (isTogglingRef.current) return;
 
     if (!showAll) {
-      // Temporarily disable smooth scroll so the browser directly shows the first project without sliding
-      document.documentElement.style.scrollBehavior = 'auto';
+      isTogglingRef.current = true;
+      const startScrollY = window.scrollY;
 
+      // 1. Synchronously mount the newly expanded projects
       flushSync(() => {
         setShowAll(true);
       });
 
-      const firstMoreEl = document.getElementById('project-card-4');
-      if (firstMoreEl) {
-        const navOffset = 85;
-        const elementTop = firstMoreEl.getBoundingClientRect().top + window.scrollY;
-        const targetY = Math.max(0, elementTop - navOffset);
+      // 2. Keep the viewport locked at SeniorVoice so it doesn't jump to the bottom
+      window.scrollTo(0, startScrollY);
 
-        window.scrollTo(0, targetY);
-      }
-
+      // 3. Normal, natural smooth scroll from SeniorVoice down to the first newly opened project
       requestAnimationFrame(() => {
-        document.documentElement.style.scrollBehavior = '';
+        const firstMoreEl = document.getElementById('project-card-4');
+        if (firstMoreEl) {
+          const navOffset = 85;
+          const elementTop = firstMoreEl.getBoundingClientRect().top + window.scrollY;
+          const targetY = Math.max(0, elementTop - navOffset);
+
+          window.scrollTo({
+            top: targetY,
+            behavior: 'smooth'
+          });
+        }
+        setTimeout(() => {
+          isTogglingRef.current = false;
+        }, 500);
       });
     } else {
-      document.documentElement.style.scrollBehavior = 'auto';
-
-      flushSync(() => {
-        setShowAll(false);
-      });
-
+      isTogglingRef.current = true;
+      // Smoothly scroll back up to SeniorVoice
       const baseEl = document.getElementById('project-card-3') || document.getElementById('project-card-2');
       if (baseEl) {
         const navOffset = 85;
         const elementTop = baseEl.getBoundingClientRect().top + window.scrollY;
         const targetY = Math.max(0, elementTop - navOffset);
 
-        window.scrollTo(0, targetY);
+        window.scrollTo({
+          top: targetY,
+          behavior: 'smooth'
+        });
       }
 
-      requestAnimationFrame(() => {
-        document.documentElement.style.scrollBehavior = '';
-      });
+      setTimeout(() => {
+        setShowAll(false);
+        isTogglingRef.current = false;
+      }, 400);
     }
   };
 
