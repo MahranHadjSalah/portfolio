@@ -5,163 +5,92 @@ import { portfolioData } from '../data/portfolioData';
 import { staggerContainer, fadeInUp } from '../utils/motion';
 
 export default function FeaturedProjects({ onOpenProject }) {
-  // Compact, minimalist visual preview mockups for each project
+  // High-fidelity, realistic visual preview mockups for each project
   const renderCardPreview = (project) => {
-    if (project.id === 'autoreply') {
-      return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Meta Webhook · 200ms ACK</span>
-              </span>
-              <span className="text-[#38BDF8]">query_inventory()</span>
-            </div>
-            <div className="flex items-center justify-between gap-2 text-[10px] font-sans">
-              <div className="bg-[#111827] text-[#F8FAFC] px-2.5 py-1.5 rounded-md border border-[#263244] truncate">
-                "Hi! Is Black Jacket size L in stock?"
-              </div>
-              <div className="bg-[#3B82F6] text-white px-2.5 py-1.5 rounded-md font-medium shrink-0">
-                "In stock · Checkout ↗"
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === 'lux-dental') {
-      return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-[#F8FAFC] font-bold">LUX Dental OS</span>
-              </span>
-              <span className="text-emerald-400">Multi-Chair Agenda</span>
-            </div>
-            <div className="grid grid-cols-2 gap-2 text-[9px]">
-              <div className="p-1.5 rounded bg-[#0B1120] border border-[#263244] flex justify-between">
-                <span className="text-[#94A3B8]">Chair 01:</span>
-                <span className="text-[#38BDF8] font-bold">Occupied</span>
-              </div>
-              <div className="p-1.5 rounded bg-[#0B1120] border border-[#263244] flex justify-between">
-                <span className="text-[#94A3B8]">Chair 02:</span>
-                <span className="text-emerald-400 font-bold">Available</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === 'altivox') {
-      return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-pulse" />
-                <span className="text-[#F8FAFC] font-bold">AltiVox // GraphRAG</span>
-              </span>
-              <span className="text-emerald-400">Zero-Hallucination</span>
-            </div>
-            <div className="grid grid-cols-3 gap-1 text-[8px] text-center">
-              <div className="py-1 rounded bg-[#3B82F6]/20 border border-[#3B82F6] text-[#38BDF8] font-bold">
-                Llama 3.1 [Active]
-              </div>
-              <div className="py-1 rounded bg-[#0B1120] border border-[#263244] text-[#94A3B8]">
-                Mistral 7B
-              </div>
-              <div className="py-1 rounded bg-[#0B1120] border border-[#263244] text-[#94A3B8]">
-                Qwen 2.5
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === 'smart-finance-analyzer') {
-      return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-[#F8FAFC] font-bold">SmartFinance AI</span>
-              </span>
-              <span className="text-emerald-400 font-bold">Health Score: 87/100</span>
-            </div>
-            <div className="grid grid-cols-3 gap-1 text-[8px] text-center">
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-[#38BDF8] font-bold">
-                <span className="text-[#94A3B8] block text-[7px]">Liquidity</span> 2.4x
-              </div>
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-emerald-400 font-bold">
-                <span className="text-[#94A3B8] block text-[7px]">Solvency</span> 0.38
-              </div>
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-[#F8FAFC] font-bold">
-                <span className="text-[#94A3B8] block text-[7px]">Gemini AI</span> 0 Risks
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === 'senior-voice') {
-      return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-pulse" />
-                <span className="text-[#F8FAFC] font-bold">SeniorVoice STT</span>
-              </span>
-              <span className="text-emerald-400">Darija / French</span>
-            </div>
-            <div className="flex items-center justify-between gap-2 text-[9px] font-sans">
-              <div className="bg-[#0B1120] text-[#F8FAFC] px-2.5 py-1.5 rounded-md border border-[#263244] truncate flex items-center gap-1.5">
-                <span className="text-red-400 font-bold font-mono text-[8px]">[SOS]</span>
-                <span>"عاوني · نجدة" / "Au secours"</span>
-              </div>
-              <div className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-1 rounded-md text-[8px] font-mono shrink-0">
-                Pills: 20:00
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
+    // 1. Flutter E-Commerce (Twin Smartphone Mockups: Discovery & Cart)
     if (project.id === 'flutter-ecommerce') {
       return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#02569B]" />
-                <span className="text-[#F8FAFC] font-bold">Flutter Shop UI Kit</span>
-              </span>
-              <span className="text-[#38BDF8]">iOS & Android</span>
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#111C38]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.12),transparent_70%)] pointer-events-none" />
+          
+          <div className="flex items-center justify-center gap-2.5 sm:gap-4 relative z-10 scale-[0.92] sm:scale-100 group-hover:scale-[1.02] transition-transform duration-300">
+            {/* Phone 1: Discovery Screen */}
+            <div className="w-[120px] sm:w-[140px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-[20px] border-[2.5px] border-[#334155] shadow-2xl overflow-hidden flex flex-col relative shrink-0">
+              <div className="w-10 h-2 bg-black rounded-full mx-auto mt-1 mb-0.5" />
+              <div className="flex justify-between items-center px-2.5 text-[7px] text-[#94A3B8] font-mono">
+                <span>9:41</span>
+                <span>● 5G</span>
+              </div>
+              <div className="p-2 space-y-1.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-center text-[8px] font-bold text-[#F8FAFC]">
+                    <span>Discover</span>
+                    <span className="text-[#38BDF8]">🔍</span>
+                  </div>
+                  <div className="flex gap-1 mt-1 text-[6px] font-mono">
+                    <span className="bg-[#3B82F6] text-white px-1.5 py-0.5 rounded">All</span>
+                    <span className="bg-[#1E293B] text-[#94A3B8] px-1.5 py-0.5 rounded">Shoes</span>
+                    <span className="bg-[#1E293B] text-[#94A3B8] px-1.5 py-0.5 rounded">Hoodie</span>
+                  </div>
+                  <div className="mt-1.5 bg-[#172033] rounded-lg p-1.5 border border-[#263244]">
+                    <div className="h-10 rounded bg-gradient-to-tr from-[#1E293B] to-[#334155] flex items-center justify-center text-base">
+                      👟
+                    </div>
+                    <div className="mt-1 flex justify-between items-center text-[7px]">
+                      <span className="font-bold text-[#F8FAFC] truncate">Air Jordan 1</span>
+                      <span className="text-[#38BDF8] font-mono">$140</span>
+                    </div>
+                    <div className="text-[6px] text-amber-400">★★★★★ 4.9</div>
+                  </div>
+                </div>
+                <div className="pt-1 border-t border-[#1E293B] flex justify-around text-[8px] text-[#94A3B8]">
+                  <span className="text-[#38BDF8]">⌂</span>
+                  <span>♡</span>
+                  <span>🛍</span>
+                  <span>👤</span>
+                </div>
+              </div>
             </div>
-            <div className="grid grid-cols-3 gap-1 text-[8px] text-center">
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-[#38BDF8]">
-                20+ Screens
+
+            {/* Phone 2: Cart & Checkout Screen */}
+            <div className="w-[120px] sm:w-[140px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-[20px] border-[2.5px] border-[#334155] shadow-2xl overflow-hidden flex flex-col relative shrink-0 -ml-1 sm:ml-0">
+              <div className="w-10 h-2 bg-black rounded-full mx-auto mt-1 mb-0.5" />
+              <div className="flex justify-between items-center px-2.5 text-[7px] text-[#94A3B8] font-mono">
+                <span>9:41</span>
+                <span>100%</span>
               </div>
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-emerald-400">
-                Skeletons
-              </div>
-              <div className="p-1 rounded bg-[#3B82F6]/20 border border-[#3B82F6] text-white font-bold">
-                Cart (3) ↗
+              <div className="p-2 space-y-1.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-center text-[8px] font-bold text-[#F8FAFC]">
+                    <span>Cart (2)</span>
+                    <span className="text-[#34D399] text-[7px]">Free Ship</span>
+                  </div>
+                  <div className="space-y-1 mt-1">
+                    <div className="p-1 rounded bg-[#172033] border border-[#263244] flex items-center gap-1 text-[7px]">
+                      <span className="w-4 h-4 rounded bg-[#1E293B] flex items-center justify-center text-[8px]">👟</span>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[#F8FAFC] truncate font-bold text-[6.5px]">Air Jordan</div>
+                        <div className="text-[#94A3B8] text-[6px] font-mono">$140.00</div>
+                      </div>
+                    </div>
+                    <div className="p-1 rounded bg-[#172033] border border-[#263244] flex items-center gap-1 text-[7px]">
+                      <span className="w-4 h-4 rounded bg-[#1E293B] flex items-center justify-center text-[8px]">🧥</span>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[#F8FAFC] truncate font-bold text-[6.5px]">Tech Fleece</div>
+                        <div className="text-[#94A3B8] text-[6px] font-mono">$95.00</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <div className="flex justify-between text-[7px] font-mono border-t border-[#1E293B] pt-0.5">
+                    <span className="text-[#94A3B8]">Total:</span>
+                    <span className="text-[#F8FAFC] font-bold">$235.00</span>
+                  </div>
+                  <div className="w-full py-1 bg-[#3B82F6] text-white rounded text-[7px] font-bold text-center">
+                    Checkout Now →
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -169,80 +98,73 @@ export default function FeaturedProjects({ onOpenProject }) {
       );
     }
 
-    if (project.id === 'hand-detectors') {
-      return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-[#F8FAFC] font-bold">MediaPipe Vision</span>
-              </span>
-              <span className="text-cyan-400">60 FPS · Neon HUD</span>
-            </div>
-            <div className="grid grid-cols-3 gap-1 text-[8px] text-center">
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-cyan-400 font-bold">
-                21 Landmarks
-              </div>
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-[#A855F7] font-bold">
-                Air Canvas 3D
-              </div>
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-emerald-400 font-bold">
-                Game AI
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === 'university-absence') {
-      return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-[#F8FAFC] font-bold">Attendance OS</span>
-              </span>
-              <span className="text-emerald-400 font-bold">94.2% Attendance</span>
-            </div>
-            <div className="grid grid-cols-3 gap-1 text-[8px] text-center">
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-[#38BDF8]">
-                Admin Portal
-              </div>
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-emerald-400">
-                Roll-Call (TD/TP)
-              </div>
-              <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-[#F8FAFC]">
-                Student Health
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
+    // 2. ATTT Mobile Booking (Twin Smartphone: Agency Booking & QR Ticket)
     if (project.id === 'attt-mobile') {
       return (
-        <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-          <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-          <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-            <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1A56A0]" />
-                <span className="text-[#F8FAFC] font-bold">ATTT Mobile Booking</span>
-              </span>
-              <span className="text-[#22C55E]">Figma Specs</span>
-            </div>
-            <div className="flex items-center justify-between gap-2 text-[9px] font-sans">
-              <div className="bg-[#0B1120] text-[#F8FAFC] px-2.5 py-1.5 rounded-md border border-[#263244] truncate">
-                Service: <span className="text-[#38BDF8] font-bold">Visite Technique</span>
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0E1A33]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12),transparent_70%)] pointer-events-none" />
+          
+          <div className="flex items-center justify-center gap-2.5 sm:gap-4 relative z-10 scale-[0.92] sm:scale-100 group-hover:scale-[1.02] transition-transform duration-300">
+            {/* Phone 1: Service & Plate */}
+            <div className="w-[120px] sm:w-[140px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-[20px] border-[2.5px] border-[#334155] shadow-2xl overflow-hidden flex flex-col relative shrink-0">
+              <div className="w-10 h-2 bg-black rounded-full mx-auto mt-1 mb-0.5" />
+              <div className="flex justify-between items-center px-2.5 text-[7px] text-[#94A3B8] font-mono">
+                <span>9:41</span>
+                <span>● 4G</span>
               </div>
-              <div className="bg-[#22C55E]/20 text-[#22C55E] border border-[#22C55E]/40 px-2 py-1 rounded-md text-[8px] font-mono shrink-0">
-                Confirmé ↗
+              <div className="p-2 space-y-1.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="bg-[#1A56A0] -mx-2 -mt-1 p-1 text-center text-white mb-1.5">
+                    <div className="text-[7.5px] font-bold tracking-tight">ATTT Mobile</div>
+                    <div className="text-[5px] opacity-80">Rép. Tunisienne</div>
+                  </div>
+                  <div className="bg-[#111827] border border-[#263244] rounded p-1 text-center font-mono">
+                    <span className="text-[5.5px] text-[#94A3B8] block">Immatriculation</span>
+                    <span className="text-[7.5px] font-bold text-[#F8FAFC] tracking-wider">198 تونس 4520</span>
+                  </div>
+                  <div className="mt-1 bg-[#172033] rounded p-1 border border-[#3B82F6]/50 text-[6.5px]">
+                    <span className="text-[#38BDF8] font-bold block">Visite Technique</span>
+                    <span className="text-[#94A3B8] text-[5.5px]">Ariana Charguia II</span>
+                  </div>
+                </div>
+                <div className="bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E] text-[6.5px] font-medium py-0.5 rounded text-center">
+                  18 Oct · 09:30 ✓
+                </div>
+              </div>
+            </div>
+
+            {/* Phone 2: Digital Ticket & QR Code */}
+            <div className="w-[120px] sm:w-[140px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-[20px] border-[2.5px] border-[#334155] shadow-2xl overflow-hidden flex flex-col relative shrink-0 -ml-1 sm:ml-0">
+              <div className="w-10 h-2 bg-black rounded-full mx-auto mt-1 mb-0.5" />
+              <div className="flex justify-between items-center px-2.5 text-[7px] text-[#94A3B8] font-mono">
+                <span>9:41</span>
+                <span>100%</span>
+              </div>
+              <div className="p-2 space-y-1.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="text-[7.5px] font-bold text-[#F8FAFC] text-center mb-1">
+                    Ticket Numérique
+                  </div>
+                  <div className="w-14 h-14 mx-auto bg-white p-1 rounded-md flex flex-col justify-between shadow-sm">
+                    <div className="grid grid-cols-4 gap-0.5 h-full">
+                      {[1,1,0,1, 1,0,1,1, 0,1,0,1, 1,1,1,0].map((v, i) => (
+                        <div key={i} className={`rounded-[1px] ${v ? 'bg-black' : 'bg-white'}`} />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="text-center mt-1 font-mono text-[6px] text-[#94A3B8]">
+                    ID: #ATTT-94819
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <div className="bg-[#172033] p-1 rounded text-[6px] text-[#94A3B8] flex justify-between">
+                    <span>Payé en ligne:</span>
+                    <span className="text-[#34D399] font-bold">35 DT ✓</span>
+                  </div>
+                  <div className="w-full py-0.5 bg-[#1A56A0] text-white rounded text-[6.5px] font-bold text-center">
+                    Télécharger PDF ↗
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -250,22 +172,511 @@ export default function FeaturedProjects({ onOpenProject }) {
       );
     }
 
-    // SupportAi
-    return (
-      <div className="w-full h-36 sm:h-40 bg-[#111827] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#111827]/90 transition-colors">
-        <div className="absolute inset-0 bg-tech-grid opacity-15 pointer-events-none" />
-        <div className="w-full max-w-sm bg-[#172033] rounded-xl border border-[#263244] p-2.5 shadow-md space-y-1.5 font-mono text-[10px]">
-          <div className="flex items-center justify-between text-[9px] text-[#94A3B8] border-b border-[#263244] pb-1">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
-              <span className="text-[#F8FAFC] font-bold">SupportAi</span>
-            </span>
-            <span className="text-emerald-400">Hybrid Retrieval</span>
+    // 3. SeniorVoice (Voice Smartphone with Waveform & Bilingual Bubbles)
+    if (project.id === 'senior-voice') {
+      return (
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#141A2E]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.1),transparent_70%)] pointer-events-none" />
+          
+          <div className="w-[190px] sm:w-[220px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-[22px] border-[2.5px] border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+            <div className="w-12 h-2.5 bg-black rounded-full mx-auto mt-1 mb-0.5" />
+            <div className="flex justify-between items-center px-3 text-[7px] text-[#94A3B8] font-mono">
+              <span className="flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>SeniorVoice</span>
+              </span>
+              <span>Darija / FR</span>
+            </div>
+
+            <div className="p-2.5 space-y-2 flex-1 flex flex-col justify-between">
+              {/* Dynamic Waveform */}
+              <div className="bg-[#111827] rounded-lg p-2 border border-[#263244] flex items-center justify-center gap-1 h-11">
+                {[14, 26, 36, 18, 30, 16, 26, 12].map((h, idx) => (
+                  <div
+                    key={idx}
+                    className="w-1 rounded-full bg-gradient-to-t from-[#3B82F6] to-[#38BDF8]"
+                    style={{ height: `${h}px` }}
+                  />
+                ))}
+              </div>
+
+              {/* Chat Speech Bubbles */}
+              <div className="space-y-1 text-[7px]">
+                <div className="bg-[#1E293B] text-[#F8FAFC] p-1.5 rounded-lg rounded-bl-none border border-[#334155] text-right">
+                  "عاوني نحب نكلم ولدي محمد"
+                </div>
+                <div className="bg-[#3B82F6]/20 text-[#38BDF8] p-1.5 rounded-lg rounded-br-none border border-[#3B82F6]/40 flex items-center gap-1">
+                  <span>📞</span>
+                  <span className="truncate">"Appel vers Mohamed... ⚡"</span>
+                </div>
+              </div>
+
+              {/* Accessibility Actions */}
+              <div className="grid grid-cols-2 gap-1.5 text-[7px] font-bold">
+                <div className="bg-red-500/20 text-red-400 border border-red-500/40 p-1 rounded-lg text-center flex items-center justify-center gap-1">
+                  <span>🚨</span>
+                  <span>SOS Urgence</span>
+                </div>
+                <div className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 p-1 rounded-lg text-center flex items-center justify-center gap-1">
+                  <span>💊</span>
+                  <span>Doliprane 20:00</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-3 gap-1 text-[8px] text-center">
-            <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-[#38BDF8] font-bold">pgvector</div>
-            <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-emerald-400 font-bold">Neo4j</div>
-            <div className="p-1 rounded bg-[#0B1120] border border-[#263244] text-[#F8FAFC] font-bold">LangGraph</div>
+        </div>
+      );
+    }
+
+    // 4. Smart Finance Analyzer (Bloomberg/Stripe Style Analytics Window)
+    if (project.id === 'smart-finance-analyzer') {
+      return (
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0D1C33]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.1),transparent_70%)] pointer-events-none" />
+          
+          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+            {/* Window Chrome */}
+            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+              </div>
+              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
+                smartfinance.ai/q4-report
+              </div>
+              <div className="text-[7px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                Score: 87/100
+              </div>
+            </div>
+
+            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
+              {/* 3 Metric Tiles */}
+              <div className="grid grid-cols-3 gap-1.5 text-center font-mono">
+                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
+                  <span className="text-[6.5px] text-[#94A3B8] block">Net Margin</span>
+                  <span className="text-[8.5px] font-bold text-emerald-400">+24.8% ↑</span>
+                </div>
+                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
+                  <span className="text-[6.5px] text-[#94A3B8] block">Liquidity</span>
+                  <span className="text-[8.5px] font-bold text-[#38BDF8]">2.4x Safe</span>
+                </div>
+                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
+                  <span className="text-[6.5px] text-[#94A3B8] block">Solvency</span>
+                  <span className="text-[8.5px] font-bold text-[#F8FAFC]">0.38 Low</span>
+                </div>
+              </div>
+
+              {/* Chart */}
+              <div className="bg-[#111827] rounded p-1.5 border border-[#263244] relative h-14 flex flex-col justify-between">
+                <div className="flex justify-between text-[6.5px] font-mono text-[#94A3B8]">
+                  <span>Cash Flow Trajectory (Q1-Q4)</span>
+                  <span className="text-emerald-400 font-bold">+€420K</span>
+                </div>
+                <svg className="w-full h-8 overflow-visible" viewBox="0 0 280 35">
+                  <defs>
+                    <linearGradient id="finGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#10B981" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M 0 30 Q 40 25, 80 20 T 160 14 T 220 15 T 280 4 L 280 35 L 0 35 Z" fill="url(#finGrad)" />
+                  <path d="M 0 30 Q 40 25, 80 20 T 160 14 T 220 15 T 280 4" fill="none" stroke="#10B981" strokeWidth="2" />
+                  <circle cx="280" cy="4" r="2.5" fill="#34D399" />
+                </svg>
+              </div>
+
+              {/* AI Insight */}
+              <div className="bg-[#172033] px-2 py-1 rounded border border-[#3B82F6]/40 flex items-center gap-1.5 text-[7px] text-[#94A3B8]">
+                <span className="text-[#38BDF8] font-bold shrink-0">✨ Gemini AI:</span>
+                <span className="text-[#F8FAFC] truncate">Working capital optimized (+18%). 0 bankruptcy signals detected.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 5. LUX Dental OS (Multi-Chair Clinic Agenda Window)
+    if (project.id === 'lux-dental') {
+      return (
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0F222B]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(20,184,166,0.1),transparent_70%)] pointer-events-none" />
+          
+          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+              </div>
+              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
+                luxdental.os/agenda/live
+              </div>
+              <div className="text-[7px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-1.5 py-0.5 rounded border border-cyan-500/20">
+                10:45 AM · Live
+              </div>
+            </div>
+
+            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
+              <div className="flex justify-between items-center text-[7.5px] border-b border-[#263244] pb-1">
+                <span className="font-bold text-[#F8FAFC] flex items-center gap-1">
+                  <span>🦷</span>
+                  <span>Cabinet Dr. Hadj Salah</span>
+                </span>
+                <span className="text-[#94A3B8] font-mono">2 Chairs · 14 Appointments</span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-[#172033] rounded-lg p-2 border border-[#263244] space-y-1">
+                  <div className="flex justify-between items-center text-[7px] font-bold">
+                    <span className="text-[#38BDF8]">Fauteuil 01</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  </div>
+                  <div className="bg-[#111827] p-1 rounded border border-[#334155]/60 text-[6.5px]">
+                    <div className="text-[#F8FAFC] font-bold truncate">Mme. Cherif (10:30)</div>
+                    <div className="text-cyan-400">Implantologie & Soins</div>
+                    <div className="text-[6px] text-[#94A3B8] font-mono mt-0.5">En cours · 35m</div>
+                  </div>
+                </div>
+
+                <div className="bg-[#172033] rounded-lg p-2 border border-[#263244] space-y-1">
+                  <div className="flex justify-between items-center text-[7px] font-bold">
+                    <span className="text-emerald-400">Fauteuil 02</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  </div>
+                  <div className="bg-[#111827] p-1 rounded border border-[#334155]/60 text-[6.5px]">
+                    <div className="text-[#F8FAFC] font-bold truncate">M. Trabelsi (11:15)</div>
+                    <div className="text-emerald-400">Détartrage & Polissage</div>
+                    <div className="text-[6px] text-[#94A3B8] font-mono mt-0.5">Salle d'attente ✓</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#111827] px-2 py-1 rounded border border-[#263244] flex justify-between items-center text-[6.5px] text-[#94A3B8] font-mono">
+                <span>Google Calendar Sync: Active</span>
+                <span className="text-emerald-400 font-bold">SMS Sent: 98%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 6. AutoReply (Social Commerce + Autonomous Agent Window)
+    if (project.id === 'autoreply') {
+      return (
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#16142B]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_70%)] pointer-events-none" />
+          
+          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+              </div>
+              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
+                autoreply.io/inbox/live
+              </div>
+              <div className="text-[7px] font-mono text-[#38BDF8] font-bold bg-[#3B82F6]/10 px-1.5 py-0.5 rounded border border-[#3B82F6]/20">
+                180ms Webhook
+              </div>
+            </div>
+
+            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
+              <div className="grid grid-cols-2 gap-2">
+                {/* Left: IG DM */}
+                <div className="bg-[#111827] p-1.5 rounded-lg border border-[#263244] space-y-1 flex flex-col justify-between">
+                  <div className="flex items-center gap-1 text-[7px] text-[#94A3B8] font-mono border-b border-[#263244] pb-0.5">
+                    <span className="text-pink-400 font-bold">IG DM</span>
+                    <span>@buyer_tn</span>
+                  </div>
+                  <div className="space-y-1 text-[6.5px]">
+                    <div className="bg-[#1E293B] text-[#F8FAFC] p-1 rounded-md rounded-bl-none">
+                      "Is Black Jacket (XL) available?"
+                    </div>
+                    <div className="bg-[#3B82F6] text-white p-1 rounded-md rounded-br-none font-medium">
+                      "Yes! 3 left in stock ⚡"
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Dynamic Catalog Card */}
+                <div className="bg-[#172033] p-1.5 rounded-lg border border-[#3B82F6]/50 flex flex-col justify-between">
+                  <div className="flex justify-between items-center text-[7px]">
+                    <span className="font-bold text-[#F8FAFC]">Bomber XL</span>
+                    <span className="text-emerald-400 font-bold font-mono">120 DT</span>
+                  </div>
+                  <div className="bg-[#111827] p-1 rounded text-[6px] text-[#94A3B8] space-y-0.5">
+                    <div className="text-emerald-400 font-bold">● In Stock (3 pcs)</div>
+                    <div>Livraison 24h Tunisie</div>
+                  </div>
+                  <div className="w-full py-0.5 bg-[#3B82F6] text-white text-[7px] font-bold text-center rounded">
+                    1-Click Checkout ↗
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#111827] px-2 py-1 rounded border border-[#263244] flex justify-between items-center text-[6.5px] text-[#94A3B8] font-mono">
+                <span className="text-[#38BDF8]">Tool: inventory_db.query(sku="JKT-XL")</span>
+                <span className="text-emerald-400 font-bold">200ms ACK</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 7. AltiVox (Enterprise LLM Router & Telemetry Console)
+    if (project.id === 'altivox') {
+      return (
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0E1A33]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.1),transparent_70%)] pointer-events-none" />
+          
+          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+              </div>
+              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
+                altivox.ai/gateway/routing
+              </div>
+              <div className="text-[7px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-1.5 py-0.5 rounded border border-cyan-500/20">
+                142 tok/sec
+              </div>
+            </div>
+
+            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
+              <div className="grid grid-cols-3 gap-1 text-[7px] text-center font-mono">
+                <div className="bg-[#3B82F6]/20 border border-[#3B82F6] text-[#38BDF8] p-1 rounded font-bold">
+                  Llama 3.1 [Active]
+                </div>
+                <div className="bg-[#172033] border border-[#263244] text-[#94A3B8] p-1 rounded">
+                  Mistral Large
+                </div>
+                <div className="bg-[#172033] border border-[#263244] text-[#94A3B8] p-1 rounded">
+                  DeepSeek R1
+                </div>
+              </div>
+
+              <div className="bg-[#111827] rounded p-1.5 border border-[#263244] space-y-1 font-mono text-[6.5px]">
+                <div className="flex justify-between text-[#94A3B8]">
+                  <span>Routing Decision:</span>
+                  <span className="text-emerald-400 font-bold">High Complexity → Llama 3.1</span>
+                </div>
+                <div className="bg-[#172033] p-1 rounded border border-[#263244] flex justify-between text-[#F8FAFC]">
+                  <span>Ticket #8419: "Isolation failover"</span>
+                  <span className="text-emerald-400 font-bold">Resolved ✓</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-1 text-center font-mono text-[7px]">
+                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
+                  <span className="text-[6px] text-[#94A3B8] block">TTFT</span>
+                  <span className="text-[#38BDF8] font-bold">185 ms</span>
+                </div>
+                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
+                  <span className="text-[6px] text-[#94A3B8] block">Cost/Req</span>
+                  <span className="text-emerald-400 font-bold">$0.0012</span>
+                </div>
+                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
+                  <span className="text-[6px] text-[#94A3B8] block">Cache Hit</span>
+                  <span className="text-[#F8FAFC] font-bold">98.4%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 8. Hand Detectors (MediaPipe Vision Viewfinder HUD with 21-point Hand Skeleton)
+    if (project.id === 'hand-detectors') {
+      return (
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#050B14] via-[#091524]/90 to-[#050B14] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12),transparent_70%)] pointer-events-none" />
+          
+          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#050B14] rounded-xl border border-cyan-500/40 shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+            {/* Viewfinder Corners */}
+            <div className="absolute top-1.5 left-1.5 text-cyan-400 text-xs font-mono font-bold leading-none pointer-events-none">┌</div>
+            <div className="absolute top-1.5 right-1.5 text-cyan-400 text-xs font-mono font-bold leading-none pointer-events-none">┐</div>
+            <div className="absolute bottom-1.5 left-1.5 text-cyan-400 text-xs font-mono font-bold leading-none pointer-events-none">└</div>
+            <div className="absolute bottom-1.5 right-1.5 text-cyan-400 text-xs font-mono font-bold leading-none pointer-events-none">┘</div>
+
+            {/* Top HUD */}
+            <div className="flex items-center justify-between px-3 py-1.5 bg-[#08111D] border-b border-cyan-500/30 text-[7.5px] font-mono">
+              <span className="flex items-center gap-1.5 text-cyan-400 font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                <span>● REC 60 FPS · 1080p</span>
+              </span>
+              <span className="text-[#38BDF8]">MediaPipe Hands · 21 Pts</span>
+            </div>
+
+            {/* Hand Skeleton SVG */}
+            <div className="relative flex-1 flex items-center justify-center">
+              <svg className="w-48 h-26 overflow-visible" viewBox="0 0 200 115">
+                <path d="M 60 40 Q 110 15, 140 35 T 180 50" fill="none" stroke="#C084FC" strokeWidth="2.5" strokeDasharray="3 2" className="opacity-80" />
+                
+                <line x1="100" y1="105" x2="70" y2="80" stroke="#06B6D4" strokeWidth="1.5" />
+                <line x1="100" y1="105" x2="90" y2="70" stroke="#06B6D4" strokeWidth="1.5" />
+                <line x1="100" y1="105" x2="110" y2="70" stroke="#06B6D4" strokeWidth="1.5" />
+                <line x1="100" y1="105" x2="130" y2="80" stroke="#06B6D4" strokeWidth="1.5" />
+                
+                <line x1="70" y1="80" x2="55" y2="65" stroke="#06B6D4" strokeWidth="1.5" />
+                <line x1="55" y1="65" x2="45" y2="50" stroke="#06B6D4" strokeWidth="1.5" />
+                
+                <line x1="90" y1="70" x2="85" y2="45" stroke="#06B6D4" strokeWidth="1.5" />
+                <line x1="85" y1="45" x2="80" y2="25" stroke="#06B6D4" strokeWidth="2" />
+                
+                <line x1="110" y1="70" x2="110" y2="48" stroke="#06B6D4" strokeWidth="1.5" />
+                <line x1="110" y1="48" x2="110" y2="32" stroke="#06B6D4" strokeWidth="1.5" />
+                
+                <line x1="130" y1="80" x2="135" y2="60" stroke="#06B6D4" strokeWidth="1.5" />
+                <line x1="135" y1="60" x2="140" y2="45" stroke="#06B6D4" strokeWidth="1.5" />
+
+                <circle cx="100" cy="105" r="3" fill="#38BDF8" />
+                <circle cx="70" cy="80" r="2.5" fill="#38BDF8" />
+                <circle cx="90" cy="70" r="2.5" fill="#38BDF8" />
+                <circle cx="110" cy="70" r="2.5" fill="#38BDF8" />
+                <circle cx="130" cy="80" r="2.5" fill="#38BDF8" />
+                <circle cx="45" cy="50" r="2.5" fill="#38BDF8" />
+                <circle cx="110" cy="32" r="2.5" fill="#38BDF8" />
+                <circle cx="140" cy="45" r="2.5" fill="#38BDF8" />
+
+                <circle cx="80" cy="25" r="4" fill="#F43F5E" />
+                <circle cx="80" cy="25" r="7.5" fill="none" stroke="#F43F5E" strokeWidth="1" strokeDasharray="2 2" />
+              </svg>
+
+              <div className="absolute right-3 top-2 bg-[#08111D]/80 border border-cyan-500/30 p-1 rounded text-[6px] font-mono text-[#94A3B8]">
+                <div>X: 80 | Y: 25</div>
+                <div className="text-cyan-400 font-bold">Pinch: 8mm</div>
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center px-3 py-1 bg-[#08111D] border-t border-cyan-500/30 text-[7px] font-mono">
+              <span className="text-cyan-400 font-bold">Gesture: AIR_CANVAS_DRAW</span>
+              <span className="text-emerald-400 font-bold">Conf: 99.4%</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 9. University Absence Management (Faculty Portal Attendance Sheet)
+    if (project.id === 'university-absence') {
+      return (
+        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0E1A33]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_70%)] pointer-events-none" />
+          
+          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+              </div>
+              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
+                portail.universite.tn/absences/gl3
+              </div>
+              <div className="text-[7px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+                Taux: 92.3%
+              </div>
+            </div>
+
+            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
+              <div className="bg-[#111827] p-1 rounded border border-[#263244] flex justify-between items-center text-[7px] font-mono">
+                <span className="text-[#F8FAFC] font-bold">GL-3 · Conception Logicielle</span>
+                <span className="text-[#38BDF8]">Salle B204</span>
+              </div>
+
+              <div className="space-y-1 text-[7px] font-mono">
+                <div className="bg-[#172033] p-1 rounded border border-[#263244] flex justify-between items-center">
+                  <span className="text-[#F8FAFC]">1. Sarah Ben Ali</span>
+                  <span className="bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded text-[6.5px] font-bold">
+                    Présent ✓
+                  </span>
+                </div>
+                <div className="bg-[#172033] p-1 rounded border border-[#263244] flex justify-between items-center">
+                  <span className="text-[#F8FAFC]">2. Mohamed Triki</span>
+                  <span className="bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded text-[6.5px] font-bold">
+                    Présent ✓
+                  </span>
+                </div>
+                <div className="bg-[#172033] p-1 rounded border border-[#263244] flex justify-between items-center">
+                  <span className="text-[#F8FAFC]">3. Yassine Mansour</span>
+                  <span className="bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded text-[6.5px] font-bold">
+                    Absent (Justifié)
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-[#111827] p-1 rounded border border-[#263244] space-y-1">
+                <div className="flex justify-between text-[6.5px] font-mono text-[#94A3B8]">
+                  <span>Présence de la séance</span>
+                  <span className="text-emerald-400 font-bold">24 / 26 Présents</span>
+                </div>
+                <div className="w-full bg-[#1E293B] h-1.5 rounded-full overflow-hidden">
+                  <div className="bg-emerald-400 h-full rounded-full" style={{ width: '92.3%' }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // 10. SupportAi (pgvector + Neo4j GraphRAG Console)
+    return (
+      <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0E1C33]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.1),transparent_70%)] pointer-events-none" />
+        
+        <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
+          <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-red-500/80" />
+              <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+            </div>
+            <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
+              supportai.corp/graph-rag
+            </div>
+            <div className="text-[7px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
+              Hybrid Retrieval
+            </div>
+          </div>
+
+          <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
+            <div className="bg-[#111827] px-2 py-1 rounded border border-[#263244] text-[7px] font-mono flex justify-between text-[#94A3B8]">
+              <span className="truncate">Query: "Enterprise multi-region failover SLA"</span>
+              <span className="text-[#38BDF8] shrink-0">pgvector + Neo4j</span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <div className="bg-[#172033] p-1.5 rounded-lg border border-[#263244] space-y-0.5">
+                <span className="text-[6.5px] font-mono text-[#94A3B8] block">Vector Cosine Match</span>
+                <div className="bg-[#111827] p-1 rounded text-[6.5px] font-mono">
+                  <div className="text-emerald-400 font-bold">Score: 0.941</div>
+                  <div className="text-[#94A3B8] truncate">doc_id: #sec_sla_v2.pdf</div>
+                </div>
+              </div>
+
+              <div className="bg-[#172033] p-1.5 rounded-lg border border-[#263244] space-y-0.5">
+                <span className="text-[6.5px] font-mono text-[#94A3B8] block">Neo4j Entity Graph</span>
+                <div className="flex items-center justify-between text-[6px] font-mono text-[#F8FAFC] pt-1">
+                  <span className="bg-[#3B82F6]/30 border border-[#3B82F6] px-1 rounded">Enterprise</span>
+                  <span className="text-[#38BDF8]">──</span>
+                  <span className="bg-emerald-500/30 border border-emerald-500 px-1 rounded">SLA 15m</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#111827] px-2 py-1 rounded border border-emerald-500/30 flex justify-between items-center text-[6.5px] text-[#94A3B8] font-mono">
+              <span className="text-emerald-400 font-bold">✓ Grounded Answer (Citations [1][2])</span>
+              <span className="text-[#38BDF8]">0% Hallucination</span>
+            </div>
           </div>
         </div>
       </div>
