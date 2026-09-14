@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Bot, Calendar, Network, Sparkles, ChevronDown } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { staggerContainer, fadeInUp } from '../utils/motion';
 
 export default function FeaturedProjects({ onOpenProject }) {
   // High-fidelity, realistic visual preview mockups for each project
