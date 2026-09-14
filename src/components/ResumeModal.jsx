@@ -340,22 +340,22 @@ export default function ResumeModal({ isOpen, onClose }) {
             <div className="space-y-1.5 resume-avoid-break print:mb-3">
               <div className="flex items-baseline justify-between flex-wrap gap-1">
                 <h3 className="text-sm font-bold text-[#F8FAFC] print:text-slate-900 font-mono">
-                  SupportAi — Enterprise GraphRAG Platform <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| AI Engineering (2025 – 2026)</span>
+                  SupportAi — Enterprise Hybrid GraphRAG & WebRTC Voice <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| AI Systems (2025 – 2026)</span>
                 </h3>
                 <span className="text-xs font-mono text-[#38BDF8] print:text-blue-700">
-                  Hybrid Graph + Vector RAG
+                  ArcadeDB + pgvector RRF
                 </span>
               </div>
               <p className="text-xs text-[#94A3B8] print:text-slate-700 leading-relaxed">
-                Enterprise conversational AI platform combining dense vector retrieval with Neo4j entity graphs for verified, hallucination-free answers.
+                Enterprise conversational platform combining dense vector retrieval with ArcadeDB causal property graphs, sub-second WebRTC voice streaming, and closed-loop Jira synchronization.
               </p>
               <ul className="list-disc list-inside text-xs text-[#94A3B8] print:text-slate-700 space-y-0.5">
-                <li>Ensemble retriever combining dense pgvector embeddings (60%) with Neo4j relationship graphs (40%) via reciprocal rank fusion.</li>
-                <li>Dynamic multi-model runtime allowing instant switching between Llama 3.1, Mistral, and Qwen 2.5 with live benchmarking.</li>
-                <li>Strict anti-hallucination escalation gate auto-routing ungrounded queries to human managers; real-time SSE streaming.</li>
+                <li>Hybrid RRF retriever combining PostgreSQL 18 pgvector embeddings (60%) with ArcadeDB causal problem-solution graphs (40%).</li>
+                <li>Sub-second WebRTC voice transport via LiveKit SFU, Silero VAD (&lt;50ms barge-in interruption), and on-premise Piper Neural TTS.</li>
+                <li>6-stage FSM autonomous sales engine with deterministic regex price guardrails preventing hallucinated catalogue pricing.</li>
               </ul>
               <div className="text-[11px] font-mono text-[#38BDF8] print:text-blue-700 pt-0.5">
-                Technologies: FastAPI, Python, Neo4j, pgvector, PostgreSQL, LangGraph, Docker
+                Technologies: Python 3.12, FastAPI, PostgreSQL 18, pgvector, ArcadeDB, LiveKit, Silero VAD, Piper TTS, Redis, Docker
               </div>
             </div>
           </div>

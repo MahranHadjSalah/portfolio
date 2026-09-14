@@ -800,52 +800,111 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
     return (
       <div className="bg-[#172033] rounded-2xl p-4 sm:p-8 text-[#F8FAFC] border border-[#263244] font-mono shadow-2xl">
         {/* Header Bar */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#263244] text-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#263244] text-xs gap-2">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-            <span className="text-[#94A3B8] ml-2">supportai-graphrag // Hybrid Retrieval Pipeline</span>
+            <span className="text-[#94A3B8] ml-2">supportai // Hybrid GraphRAG & WebRTC Voice Platform</span>
           </div>
-          <span className="text-emerald-400 font-semibold">Zero-Hallucination Grounded</span>
-        </div>
-
-        {/* GraphRAG Traversal Flow */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
-          <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
-            <div className="text-[11px] font-bold text-[#38BDF8] uppercase">1. Dense Vector Search</div>
-            <p className="text-xs text-[#94A3B8] font-sans">
-              Cosine similarity over 1536-dim embeddings stored in <strong>pgvector</strong> with HNSW index.
-            </p>
-            <div className="text-[10px] text-emerald-400 font-mono">Top-k: 5 Chunks (0.89 sim)</div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
-            <div className="text-[11px] font-bold text-[#38BDF8] uppercase">2. Knowledge Graph Traversal</div>
-            <p className="text-xs text-[#94A3B8] font-sans">
-              Multi-hop Cypher queries across <strong>Neo4j</strong> entity relations to connect indirect corporate facts.
-            </p>
-            <div className="text-[10px] text-emerald-400 font-mono">2-Hop Expansion Verified</div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
-            <div className="text-[11px] font-bold text-[#38BDF8] uppercase">3. Grounded Synthesis</div>
-            <p className="text-xs text-[#94A3B8] font-sans">
-              Context-checked prompt with explicit inline source citations [Doc #12, Graph Rel: Subsidiary].
-            </p>
-            <div className="text-[10px] text-emerald-400 font-mono">Real-time SSE Streaming</div>
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] text-[#38BDF8] bg-[#3B82F6]/10 border border-[#3B82F6]/30 px-2 py-0.5 rounded">
+              LiveKit SFU :7880
+            </span>
+            <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              RRF: 0.6 Vector + 0.4 ArcadeDB
+            </span>
           </div>
         </div>
 
-        {/* Live Query Verification Console */}
+        {/* 4 Architectural Core Pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 pt-6">
+          {/* Pillar 1: Hybrid GraphRAG */}
+          <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+            <div className="text-[10px] font-bold text-[#38BDF8] uppercase flex items-center justify-between">
+              <span>1. Hybrid GraphRAG</span>
+              <span className="text-emerald-400">RRF Fused</span>
+            </div>
+            <p className="text-xs text-[#94A3B8] font-sans leading-relaxed">
+              Fuses 384-dim <strong>PostgreSQL 18 pgvector</strong> embeddings with <strong>ArcadeDB</strong> causal property graphs (<em>Problem → Cause → Solution</em>).
+            </p>
+            <div className="text-[10px] text-emerald-400 font-mono">Zero-Hallucination Gate (τ &gt; 0.65)</div>
+          </div>
+
+          {/* Pillar 2: Sub-Second WebRTC Voice */}
+          <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+            <div className="text-[10px] font-bold text-[#38BDF8] uppercase flex items-center justify-between">
+              <span>2. Sub-Second Voice</span>
+              <span className="text-emerald-400">&lt;50ms Barge-In</span>
+            </div>
+            <p className="text-xs text-[#94A3B8] font-sans leading-relaxed">
+              Full-duplex <strong>LiveKit SFU</strong> UDP stream + <strong>Silero VAD</strong> instant barge-in interruption + on-premise <strong>Piper ONNX TTS</strong>.
+            </p>
+            <div className="text-[10px] text-[#38BDF8] font-mono">Decoupled from HTTP cycle</div>
+          </div>
+
+          {/* Pillar 3: Sales FSM & Guardrails */}
+          <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+            <div className="text-[10px] font-bold text-[#38BDF8] uppercase flex items-center justify-between">
+              <span>3. Sales Intelligence</span>
+              <span className="text-emerald-400">Deterministic</span>
+            </div>
+            <p className="text-xs text-[#94A3B8] font-sans leading-relaxed">
+              6-stage FSM (<em>Catalogue → Pitch → Objection → Close</em>) with <strong>regex price guardrails</strong> eliminating hallucinated discounts.
+            </p>
+            <div className="text-[10px] text-emerald-400 font-mono">100% Price Catalogue Parity</div>
+          </div>
+
+          {/* Pillar 4: Jira Sync & GDPR */}
+          <div className="p-3.5 rounded-xl bg-[#111827] border border-emerald-500/30 space-y-2">
+            <div className="text-[10px] font-bold text-emerald-400 uppercase flex items-center justify-between">
+              <span>4. Jira Sync & PII</span>
+              <span className="text-emerald-400">GDPR Ready</span>
+            </div>
+            <p className="text-xs text-[#94A3B8] font-sans leading-relaxed">
+              Bi-directional <strong>Jira Service Management</strong> escalation with automated NLP PII scrubbing prior to knowledge graph ingestion.
+            </p>
+            <div className="text-[10px] text-[#38BDF8] font-mono">4-Tier Tenant Isolation</div>
+          </div>
+        </div>
+
+        {/* Live Query & Audio Synthesis Trace */}
         <div className="mt-4 p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
-          <div className="text-[10px] text-[#94A3B8] uppercase font-bold">Query Execution Trace:</div>
+          <div className="text-[10px] text-[#94A3B8] uppercase font-bold flex justify-between">
+            <span>Query Execution & Causal Traversal Trace:</span>
+            <span className="text-emerald-400">RRF Match: 0.941 (pgvector 0.6 + ArcadeDB 0.4)</span>
+          </div>
           <div className="bg-[#0B1120] border border-[#263244] p-2.5 rounded font-mono text-[11px] text-[#F8FAFC]">
             <span className="text-[#38BDF8]">$ </span>
-            supportai.query("What compliance policy governs customer data retention in European operations?")
+            supportai.pipeline.resolve("Laser head stops oscillating mid-cycle on Model CX-400")
           </div>
           <div className="text-[#94A3B8] font-sans text-xs leading-relaxed pt-1">
-            "According to GDPR Section 4.2 <span className="text-[#38BDF8] font-mono">[Ref: Policy-EU-2024]</span> and related Data Processing Agreement <span className="text-[#38BDF8] font-mono">[Node: DPA-EU]</span>, customer records are retained for exactly 36 months post-contract expiration."
+            "ArcadeDB traversal: <strong className="text-[#F8FAFC]">CX-400</strong> ──[HAS_ISSUE]──&gt; <strong className="text-[#F8FAFC]">Oscillation Halt</strong> ──[CAUSED_BY]──&gt; <strong className="text-amber-400">Limit Switch Dust Accumulation</strong> ──[RESOLVED_BY]──&gt; <strong className="text-emerald-400">Clean sensor optic with 99% IPA (Procedure § 4.2)</strong>. Synthesized via Piper Neural TTS in 185ms."
+          </div>
+        </div>
+
+        {/* System Architecture Diagram Preview */}
+        <div className="mt-4 p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+          <div className="text-xs font-bold text-[#38BDF8] flex items-center justify-between">
+            <span>5-Layer System Topology & Multi-Tenant Hierarchy</span>
+            <span className="text-[10px] text-[#94A3B8]">From Official Repository</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+            <div className="rounded-lg overflow-hidden border border-[#263244] bg-[#0A0F1D]">
+              <img 
+                src="/projects/supportai/altivox_system_architecture.jpg" 
+                alt="SupportAi System Architecture" 
+                className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="rounded-lg overflow-hidden border border-[#263244] bg-[#0A0F1D]">
+              <img 
+                src="/projects/supportai/altivox_role_hierarchy_light.jpg" 
+                alt="SupportAi Multi-Tenant Hierarchy" 
+                className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
         </div>
       </div>

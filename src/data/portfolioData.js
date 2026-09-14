@@ -101,69 +101,74 @@ export const portfolioData = {
     {
       id: "supportai",
       title: "SupportAi",
-      badge: "AI Engineering Internship · GraphRAG",
-      role: "AI Engineering Intern",
+      badge: "AI Engineering Internship · Hybrid GraphRAG & Voice",
+      role: "Co-Architect & Systems Engineer",
       status: "Internship Deliverable",
-      category: "Enterprise Conversational AI",
-      tagline: "An enterprise conversational AI platform combining vector retrieval and knowledge graphs to provide grounded answers from validated company knowledge.",
-      summary: "An enterprise retrieval-augmented generation engine engineered to eliminate hallucinations by augmenting vector similarity search with explicit entity-relationship knowledge graphs.",
-      contextNote: "Hybrid Vector + Knowledge Graph RAG",
+      category: "Enterprise Conversational AI & WebRTC Voice",
+      tagline: "Enterprise conversational AI platform combining Hybrid GraphRAG (pgvector + ArcadeDB), sub-second WebRTC voice streaming, and autonomous sales intelligence.",
+      summary: "A unified 5-layer platform bridging factual ArcadeDB knowledge graphs with PostgreSQL 18 pgvector search using Reciprocal Rank Fusion, sub-second on-premise neural speech (LiveKit SFU + Vosk + Piper), deterministic sales price guardrails, and closed-loop Jira Service Management synchronization.",
+      contextNote: "Hybrid GraphRAG (pgvector + ArcadeDB) · WebRTC Voice (LiveKit) · Jira Sync",
 
-      // SupportAi Architectural Flow
+      // SupportAi 5-Tier Architectural Flow
       architectureFlow: [
-        { step: "User Query", desc: "Natural language query input" },
-        { step: "Intent / Query Analysis", desc: "Decomposition into semantic entities" },
-        { step: "Hybrid Retrieval", desc: "Dense Vector Search (pgvector) + Knowledge Graph Traversal" },
-        { step: "Context Validation", desc: "Chunk verification & hallucination reduction" },
-        { step: "LLM Response", desc: "Streaming answer grounded with source citations" }
+        { step: "Client Ingestion", desc: "Full-duplex WebRTC UDP audio stream via LiveKit SFU (:7880) or React 18 chat" },
+        { step: "Semantic Intent Router", desc: "13-class intent classification & multi-turn query rewriting prior to retrieval" },
+        { step: "Hybrid GraphRAG Engine", desc: "Reciprocal Rank Fusion (60% pgvector cosine + 40% ArcadeDB causal traversal)" },
+        { step: "Zero-Hallucination & Price Gating", desc: "Problem → Cause → Solution tree traversal + deterministic numeric price guardrails" },
+        { step: "Neural Voice & Escalation", desc: "Piper ONNX neural speech (<200ms) + bi-directional Jira Service Management sync" }
       ],
 
       // Highlights
       whatIBuilt: [
-        "LangGraph stateful workflow for iterative query reasoning",
-        "GraphRAG retrieval engine combining dense vectors with graph relations",
-        "PostgreSQL / pgvector dense embeddings storage & indexing",
-        "Knowledge Graph entity-relationship schema",
-        "FastAPI asynchronous backend with high concurrency",
-        "Redis caching layer for frequent queries and graph nodes",
-        "SSE streaming for real-time token delivery",
-        "Human validation checks & citation grounding references",
-        "Multi-tenant architecture isolating corporate knowledge bases"
+        "Hybrid GraphRAG retrieval combining dense PostgreSQL 18 pgvector embeddings with ArcadeDB typed property knowledge graphs using Reciprocal Rank Fusion (RRF: 0.6 vector / 0.4 graph)",
+        "Sub-second on-premise WebRTC voice pipeline integrating LiveKit SFU, local offline Vosk STT, Silero VAD (<50ms barge-in interruption), and Piper Neural ONNX TTS (<200ms)",
+        "Autonomous marketing & sales agent powered by a 6-stage finite state machine (FSM) with deterministic regex price guardrails preventing unauthorized discounts",
+        "Closed-loop Jira Service Management bi-directional synchronization with automated PII anonymization (GDPR compliant) prior to knowledge graph ingestion",
+        "Semantic Intent Router featuring 13-class classification and multi-turn query rewriting converting ambiguous follow-ups into self-contained graph queries",
+        "Hierarchical 4-tier multi-tenant architecture (SuperAdmin, Tenant Admin, Department Managers, End Users) with strict row-level manager_id isolation",
+        "Multi-model inference runtime supporting Llama 3.1 8B, Qwen 2.5 7B, and Phi-4 via HuggingFace Inference API with automated benchmark scoring",
+        "Full-stack monorepo with FastAPI asynchronous backend, Redis session caching, and 3 dedicated React 18 Vite portals (Customer, Manager, Admin)"
       ],
 
-      problem: "Standard vector RAG breaks down on multi-hop questions across complex corporate documentation because vector similarity misses indirect entity relationships.",
-      solution: "Built a hybrid GraphRAG retrieval pipeline that maps structured knowledge graphs alongside vector embeddings, retrieving verifiable citations for every generated answer.",
-      myRole: "AI Engineering Intern: engineered the vector indexing pipeline, graph traversal logic, LangGraph iterative reasoning loop, and FastAPI streaming API.",
+      problem: "Standard vector RAG is fundamentally context-blind—failing at structural causality (Problem → Cause → Solution), traditional conversational voice bots suffer 2,000–3,500ms latency, and autonomous sales bots hallucinate pricing.",
+      solution: "Architected a unified 5-layer platform combining Hybrid GraphRAG (0.6 pgvector + 0.4 ArcadeDB RRF), sub-second WebRTC voice streaming with instant barge-in interruption, deterministic numeric price validation, and automated Jira escalation.",
+      myRole: "Co-Architect & Systems Engineer: co-designed the 5-layer end-to-end topology, hybrid RRF retrieval engine, ArcadeDB knowledge graph schema, LiveKit voice integration, and FastAPI backend.",
       
       architectureHighlights: [
-        "Hybrid retrieval combining dense pgvector embeddings with entity relationship graph traversal",
-        "LangGraph stateful workflow managing query decomposition, retrieval self-checking, and synthesis",
-        "Citation grounding engine mapping every claim directly back to source document chunks",
-        "FastAPI asynchronous backend streaming response tokens via Server-Sent Events (SSE)"
+        "Hybrid Reciprocal Rank Fusion (RRF): combines 384-dim pgvector embeddings (0.6) with ArcadeDB causal relations (0.4)",
+        "Sub-second WebRTC voice transport via LiveKit SFU, Silero VAD (<50ms barge-in), and Piper ONNX neural speech (<200ms)",
+        "Deterministic numeric price guardrail regex layer neutralizing unverified commercial claims before speech synthesis",
+        "Closed-loop Jira Service Management ticketing sync with automated regex/NLP PII redaction",
+        "Hierarchical 4-tier multi-tenant isolation with instant session revocation cascades"
       ],
 
       technicalDecisions: [
         {
-          decision: "Why Graph-Augmented RAG over Pure Vector Search?",
-          reason: "Vectors capture semantic similarity but struggle with multi-hop relationships (e.g. 'Which warranty applies to equipment installed under contract X?'). Graphs provide deterministic relational paths."
+          decision: "Why ArcadeDB + pgvector over Pure Vector Search or Neo4j?",
+          reason: "Vectors capture semantic similarity but miss causal hierarchies (Problem → Cause → Solution). ArcadeDB provides high-performance typed property graphs via lightweight HTTP/JSON without the resource heaviness of Neo4j, seamlessly fusing with pgvector via RRF (0.6 / 0.4)."
         },
         {
-          decision: "Why Server-Sent Events (SSE)?",
-          reason: "SSE provides lightweight unidirectional streaming for generative AI tokens without the WebSocket overhead of bidirectional handshake management."
+          decision: "Why LiveKit WebRTC SFU over HTTP Request-Response Voice?",
+          reason: "Cascading HTTP calls (STT → LLM → TTS) introduce 2,000–3,500ms latency. LiveKit WebRTC streaming over UDP enables sub-second voice round trips with Silero VAD for instant (<50ms) barge-in user interruption."
+        },
+        {
+          decision: "Why Deterministic Regex Price Guardrails for Sales?",
+          reason: "Autonomous sales LLMs frequently hallucinate unauthorized discounts on complex catalogues. Algorithmic pre-generation validation against official pricing tables guarantees 100% pricing accuracy."
         }
       ],
 
       engineeringFacts: [
-        "Hybrid vector + graph retrieval architecture",
-        "Citation-grounded synthesis with chunk references",
-        "Streaming token generation via SSE",
-        "Multi-step query decomposition with LangGraph"
+        "5 operational architectural layers",
+        "Hybrid GraphRAG (pgvector + ArcadeDB RRF)",
+        "Sub-second LiveKit WebRTC voice pipeline",
+        "6-stage FSM sales agent with price guardrails",
+        "Bi-directional Jira Service Management sync"
       ],
 
-      whatILearned: "Deepened practical understanding of embedding spaces, chunking boundary strategies, entity extraction pipelines, and hallucination reduction techniques.",
-      techStack: ["Python", "FastAPI", "LangGraph", "pgvector", "PostgreSQL", "Redis", "Docker"],
-      githubUrl: "https://github.com/MahranHadjSalah",
-      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20SupportAi"
+      whatILearned: "Mastered hybrid graph-vector retrieval math (RRF), real-time WebRTC audio streaming architectures, voice activity detection with barge-in handling, and enterprise multi-tenant security partitioning.",
+      techStack: ["Python 3.12", "FastAPI", "PostgreSQL 18", "pgvector", "ArcadeDB", "LiveKit", "Vosk STT", "Silero VAD", "Piper TTS", "Redis", "React 18", "Docker"],
+      githubUrl: "https://github.com/MahranHadjSalah/SupportAi",
+      liveUrl: "https://github.com/MahranHadjSalah/SupportAi"
     },
     {
       id: "enterprise-ai",

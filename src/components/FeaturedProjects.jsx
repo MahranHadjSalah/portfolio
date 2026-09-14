@@ -517,7 +517,7 @@ export default function FeaturedProjects({ onOpenProject }) {
       );
     }
 
-    // 10. SupportAi (pgvector + Neo4j GraphRAG Console)
+    // 10. SupportAi (pgvector + ArcadeDB Hybrid GraphRAG & LiveKit Voice Console)
     return (
       <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0E1C33]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.1),transparent_70%)] pointer-events-none" />
@@ -530,17 +530,18 @@ export default function FeaturedProjects({ onOpenProject }) {
               <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
             </div>
             <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
-              supportai.corp/graph-rag
+              supportai.corp/hybrid-graphrag
             </div>
-            <div className="text-[7px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
-              Hybrid Retrieval
+            <div className="text-[7px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              LiveKit WebRTC
             </div>
           </div>
 
           <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
             <div className="bg-[#111827] px-2 py-1 rounded border border-[#263244] text-[7px] font-mono flex justify-between text-[#94A3B8]">
-              <span className="truncate">Query: "Enterprise multi-region failover SLA"</span>
-              <span className="text-[#38BDF8] shrink-0">pgvector + Neo4j</span>
+              <span className="truncate">RRF: 0.6 pgvector + 0.4 ArcadeDB</span>
+              <span className="text-[#38BDF8] shrink-0">&lt;50ms Barge-in</span>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
@@ -548,23 +549,23 @@ export default function FeaturedProjects({ onOpenProject }) {
                 <span className="text-[6.5px] font-mono text-[#94A3B8] block">Vector Cosine Match</span>
                 <div className="bg-[#111827] p-1 rounded text-[6.5px] font-mono">
                   <div className="text-emerald-400 font-bold">Score: 0.941</div>
-                  <div className="text-[#94A3B8] truncate">doc_id: #sec_sla_v2.pdf</div>
+                  <div className="text-[#94A3B8] truncate">doc: #sec_sla_v4.pdf</div>
                 </div>
               </div>
 
               <div className="bg-[#172033] p-1.5 rounded-lg border border-[#263244] space-y-0.5">
-                <span className="text-[6.5px] font-mono text-[#94A3B8] block">Neo4j Entity Graph</span>
+                <span className="text-[6.5px] font-mono text-[#94A3B8] block">ArcadeDB Causal Tree</span>
                 <div className="flex items-center justify-between text-[6px] font-mono text-[#F8FAFC] pt-1">
-                  <span className="bg-[#3B82F6]/30 border border-[#3B82F6] px-1 rounded">Enterprise</span>
-                  <span className="text-[#38BDF8]">──</span>
-                  <span className="bg-emerald-500/30 border border-emerald-500 px-1 rounded">SLA 15m</span>
+                  <span className="bg-[#3B82F6]/30 border border-[#3B82F6] px-1 rounded truncate max-w-[45px]">Problem</span>
+                  <span className="text-[#38BDF8]">→</span>
+                  <span className="bg-emerald-500/30 border border-emerald-500 px-1 rounded truncate max-w-[45px]">Solution</span>
                 </div>
               </div>
             </div>
 
             <div className="bg-[#111827] px-2 py-1 rounded border border-emerald-500/30 flex justify-between items-center text-[6.5px] text-[#94A3B8] font-mono">
-              <span className="text-emerald-400 font-bold">✓ Grounded Answer (Citations [1][2])</span>
-              <span className="text-[#38BDF8]">0% Hallucination</span>
+              <span className="text-emerald-400 font-bold">✓ Grounded Answer + Jira Escalation</span>
+              <span className="text-[#38BDF8]">Piper ONNX TTS</span>
             </div>
           </div>
         </div>
