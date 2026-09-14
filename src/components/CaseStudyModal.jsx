@@ -208,7 +208,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#172033] hover:bg-[#1e2a42] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#263244] text-xs font-mono shadow-2xs transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
-                <span>GitHub Profile</span>
+                <span>View Repo</span>
               </a>
             </div>
 

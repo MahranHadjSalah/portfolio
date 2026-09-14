@@ -953,7 +953,7 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#172033] hover:bg-[#1e2a42] text-[#F8FAFC] font-bold text-sm border border-[#263244] transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] font-sans"
           >
             <GithubIcon className="w-4 h-4" />
-            <span>View Source Code</span>
+            <span>View Repo</span>
           </a>
         </motion.div>
       </motion.section>
