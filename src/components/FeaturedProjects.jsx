@@ -1,4 +1,5 @@
 import React from 'react';
+import { flushSync } from 'react-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Bot, Calendar, Network, Sparkles, ChevronDown } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
@@ -604,37 +605,44 @@ export default function FeaturedProjects({ onOpenProject }) {
     }
 
     if (!showAll) {
-      setShowAll(true);
-      // When opening more projects, smoothly scroll to keep user focused on the FIRST newly opened project
-      setTimeout(() => {
-        const firstMoreEl = document.getElementById('project-card-4');
-        if (firstMoreEl) {
-          const navOffset = 85;
-          const elementTop = firstMoreEl.getBoundingClientRect().top + window.scrollY;
-          const targetY = elementTop - navOffset;
+      // Temporarily disable smooth scroll so the browser directly shows the first project without sliding
+      document.documentElement.style.scrollBehavior = 'auto';
 
-          window.scrollTo({
-            top: targetY,
-            behavior: 'smooth'
-          });
-        }
-      }, 70);
+      flushSync(() => {
+        setShowAll(true);
+      });
+
+      const firstMoreEl = document.getElementById('project-card-4');
+      if (firstMoreEl) {
+        const navOffset = 85;
+        const elementTop = firstMoreEl.getBoundingClientRect().top + window.scrollY;
+        const targetY = Math.max(0, elementTop - navOffset);
+
+        window.scrollTo(0, targetY);
+      }
+
+      requestAnimationFrame(() => {
+        document.documentElement.style.scrollBehavior = '';
+      });
     } else {
-      setShowAll(false);
-      // When collapsing, smoothly bring user back to the bottom of the base projects
-      setTimeout(() => {
-        const baseEl = document.getElementById('project-card-2') || document.getElementById('project-card-3');
-        if (baseEl) {
-          const navOffset = 85;
-          const elementTop = baseEl.getBoundingClientRect().top + window.scrollY;
-          const targetY = elementTop - navOffset;
+      document.documentElement.style.scrollBehavior = 'auto';
 
-          window.scrollTo({
-            top: targetY,
-            behavior: 'smooth'
-          });
-        }
-      }, 70);
+      flushSync(() => {
+        setShowAll(false);
+      });
+
+      const baseEl = document.getElementById('project-card-3') || document.getElementById('project-card-2');
+      if (baseEl) {
+        const navOffset = 85;
+        const elementTop = baseEl.getBoundingClientRect().top + window.scrollY;
+        const targetY = Math.max(0, elementTop - navOffset);
+
+        window.scrollTo(0, targetY);
+      }
+
+      requestAnimationFrame(() => {
+        document.documentElement.style.scrollBehavior = '';
+      });
     }
   };
 
@@ -694,12 +702,12 @@ export default function FeaturedProjects({ onOpenProject }) {
             <motion.div
               key={project.id}
               id={`project-card-${index}`}
-              initial={{ opacity: 0, y: 16 }}
+              initial={index >= 4 ? { opacity: 0 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 0.35, 
+                duration: index >= 4 ? 0.2 : 0.35, 
                 ease: [0.22, 1, 0.36, 1], 
-                delay: index >= 4 ? (index - 4) * 0.05 : index * 0.03 
+                delay: index >= 4 ? 0 : index * 0.03 
               }}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
               onClick={() => onOpenProject(project.id)}
