@@ -43,14 +43,14 @@ export default function CommandMenu({ isOpen, onClose, onOpenResume, onOpenProje
 
   const actions = [
     {
-      label: "Project: Autoreply — AI Sales Automation",
+      label: "Project: Smart Finance Analyzer — Financial AI",
       icon: FolderGit2,
-      action: () => openProject('autoreply')
+      action: () => openProject('smart-finance-analyzer')
     },
     {
-      label: "Project: LUX Dental — Clinical Practice OS",
+      label: "Project: Flutter Shop UI Kit — Mobile App",
       icon: FolderGit2,
-      action: () => openProject('lux-dental')
+      action: () => openProject('flutter-ecommerce')
     },
     {
       label: "Project: SupportAi — GraphRAG Knowledge Engine",
@@ -58,9 +58,9 @@ export default function CommandMenu({ isOpen, onClose, onOpenResume, onOpenProje
       action: () => openProject('supportai')
     },
     {
-      label: "Project: AltiVox — Enterprise GraphRAG Platform",
+      label: "Project: SeniorVoice — AI Voice Assistant",
       icon: FolderGit2,
-      action: () => openProject('altivox')
+      action: () => openProject('senior-voice')
     },
     {
       label: "View All Projects Overview",

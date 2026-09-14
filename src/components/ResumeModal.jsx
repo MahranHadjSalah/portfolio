@@ -244,26 +244,26 @@ export default function ResumeModal({ isOpen, onClose }) {
               Projects & Experience
             </h2>
 
-            {/* Project 1: Autoreply */}
+            {/* Project 1: Smart Finance Analyzer */}
             <div className="space-y-1.5 resume-avoid-break print:mb-3">
               <div className="flex items-baseline justify-between flex-wrap gap-1">
                 <h3 className="text-sm font-bold text-[#F8FAFC] print:text-slate-900 font-mono">
-                  RAG System — Facebook Page Automation (Autoreply) <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| Freelance Project (2026)</span>
+                  Smart Finance Analyzer — Full-Stack AI Financial Platform <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| Full-Stack & AI (2026)</span>
                 </h3>
-                <a href="https://autoreply.online/" target="_blank" rel="noreferrer" className="text-xs font-mono text-[#38BDF8] print:text-blue-700 hover:underline">
-                  https://autoreply.online/ ↗
-                </a>
+                <span className="text-xs font-mono text-[#38BDF8] print:text-blue-700">
+                  Automated Financial Statements
+                </span>
               </div>
               <p className="text-xs text-[#94A3B8] print:text-slate-700 leading-relaxed">
-                AI-powered multi-tenant SaaS platform automating responses to Facebook Messenger inquiries using full RAG knowledge bases built from product catalogs.
+                Full-stack financial analysis platform extracting balance sheets and cash flows, calculating financial health scores, and generating automated Gemini AI diagnostic reports.
               </p>
               <ul className="list-disc list-inside text-xs text-[#94A3B8] print:text-slate-700 space-y-0.5">
-                <li>Meta Messenger API integration for real-time webhook message reception, intent classification & checkout link generation.</li>
-                <li>Semantic indexing and search with FAISS/LangChain for precise, hallucination-free context retrieval.</li>
-                <li>Production DevOps: Deployed on Hetzner VPS with Nginx wildcard subdomains, Certbot automated SSL, and GitHub Actions CI/CD.</li>
+                <li>Automated liquidity, solvency, and profitability ratio computations with dynamic SVG visualization curves.</li>
+                <li>Google Gemini API integration with prompt chains for structured risk evaluations and strategic advice.</li>
+                <li>Secure RESTful backend with PostgreSQL relational schema and multi-format PDF statement exports.</li>
               </ul>
               <div className="text-[11px] font-mono text-[#38BDF8] print:text-blue-700 pt-0.5">
-                Technologies: React/Vite, Express.js, LangChain, FAISS, Meta Messenger API, Hetzner, Nginx, CI/CD
+                Technologies: React, Node.js, Express, PostgreSQL, Google Gemini API, Tailwind CSS, Docker
               </div>
             </div>
 
@@ -290,34 +290,34 @@ export default function ResumeModal({ isOpen, onClose }) {
               </div>
             </div>
 
-            {/* Project 3: LUX Dental */}
+            {/* Project 3: MediaPipe Hand Detectors */}
             <div className="space-y-1.5 resume-avoid-break print:mb-3">
               <div className="flex items-baseline justify-between flex-wrap gap-1">
                 <h3 className="text-sm font-bold text-[#F8FAFC] print:text-slate-900 font-mono">
-                  LUX Dental — Clinical Practice Management SaaS <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| Production Architecture (2025)</span>
+                  MediaPipe Hand Detectors — Computer Vision & Air Canvas <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| Computer Vision (2025 – 2026)</span>
                 </h3>
-                <span className="text-xs font-mono text-[#94A3B8] print:text-slate-600">
-                  Full-Stack Clinical Suite
+                <span className="text-xs font-mono text-cyan-400 print:text-cyan-700 font-semibold">
+                  60 FPS Landmark Tracking
                 </span>
               </div>
               <p className="text-xs text-[#94A3B8] print:text-slate-700 leading-relaxed">
-                Cloud-based practice management software digitizing dental clinic workflows: appointments, records, odontograms, and billing.
+                Real-time computer vision system tracking 21 3D hand landmarks for touchless gesture interactions and interactive air canvas painting.
               </p>
               <ul className="list-disc list-inside text-xs text-[#94A3B8] print:text-slate-700 space-y-0.5">
-                <li>Interactive appointment calendar with conflict prevention and multi-chair real-time availability.</li>
-                <li>Granular role-based access control (Practitioner, Assistant, Receptionist) protecting sensitive diagnostic histories.</li>
-                <li>Interactive visual tooth charting (odontogram), treatment tracking, and automated reminder dispatches.</li>
+                <li>High-performance hand landmark detection executing at 60 FPS on standard camera feeds.</li>
+                <li>Dynamic fingertip pinch gesture recognition triggering virtual 3D drawing, tool switching, and canvas manipulation.</li>
+                <li>Interactive HUD display with vector landmark rendering, Euclidean distance math, and zero latency.</li>
               </ul>
               <div className="text-[11px] font-mono text-[#38BDF8] print:text-blue-700 pt-0.5">
-                Technologies: React, Vite, Node.js, Express, PostgreSQL, Docker, REST API
+                Technologies: Python, OpenCV, MediaPipe, NumPy, Math / Geometry
               </div>
             </div>
 
-            {/* Project 4: AltiVox / SupportAi */}
+            {/* Project 4: SupportAi */}
             <div className="space-y-1.5 resume-avoid-break print:mb-3">
               <div className="flex items-baseline justify-between flex-wrap gap-1">
                 <h3 className="text-sm font-bold text-[#F8FAFC] print:text-slate-900 font-mono">
-                  AltiVox / SupportAi — Enterprise GraphRAG Platform <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| AI Engineering (2025 – 2026)</span>
+                  SupportAi — Enterprise GraphRAG Platform <span className="font-normal text-xs text-[#94A3B8] print:text-slate-600">| AI Engineering (2025 – 2026)</span>
                 </h3>
                 <span className="text-xs font-mono text-[#38BDF8] print:text-blue-700">
                   Hybrid Graph + Vector RAG

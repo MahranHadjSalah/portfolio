@@ -297,201 +297,9 @@ export default function FeaturedProjects({ onOpenProject }) {
       );
     }
 
-    // 5. LUX Dental OS (Multi-Chair Clinic Agenda Window)
-    if (project.id === 'lux-dental') {
-      return (
-        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0F222B]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(20,184,166,0.1),transparent_70%)] pointer-events-none" />
-          
-          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
-            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-red-500/80" />
-                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
-              </div>
-              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
-                luxdental.os/agenda/live
-              </div>
-              <div className="text-[7px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-1.5 py-0.5 rounded border border-cyan-500/20">
-                10:45 AM · Live
-              </div>
-            </div>
 
-            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
-              <div className="flex justify-between items-center text-[7.5px] border-b border-[#263244] pb-1">
-                <span className="font-bold text-[#F8FAFC] flex items-center gap-1">
-                  <span>🦷</span>
-                  <span>Cabinet Dr. Hadj Salah</span>
-                </span>
-                <span className="text-[#94A3B8] font-mono">2 Chairs · 14 Appointments</span>
-              </div>
 
-              <div className="grid grid-cols-2 gap-2">
-                <div className="bg-[#172033] rounded-lg p-2 border border-[#263244] space-y-1">
-                  <div className="flex justify-between items-center text-[7px] font-bold">
-                    <span className="text-[#38BDF8]">Fauteuil 01</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  </div>
-                  <div className="bg-[#111827] p-1 rounded border border-[#334155]/60 text-[6.5px]">
-                    <div className="text-[#F8FAFC] font-bold truncate">Mme. Cherif (10:30)</div>
-                    <div className="text-cyan-400">Implantologie & Soins</div>
-                    <div className="text-[6px] text-[#94A3B8] font-mono mt-0.5">En cours · 35m</div>
-                  </div>
-                </div>
 
-                <div className="bg-[#172033] rounded-lg p-2 border border-[#263244] space-y-1">
-                  <div className="flex justify-between items-center text-[7px] font-bold">
-                    <span className="text-emerald-400">Fauteuil 02</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  </div>
-                  <div className="bg-[#111827] p-1 rounded border border-[#334155]/60 text-[6.5px]">
-                    <div className="text-[#F8FAFC] font-bold truncate">M. Trabelsi (11:15)</div>
-                    <div className="text-emerald-400">Détartrage & Polissage</div>
-                    <div className="text-[6px] text-[#94A3B8] font-mono mt-0.5">Salle d'attente ✓</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#111827] px-2 py-1 rounded border border-[#263244] flex justify-between items-center text-[6.5px] text-[#94A3B8] font-mono">
-                <span>Google Calendar Sync: Active</span>
-                <span className="text-emerald-400 font-bold">SMS Sent: 98%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    // 6. AutoReply (Social Commerce + Autonomous Agent Window)
-    if (project.id === 'autoreply') {
-      return (
-        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#16142B]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_70%)] pointer-events-none" />
-          
-          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
-            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-red-500/80" />
-                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
-              </div>
-              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
-                autoreply.io/inbox/live
-              </div>
-              <div className="text-[7px] font-mono text-[#38BDF8] font-bold bg-[#3B82F6]/10 px-1.5 py-0.5 rounded border border-[#3B82F6]/20">
-                180ms Webhook
-              </div>
-            </div>
-
-            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
-              <div className="grid grid-cols-2 gap-2">
-                {/* Left: IG DM */}
-                <div className="bg-[#111827] p-1.5 rounded-lg border border-[#263244] space-y-1 flex flex-col justify-between">
-                  <div className="flex items-center gap-1 text-[7px] text-[#94A3B8] font-mono border-b border-[#263244] pb-0.5">
-                    <span className="text-pink-400 font-bold">IG DM</span>
-                    <span>@buyer_tn</span>
-                  </div>
-                  <div className="space-y-1 text-[6.5px]">
-                    <div className="bg-[#1E293B] text-[#F8FAFC] p-1 rounded-md rounded-bl-none">
-                      "Is Black Jacket (XL) available?"
-                    </div>
-                    <div className="bg-[#3B82F6] text-white p-1 rounded-md rounded-br-none font-medium">
-                      "Yes! 3 left in stock ⚡"
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right: Dynamic Catalog Card */}
-                <div className="bg-[#172033] p-1.5 rounded-lg border border-[#3B82F6]/50 flex flex-col justify-between">
-                  <div className="flex justify-between items-center text-[7px]">
-                    <span className="font-bold text-[#F8FAFC]">Bomber XL</span>
-                    <span className="text-emerald-400 font-bold font-mono">120 DT</span>
-                  </div>
-                  <div className="bg-[#111827] p-1 rounded text-[6px] text-[#94A3B8] space-y-0.5">
-                    <div className="text-emerald-400 font-bold">● In Stock (3 pcs)</div>
-                    <div>Livraison 24h Tunisie</div>
-                  </div>
-                  <div className="w-full py-0.5 bg-[#3B82F6] text-white text-[7px] font-bold text-center rounded">
-                    1-Click Checkout ↗
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#111827] px-2 py-1 rounded border border-[#263244] flex justify-between items-center text-[6.5px] text-[#94A3B8] font-mono">
-                <span className="text-[#38BDF8]">Tool: inventory_db.query(sku="JKT-XL")</span>
-                <span className="text-emerald-400 font-bold">200ms ACK</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    // 7. AltiVox (Enterprise LLM Router & Telemetry Console)
-    if (project.id === 'altivox') {
-      return (
-        <div className="w-full h-52 sm:h-60 md:h-64 bg-gradient-to-b from-[#0F172A] via-[#0E1A33]/90 to-[#0B1120] relative overflow-hidden flex items-center justify-center p-3 sm:p-4 border-b border-[#263244] select-none">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.1),transparent_70%)] pointer-events-none" />
-          
-          <div className="w-full max-w-[340px] sm:max-w-[380px] h-[185px] sm:h-[205px] bg-[#0A0F1D] rounded-xl border border-[#334155] shadow-2xl overflow-hidden flex flex-col relative z-10 group-hover:scale-[1.02] transition-transform duration-300">
-            <div className="flex items-center justify-between px-2.5 py-1.5 bg-[#111827] border-b border-[#263244]">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-red-500/80" />
-                <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
-              </div>
-              <div className="bg-[#1E293B]/70 px-2.5 py-0.5 rounded text-[8px] font-mono text-[#94A3B8]">
-                altivox.ai/gateway/routing
-              </div>
-              <div className="text-[7px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-1.5 py-0.5 rounded border border-cyan-500/20">
-                142 tok/sec
-              </div>
-            </div>
-
-            <div className="p-2 sm:p-2.5 space-y-1.5 flex-1 flex flex-col justify-between">
-              <div className="grid grid-cols-3 gap-1 text-[7px] text-center font-mono">
-                <div className="bg-[#3B82F6]/20 border border-[#3B82F6] text-[#38BDF8] p-1 rounded font-bold">
-                  Llama 3.1 [Active]
-                </div>
-                <div className="bg-[#172033] border border-[#263244] text-[#94A3B8] p-1 rounded">
-                  Mistral Large
-                </div>
-                <div className="bg-[#172033] border border-[#263244] text-[#94A3B8] p-1 rounded">
-                  DeepSeek R1
-                </div>
-              </div>
-
-              <div className="bg-[#111827] rounded p-1.5 border border-[#263244] space-y-1 font-mono text-[6.5px]">
-                <div className="flex justify-between text-[#94A3B8]">
-                  <span>Routing Decision:</span>
-                  <span className="text-emerald-400 font-bold">High Complexity → Llama 3.1</span>
-                </div>
-                <div className="bg-[#172033] p-1 rounded border border-[#263244] flex justify-between text-[#F8FAFC]">
-                  <span>Ticket #8419: "Isolation failover"</span>
-                  <span className="text-emerald-400 font-bold">Resolved ✓</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-1 text-center font-mono text-[7px]">
-                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
-                  <span className="text-[6px] text-[#94A3B8] block">TTFT</span>
-                  <span className="text-[#38BDF8] font-bold">185 ms</span>
-                </div>
-                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
-                  <span className="text-[6px] text-[#94A3B8] block">Cost/Req</span>
-                  <span className="text-emerald-400 font-bold">$0.0012</span>
-                </div>
-                <div className="bg-[#172033] p-1 rounded border border-[#263244]">
-                  <span className="text-[6px] text-[#94A3B8] block">Cache Hit</span>
-                  <span className="text-[#F8FAFC] font-bold">98.4%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
 
     // 8. Hand Detectors (MediaPipe Vision Viewfinder HUD with 21-point Hand Skeleton)
     if (project.id === 'hand-detectors') {
@@ -687,15 +495,15 @@ export default function FeaturedProjects({ onOpenProject }) {
 
   const categories = [
     { id: 'All', label: 'All Projects', count: portfolioData.featuredProjects.length },
-    { id: 'AI & ML', label: 'AI & LLM', count: 4 },
-    { id: 'Full-Stack SaaS', label: 'Full-Stack SaaS', count: 3 },
+    { id: 'AI & ML', label: 'AI & LLM', count: 2 },
+    { id: 'Full-Stack SaaS', label: 'Full-Stack SaaS', count: 2 },
     { id: 'Mobile & Vision', label: 'Mobile & Vision', count: 3 }
   ];
 
   const filteredProjects = portfolioData.featuredProjects.filter((project) => {
     if (activeFilter === 'All') return true;
-    if (activeFilter === 'AI & ML') return ['autoreply', 'supportai', 'altivox', 'senior-voice'].includes(project.id);
-    if (activeFilter === 'Full-Stack SaaS') return ['lux-dental', 'smart-finance-analyzer', 'university-absence'].includes(project.id);
+    if (activeFilter === 'AI & ML') return ['supportai', 'senior-voice'].includes(project.id);
+    if (activeFilter === 'Full-Stack SaaS') return ['smart-finance-analyzer', 'university-absence'].includes(project.id);
     if (activeFilter === 'Mobile & Vision') return ['flutter-ecommerce', 'hand-detectors', 'attt-mobile'].includes(project.id);
     return true;
   });

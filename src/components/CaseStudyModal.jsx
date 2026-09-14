@@ -111,7 +111,7 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
             <div className="space-y-3">
               <h3 className="text-sm font-mono text-[#F8FAFC] uppercase tracking-wider font-bold flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#38BDF8]" />
-                {project.id === 'lux-dental' ? 'My Contribution:' : 'What I Built:'}
+                What I Built:
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {project.whatIBuilt.map((item, idx) => (

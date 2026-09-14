@@ -23,7 +23,7 @@ export default function App() {
   // Sync with URL Pathname and Browser History (Popstate)
   useEffect(() => {
     const parseRoute = () => {
-      // 1. Check pathname: e.g. /autoreply, /lux-dental, /supportai
+      // 1. Check pathname: e.g. /supportai, /smart-finance-analyzer
       const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
       let candidate = rawPath;
       if (candidate.toLowerCase().startsWith('project/')) {
@@ -44,7 +44,7 @@ export default function App() {
         }
       }
 
-      // 2. Fallback check for hash: e.g. #/project/autoreply or #project-autoreply
+      // 2. Fallback check for hash: e.g. #/project/supportai or #project-supportai
       const hash = window.location.hash;
       const match = hash.match(/^#\/?project\/([a-zA-Z0-9-]+)/) || hash.match(/^#project-([a-zA-Z0-9-]+)/);
       if (match && match[1]) {
