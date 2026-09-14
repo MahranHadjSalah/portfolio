@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Bot, Calendar, Network, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Bot, Calendar, Network, Sparkles, ChevronDown } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import { staggerContainer, fadeInUp } from '../utils/motion';
 
@@ -574,6 +574,7 @@ export default function FeaturedProjects({ onOpenProject }) {
   };
 
   const [activeFilter, setActiveFilter] = React.useState('All');
+  const [showAll, setShowAll] = React.useState(false);
 
   const categories = [
     { id: 'All', label: 'All Projects', count: portfolioData.featuredProjects.length },
@@ -582,6 +583,11 @@ export default function FeaturedProjects({ onOpenProject }) {
     { id: 'Mobile & Vision', label: 'Mobile & Vision', count: 3 }
   ];
 
+  const handleFilterChange = (catId) => {
+    setActiveFilter(catId);
+    setShowAll(false);
+  };
+
   const filteredProjects = portfolioData.featuredProjects.filter((project) => {
     if (activeFilter === 'All') return true;
     if (activeFilter === 'AI & ML') return ['supportai', 'enterprise-ai', 'senior-voice'].includes(project.id);
@@ -589,6 +595,8 @@ export default function FeaturedProjects({ onOpenProject }) {
     if (activeFilter === 'Mobile & Vision') return ['flutter-ecommerce', 'hand-detectors', 'attt-mobile'].includes(project.id);
     return true;
   });
+
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
     <section id="work" className="py-20 md:py-28 border-b border-[#263244] relative bg-[#0B1120]">
@@ -620,7 +628,7 @@ export default function FeaturedProjects({ onOpenProject }) {
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setActiveFilter(cat.id)}
+              onClick={() => handleFilterChange(cat.id)}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all shrink-0 flex items-center gap-1.5 ${
                 activeFilter === cat.id
                   ? 'bg-[#3B82F6] text-white shadow-md shadow-[#3B82F6]/20'
@@ -639,14 +647,14 @@ export default function FeaturedProjects({ onOpenProject }) {
 
         {/* 2-Column Showcase Grid with Staggered Entrance */}
         <motion.div 
-          key={activeFilter}
+          key={`${activeFilter}-${showAll}`}
           variants={staggerContainer(0.08, 0.05)}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6"
         >
-          {filteredProjects.map((project) => (
+          {displayedProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={fadeInUp(0.5, 20)}
@@ -708,6 +716,19 @@ export default function FeaturedProjects({ onOpenProject }) {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Show More / Show Less Toggle Button */}
+        {filteredProjects.length > 4 && (
+          <div className="mt-10 sm:mt-12 flex justify-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2.5 px-7 py-3 rounded-xl bg-[#172033] hover:bg-[#1e2a42] text-[#F8FAFC] hover:text-[#38BDF8] border border-[#263244] hover:border-[#38BDF8]/60 font-mono text-xs sm:text-sm font-bold shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-[#3B82F6]/10 transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] group cursor-pointer"
+            >
+              <span>{showAll ? 'Show Less' : `Show More Projects (${filteredProjects.length - 4} more)`}</span>
+              <ChevronDown className={`w-4 h-4 text-[#38BDF8] transition-transform duration-300 ${showAll ? 'rotate-180' : 'group-hover:translate-y-0.5'}`} />
+            </button>
+          </div>
+        )}
 
       </div>
     </section>
