@@ -348,6 +348,396 @@ export const portfolioData = {
       techStack: ["FastAPI", "Python", "Neo4j", "pgvector", "PostgreSQL", "LangChain", "Docker", "React"],
       githubUrl: "https://github.com/MahranHadjSalah",
       liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20AltiVox"
+    },
+    {
+      id: "smart-finance-analyzer",
+      title: "SmartFinanceAnalyzer",
+      badge: "Full-Stack AI · FinTech",
+      role: "Full-Stack AI Engineer",
+      status: "Production Prototype",
+      category: "AI Financial Health Diagnostics & Analytics",
+      tagline: "AI-powered corporate financial health diagnostics, risk evaluation, CSV bulk import, and automated PDF reporting.",
+      summary: "A full-stack corporate financial analytics platform that aggregates balance sheets, revenues, and expenditures to generate real-time AI financial health scores (0–100), automated solvency/liquidity risk evaluations, and executive PDF reports powered by Google Gemini.",
+      contextNote: "Full-Stack Financial Health & Risk SaaS",
+
+      // Architectural Flow
+      architectureFlow: [
+        { step: "Data Ingestion", desc: "Bulk CSV statement upload or manual accounting balance entry" },
+        { step: "Metric Engine", desc: "Deterministic calculations of Liquidity, Profitability, and Solvency ratios" },
+        { step: "Gemini AI Diagnostics", desc: "LLM pattern analysis detecting cash-flow anomalies & debt surges" },
+        { step: "Risk Action Planning", desc: "Prioritized recommendations with projected impact & remediation timeframe" },
+        { step: "Executive Reporting", desc: "Interactive Recharts visualizer & one-click PDF export via PDFKit" }
+      ],
+
+      // What I Built checklist
+      whatIBuilt: [
+        "Full-stack analytics architecture with React 18, TypeScript, Node.js, and PostgreSQL",
+        "Deterministic financial diagnostic engine evaluating Liquidity, Profitability, and Solvency",
+        "Google Gemini AI integration generating risk assessments and strategic action plans",
+        "Bulk CSV file ingestion with Multer, CSV-Parser, and automated column mapping",
+        "Automated executive-ready PDF report generation engine using PDFKit",
+        "Interactive financial charting suite powered by Recharts (trends, donuts, ratio cards)",
+        "Secure JWT authentication and salted bcrypt password protection with RBAC"
+      ],
+
+      problem: "Small-to-medium businesses struggle to diagnose financial warning signs early due to fragmented spreadsheets and the high cost of external financial consultants, leading to preventable cash-flow crises.",
+      solution: "Engineered an end-to-end financial intelligence platform combining deterministic ratio computations with Google Gemini AI analysis, translating complex accounting data into actionable health scores, risk detections, and executive PDF summaries.",
+      myRole: "Architect and full-stack engineer: designed the PostgreSQL schema, built the Express REST API and CSV parser, integrated Google Gemini generative AI, developed the React TypeScript frontend, and built the PDFKit generation service.",
+
+      architectureHighlights: [
+        "Dual-layer diagnostic: deterministic mathematical ratios combined with Gemini generative reasoning",
+        "PostgreSQL relational database with normalized schema for company profiles, records, and historical analyses",
+        "Streaming CSV processing handling bulk transaction statements without memory spikes",
+        "PDFKit document generator creating branded executive reports directly on the server"
+      ],
+
+      technicalDecisions: [
+        {
+          decision: "Why combine deterministic formulas with LLM reasoning?",
+          reason: "Financial metrics (current ratio, debt-to-equity) require exact mathematical precision where LLMs can hallucinate calculations. Computing exact figures in code and feeding them to Gemini for qualitative risk synthesis guarantees 100% numerical accuracy."
+        },
+        {
+          decision: "Why PDFKit over client-side HTML print?",
+          reason: "Server-side PDF generation ensures consistent formatting across operating systems and browsers, enabling automated background report generation and email distribution."
+        }
+      ],
+
+      engineeringFacts: [
+        "Comprehensive 0–100 automated financial health scoring",
+        "Multi-ratio solvency, liquidity, and debt evaluation",
+        "Google Gemini API risk synthesis & recommendations",
+        "Server-side PDFKit executive report compilation"
+      ],
+
+      whatILearned: "Deepened understanding of corporate financial accounting principles, mastered hybrid deterministic + LLM analytical pipelines, and gained experience with server-side document synthesis.",
+      techStack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Google Gemini", "Tailwind CSS", "Recharts"],
+      githubUrl: "https://github.com/MahranHadjSalah/Smart-Finance-Analyzer",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20SmartFinanceAnalyzer"
+    },
+    {
+      id: "senior-voice",
+      title: "SeniorVoice",
+      badge: "Hackathon 38 Explorers · Voice AI",
+      role: "AI & Full-Stack Engineer",
+      status: "Hackathon Deliverable",
+      category: "Multimodal Bilingual Voice Assistant",
+      tagline: "Accessible bilingual voice assistant designed specifically for senior citizens in French and Tunisian Darija.",
+      summary: "An accessible speech-driven assistant web application tailored for elderly individuals, enabling natural voice interactions in French and Tunisian Arabic (Darija) for emergency SOS alerts, daily medication schedules, agenda reminders, and loved-ones calling with speech synthesis.",
+      contextNote: "Multimodal Tunisian Darija & French Voice Assistant",
+
+      // Architectural Flow
+      architectureFlow: [
+        { step: "Audio Streaming", desc: "Browser Web Audio recording captured as WebM and converted via FFmpeg" },
+        { step: "Whisper STT", desc: "OpenAI Whisper model fine-prompted for French and Tunisian Darija vocabulary" },
+        { step: "Bilingual NLP Engine", desc: "Intent classification and entity extraction for dialectal phrasing" },
+        { step: "Action Engine", desc: "Dispatches SOS triggers, medication tracking, agendas, and contact dialer" },
+        { step: "Accessible Feedback", desc: "High-contrast tablet UI updates + Web Speech API (TTS) audio confirmations" }
+      ],
+
+      // What I Built checklist
+      whatIBuilt: [
+        "Bilingual voice assistant pipeline processing French and Tunisian Darija speech commands",
+        "Custom-prompted OpenAI Whisper speech-to-text integration with FFmpeg audio resampling",
+        "Bilingual regex & NLP processor classifying emergency, medication, call, and reminder intents",
+        "FastAPI backend handling voice ingest, intent execution, and state persistence in SQLite",
+        "Emergency SOS alert system with quick-voice triggers and simulated family alerts",
+        "Medication management engine tracking daily intake times (morning, noon, evening)",
+        "Senior-accessible frontend with high contrast, large touch targets, and Web Speech API TTS"
+      ],
+
+      problem: "Elderly individuals, particularly in North Africa, face severe technological barriers with smartphone interfaces, compounded by voice assistants lacking comprehension of Tunisian Darija and mixed French code-switching.",
+      solution: "Built SeniorVoice, an accessible multimodal voice interface combining Whisper STT prompted for dialectal phonetics with a bilingual NLP engine, allowing seniors to manage emergencies, medications, and calls using their mother tongue.",
+      myRole: "AI and full-stack engineer: designed the audio conversion pipeline with FFmpeg, integrated OpenAI Whisper, engineered the bilingual Darija/French intent classifier in Python, and developed the high-contrast accessible React frontend.",
+
+      architectureHighlights: [
+        "Sub-second audio pipeline converting browser WebM to 16kHz mono WAV via FFmpeg",
+        "Custom-conditioned Whisper STT prompts improving dialectal transcription accuracy for Tunisian Darija",
+        "Stateful Action Engine in FastAPI triggering database updates and emergency dispatch routines",
+        "Accessible tablet-first UI adhering to WCAG AAA contrast standards for visually impaired seniors"
+      ],
+
+      technicalDecisions: [
+        {
+          decision: "Why custom-conditioned prompts in Whisper for Darija?",
+          reason: "Tunisian Darija mixes Arabic roots with French loanwords. Priming the Whisper decoder with bilingual contextual prompts significantly reduces Word Error Rate (WER) compared to unconditioned recognition."
+        },
+        {
+          decision: "Why Web Speech API for TTS on the client side?",
+          reason: "Client-side SpeechSynthesis eliminates round-trip audio bandwidth delay, allowing instant spoken confirmations even on low-bandwidth mobile connections."
+        }
+      ],
+
+      engineeringFacts: [
+        "Dual-language support: French and Tunisian Darija",
+        "Instant SOS trigger with single-voice command",
+        "Medication reminder schedule across 3 daily slots",
+        "WCAG AAA high-contrast accessible interface"
+      ],
+
+      whatILearned: "Learned how to handle non-standard spoken dialect transcription, manage browser audio stream conversion with FFmpeg, and build human-centered interfaces for elderly users.",
+      techStack: ["Python", "FastAPI", "OpenAI Whisper", "SQLite", "React", "Vite", "FFmpeg", "Web Speech API"],
+      githubUrl: "https://github.com/MahranHadjSalah/senior-voice",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20SeniorVoice"
+    },
+    {
+      id: "flutter-ecommerce",
+      title: "Flutter E-Commerce UI Kit",
+      badge: "Mobile App · Flutter & Dart",
+      role: "Mobile Application Developer",
+      status: "Production-Ready UI Kit",
+      category: "Cross-Platform Mobile Application",
+      tagline: "A modern, responsive, and feature-rich E-Commerce UI Kit built with Flutter for Android and iOS.",
+      summary: "A complete commercial-grade mobile e-commerce application template built with Flutter and Dart, covering the entire retail journey from interactive onboarding and biometric auth to catalog search, multi-step checkout, and virtual wallet management with zero-latency shimmer skeletons.",
+      contextNote: "End-to-End Cross-Platform Mobile Shopping System",
+
+      // Architectural Flow
+      architectureFlow: [
+        { step: "Onboarding & Auth", desc: "Dynamic carousel walkthrough, login/signup, password recovery, and OTP verification" },
+        { step: "Discovery & Catalog", desc: "Hero banners, category pills, flash sales timers, and filtered search engine" },
+        { step: "Product Experience", desc: "Image gallery carousel, color/size config, customer reviews, and size guide modal" },
+        { step: "Cart & Checkout", desc: "Live item tally, shipping address selector, payment method gateway, and order review" },
+        { step: "Order & Wallet", desc: "Active order timeline tracker, delivered history, and virtual wallet balance manager" }
+      ],
+
+      // What I Built checklist
+      whatIBuilt: [
+        "Modular, cross-platform mobile application architecture built with Flutter 3.x and Dart",
+        "Comprehensive 9-module user journey across 20+ production-grade mobile screens",
+        "Custom shimmer skeleton loading system eliminating jarring blank loading screens",
+        "Centralized named route generator (router.dart) with smooth animated transitions",
+        "Decoupled data layer with strong DTO models ready for REST, GraphQL, or Firebase backend integration",
+        "Dynamic typography and design system with Plus Jakarta Display and Grandis Extended fonts",
+        "Virtual wallet and multi-payment card interface with transaction histories"
+      ],
+
+      problem: "Building commercial e-commerce apps from scratch often suffers from fragmented UI components, poor cross-platform consistency between iOS and Android, and abrupt loading states that degrade user conversion.",
+      solution: "Engineered a production-ready, modular Flutter architecture featuring fluid animations, reusable design widgets, and custom skeleton loaders, providing a turnkey foundation for consumer shopping apps.",
+      myRole: "Mobile application developer: architected the feature-first folder structure, developed the component library, built the routing engine, implemented custom skeleton animations, and validated cross-platform responsive scaling.",
+
+      architectureHighlights: [
+        "Feature-first directory organization separating screens, shared widgets, models, and themes",
+        "Shimmer placeholder cards matching exact dimensions of banners, products, and order cards",
+        "Centralized theme configuration with standardized spacing, border radiuses, and color palettes",
+        "Container transform and fade motion transitions using Flutter's animations package"
+      ],
+
+      technicalDecisions: [
+        {
+          decision: "Why custom shimmer skeleton loaders over basic spinners?",
+          reason: "Skeleton placeholders preserve layout stability, prevent cumulative layout shifts, and dramatically improve perceived performance on mobile networks."
+        },
+        {
+          decision: "Why centralized named routes with route constants?",
+          reason: "Decouples screen implementations from navigation triggers, simplifying deep-linking, push notification navigation, and route guard middleware."
+        }
+      ],
+
+      engineeringFacts: [
+        "20+ fully responsive screens across Android and iOS",
+        "9 complete functional retail lifecycle modules",
+        "Zero-shift shimmer skeleton loading architecture",
+        "Decoupled model layer ready for any backend API"
+      ],
+
+      whatILearned: "Deepened mastery of Flutter widget lifecycles, advanced cross-platform responsive layout principles, state-driven UI animations, and clean mobile architectural design.",
+      techStack: ["Flutter", "Dart", "Android", "iOS", "Material Design 3", "Animations", "SVG"],
+      githubUrl: "https://github.com/MahranHadjSalah/E-commerce-Complete-Flutter-UI-master",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20Flutter%20E-Commerce"
+    },
+    {
+      id: "hand-detectors",
+      title: "AI Hand Vision & Gesture Studio",
+      badge: "Real-Time AI · Computer Vision",
+      role: "Computer Vision Engineer",
+      status: "Working Application Suite",
+      category: "Computer Vision & Interactive Gesture AI",
+      tagline: "Real-time computer vision suite featuring cyberpunk neon tracking, 3D air canvas drawing, and gesture game AI.",
+      summary: "An interactive computer vision suite powered by Google MediaPipe Tasks and OpenCV. Turns any standard webcam into a high-precision gesture controller featuring 21-point neon hand tracking with particle physics, pressure-sensitive 3D air canvas sketching, and an AI-powered Rock-Paper-Scissors-Lizard-Spock game.",
+      contextNote: "Real-Time 3D Hand Tracking & Computer Vision Suite",
+
+      // Architectural Flow
+      architectureFlow: [
+        { step: "Webcam Capture", desc: "Real-time 60 FPS BGR video stream acquisition via OpenCV" },
+        { step: "3D Landmark Extraction", desc: "MediaPipe Vision Tasks detecting 21 3D hand landmarks per hand" },
+        { step: "EMA Coordinate Smoothing", desc: "Exponential Moving Average filtering eliminating fingertip jitter" },
+        { step: "Spatial Gesture Engine", desc: "Geometric trigonometry evaluating finger curls, pinch distances, and palm depth" },
+        { step: "Cyberpunk Rendering", desc: "Gaussian glow skeleton overlay, dynamic particle emitters, and pyttsx3 voice synthesis" }
+      ],
+
+      // What I Built checklist
+      whatIBuilt: [
+        "Real-time multi-hand computer vision suite processing 60 FPS webcam video with MediaPipe & OpenCV",
+        "Cyberpunk neon skeleton renderer with Gaussian bloom shaders and dynamic particle trails",
+        "Exponential Moving Average (EMA) coordinate smoothing filter eliminating tracking jitter",
+        "Air Studio Pro: 3D air-drawing canvas with depth-sensitive stroke dynamics (4px–30px)",
+        "Smart gesture recognition system (Index Draw, Peace Hover, Open Palm Eraser, Fist Reset)",
+        "Rock-Paper-Scissors-Lizard-Spock game with predictive probability engine and voice commentary",
+        "Artwork export pipeline saving high-resolution vector-quality images from air sketches"
+      ],
+
+      problem: "Traditional webcam gesture detection suffers from noisy coordinate jitter, heavy CPU latency, and lack of intuitive spatial controls, making hands-free drawing and gesture interfaces frustrating to use.",
+      solution: "Engineered an optimized real-time vision pipeline combining MediaPipe's lightweight 3D hand landmarker bundle with EMA temporal smoothing and depth-derived stroke dynamics, enabling ultra-responsive air drawing and gesture interactions.",
+      myRole: "Computer vision engineer: implemented the MediaPipe Tasks pipeline, wrote the EMA jitter reduction filters, engineered the spatial gesture recognition logic, built the particle emitter physics, and integrated offline speech synthesis.",
+
+      architectureHighlights: [
+        "MediaPipe Vision Tasks pipeline tracking 21 3D spatial points with minimal CPU footprint",
+        "Exponential Moving Average (EMA) filter smoothing landmark coordinates across consecutive video frames",
+        "Depth-sensitive pen pressure calculated through real-time Euclidean distance between wrist and index MCP",
+        "Predictive Markov-inspired AI engine analyzing opponent gesture frequency to counter moves"
+      ],
+
+      technicalDecisions: [
+        {
+          decision: "Why Exponential Moving Average (EMA) smoothing?",
+          reason: "Raw vision landmark coordinates fluctuate by a few pixels each frame due to sensor noise. EMA filtering dampens high-frequency fluctuations while preserving instantaneous responsiveness for fluid writing."
+        },
+        {
+          decision: "Why wrist-to-palm distance for stroke pressure?",
+          reason: "Monocular webcams lack true depth sensors. Normalizing the distance between landmark 0 (wrist) and landmark 5 (index MCP) provides an accurate relative depth proxy to modulate brush thickness dynamically."
+        }
+      ],
+
+      engineeringFacts: [
+        "Real-time 60 FPS 21-point 3D hand landmark tracking",
+        "Sub-10ms EMA coordinate smoothing latency",
+        "5 interactive gesture states for canvas operations",
+        "Offline text-to-speech feedback via pyttsx3"
+      ],
+
+      whatILearned: "Gained deep practical expertise in real-time computer vision pipelines, geometric spatial mathematics, landmark coordinate stabilization algorithms, and interactive human-computer interaction (HCI).",
+      techStack: ["Python", "OpenCV", "MediaPipe Tasks", "NumPy", "pyttsx3", "Computer Vision"],
+      githubUrl: "https://github.com/MahranHadjSalah/Hand-detectors",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20Hand%20Detectors"
+    },
+    {
+      id: "university-absence",
+      title: "University Attendance & Absence OS",
+      badge: "Full-Stack SaaS · RBAC · Higher Ed",
+      role: "Full-Stack Engineer",
+      status: "Production Architecture",
+      category: "Enterprise Academic Management Platform",
+      tagline: "Role-based university attendance tracking platform connecting administration, faculty, and students in real time.",
+      summary: "A full-stack academic operations platform that streamlines the student attendance lifecycle across higher education institutions, connecting administration, professors, and students with role-tailored portals, session roll-calls, justification processing, and attendance analytics.",
+      contextNote: "Enterprise Academic Attendance Management Platform",
+
+      // Architectural Flow
+      architectureFlow: [
+        { step: "Role-Guarded Access", desc: "JWT authenticated logins routing to Admin, Professor, or Student dashboards" },
+        { step: "Academic Configuration", desc: "Admin maps departments, academic classes, modules, and professor assignments" },
+        { step: "Session Scheduling", desc: "Professors schedule Cours, Travaux Dirigés (TD), or Travaux Pratiques (TP)" },
+        { step: "Digital Roll-Call", desc: "Instant batch attendance recording with presence/absence toggles and justification motifs" },
+        { step: "Attendance Analytics", desc: "Real-time student absence health indicator and module absence percentages" }
+      ],
+
+      // What I Built checklist
+      whatIBuilt: [
+        "Full-stack academic management system with React 18 frontend and Express.js REST API",
+        "3 dedicated role-tailored dashboards: Administrator, Professor, and Student",
+        "Relational database schema in SQLite3 with foreign key referential integrity",
+        "Role-Based Access Control (RBAC) middleware verifying permissions for all endpoints",
+        "Batch attendance roll-call registry allowing professors to record full classes in seconds",
+        "Attendance justification workflow processing medical and authorized leave motifs",
+        "Real-time attendance health metrics computing absence ratios per course and semester"
+      ],
+
+      problem: "Universities and academic faculties often rely on paper attendance sheets that are lost, manually tallied at the end of semesters, and lack real-time visibility for students at risk of academic elimination.",
+      solution: "Engineered a centralized digital attendance platform providing instant digital roll-calls for professors, proactive absence tracking for students, and comprehensive compliance analytics for administration.",
+      myRole: "Full-stack engineer: designed the relational schema, built the Express REST API with RBAC security guards, developed the React user interface, and implemented batch attendance marking handlers.",
+
+      architectureHighlights: [
+        "Granular RBAC middleware inspecting signed JWT payloads before executing route logic",
+        "Relational integrity constraints linking students, enrollments, professors, modules, and absence entries",
+        "Batch attendance recording endpoint minimizing database roundtrips during live lecture roll-calls",
+        "Modular component architecture with shared state managed via React Context API"
+      ],
+
+      technicalDecisions: [
+        {
+          decision: "Why batch attendance submission via single POST?",
+          reason: "A lecture can have 100+ students. Firing individual HTTP requests per student causes network congestion. A single batch payload processed in a database transaction executes atomically in under 30ms."
+        },
+        {
+          decision: "Why distinguish session types (Cours, TD, TP)?",
+          reason: "Academic regulations enforce distinct absence thresholds for practical labs (TP) versus lectures. Tracking session taxonomy enables precise automated warnings when thresholds are breached."
+        }
+      ],
+
+      engineeringFacts: [
+        "3-tier RBAC architecture (Admin, Professor, Student)",
+        "Atomic batch attendance submission for entire classes",
+        "Session categorization across Cours, TD, and TP",
+        "Automated student attendance percentage indicators"
+      ],
+
+      whatILearned: "Strengthened full-stack capabilities in role-based authorization design, relational foreign key modeling, transactional batch operations, and responsive dashboard UX.",
+      techStack: ["React", "Node.js", "Express", "SQLite", "JWT", "bcryptjs", "CSS3 Modules"],
+      githubUrl: "https://github.com/MahranHadjSalah/University-Absence-Management",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20University%20Absence"
+    },
+    {
+      id: "attt-mobile",
+      title: "ATTT Vehicle Inspection Booking",
+      badge: "Mobile Web · UI/UX Engineering",
+      role: "Frontend & UI/UX Engineer",
+      status: "Production Prototype",
+      category: "Public Sector Mobile Web Application",
+      tagline: "Mobile-first vehicle technical inspection reservation application engineered strictly from Figma specifications.",
+      summary: "A mobile-first reservation web application built for the Tunisian Land Transport Technical Agency (ATTT). Guides vehicle owners through a seamless multi-step booking process: vehicle registration lookup, technical service selection, owner details validation, and digital appointment confirmation receipts.",
+      contextNote: "Public Sector Mobile Reservation & Inspection Application",
+
+      // Architectural Flow
+      architectureFlow: [
+        { step: "Home & Initiation", desc: "Clean landing screen with vehicle registration trigger and quick actions" },
+        { step: "Service Selection", desc: "Interactive cards for Visite Périodique, Constat, and Réception à Titre Isolé" },
+        { step: "Vehicle Information", desc: "Tunisian license plate syntax formatting and chassis number validation" },
+        { step: "Owner Form", desc: "Personal details, telephone contact, and center location selection" },
+        { step: "Receipt Confirmation", desc: "Digital appointment summary receipt with booking barcode and return to home" }
+      ],
+
+      // What I Built checklist
+      whatIBuilt: [
+        "Mobile-first web application engineered strictly according to Figma UI/UX design specifications",
+        "Multi-step booking wizard with state persistence across views (Accueil → Service → Formulaire → Confirmation)",
+        "Tunisian license plate parser and validator formatting input in real time",
+        "Interactive service selection cards with visual feedback and price transparency",
+        "Persistent mobile bottom navigation bar enabling rapid access across all application states",
+        "Responsive mobile layout styled with custom CSS variables and Plus Jakarta Sans typography",
+        "Appointment summary and confirmation receipt with printable booking credentials"
+      ],
+
+      problem: "Citizens attempting to book mandatory vehicle safety inspections often encounter confusing legacy portals that fail on mobile phones, causing high drop-off rates and long phone queues.",
+      solution: "Engineered a modern, responsive mobile web application adhering faithfully to modern Figma UI/UX guidelines, streamlining the inspection booking procedure down to under 2 minutes on any smartphone.",
+      myRole: "Frontend and UI/UX engineer: translated Figma wireframes and design systems into modular React components, implemented the multi-step form validation engine, and crafted the responsive mobile styling.",
+
+      architectureHighlights: [
+        "Strict 390px mobile viewport optimization ensuring perfect rendering on iOS Safari and Android Chrome",
+        "Stateful booking context preserving customer selections throughout the multi-screen flow",
+        "Figma design system parity: exact hex colors (#1A56A0 primary, #22C55E accent), border radiuses, and shadows",
+        "Zero third-party heavyweight UI libraries, keeping bundle size minimal for fast 3G/4G cellular loading"
+      ],
+
+      technicalDecisions: [
+        {
+          decision: "Why lightweight modular CSS over heavy component frameworks?",
+          reason: "Public mobile web portals are frequently accessed on mid-range devices over cellular data. Eliminating heavy component dependencies keeps the first contentful paint (FCP) under 1 second."
+        },
+        {
+          decision: "Why step-by-step progressive disclosure?",
+          reason: "Breaking a complex government booking into single-focus screens (Service → Vehicle → Owner → Summary) reduces cognitive load and minimizes input mistakes."
+        }
+      ],
+
+      engineeringFacts: [
+        "100% fidelity to official Figma UI/UX design specs",
+        "Mobile-first responsive architecture (390px base)",
+        "5-stage guided reservation stepper flow",
+        "Sub-1s First Contentful Paint on mobile connections"
+      ],
+
+      whatILearned: "Mastered precise Figma-to-code translation, mobile touch interaction design, stateful multi-step form architecture, and performance optimization for public-facing consumer applications.",
+      techStack: ["React", "JavaScript", "CSS3", "Mobile Web", "UI/UX", "Figma Design", "Responsive Design"],
+      githubUrl: "https://github.com/MahranHadjSalah/app_mobile",
+      liveUrl: "https://wa.me/21656187082?text=Hi%20Mahran,%20I'd%20like%20a%20demo%20of%20ATTT%20Booking"
     }
   ],
 

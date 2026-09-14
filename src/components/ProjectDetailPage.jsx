@@ -18,7 +18,30 @@ import {
   Check, 
   Copy,
   Zap,
-  Play
+  Play,
+  TrendingUp,
+  BarChart3,
+  FileSpreadsheet,
+  FileDown,
+  Mic,
+  Volume2,
+  HeartHandshake,
+  AlertCircle,
+  Smartphone,
+  ShoppingBag,
+  CreditCard,
+  Package,
+  Eye,
+  Camera,
+  Hand,
+  Activity,
+  GraduationCap,
+  Users,
+  ClipboardCheck,
+  BookOpen,
+  Car,
+  CheckSquare,
+  FileCheck
 } from 'lucide-react';
 import { GithubIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
@@ -65,6 +88,42 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
         return (
           <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#172033] border border-[#263244] shadow-sm flex items-center justify-center text-[#38BDF8]">
             <Cpu className="w-9 h-9 text-[#38BDF8]" />
+          </div>
+        );
+      case 'smart-finance-analyzer':
+        return (
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#172033] border border-[#263244] shadow-sm flex items-center justify-center text-emerald-400">
+            <TrendingUp className="w-9 h-9 text-emerald-400" />
+          </div>
+        );
+      case 'senior-voice':
+        return (
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#172033] border border-[#263244] shadow-sm flex items-center justify-center text-[#38BDF8]">
+            <Mic className="w-9 h-9 text-[#38BDF8]" />
+          </div>
+        );
+      case 'flutter-ecommerce':
+        return (
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#172033] border border-[#263244] shadow-sm flex items-center justify-center text-[#38BDF8]">
+            <ShoppingBag className="w-9 h-9 text-[#38BDF8]" />
+          </div>
+        );
+      case 'hand-detectors':
+        return (
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#172033] border border-[#263244] shadow-sm flex items-center justify-center text-cyan-400">
+            <Eye className="w-9 h-9 text-cyan-400" />
+          </div>
+        );
+      case 'university-absence':
+        return (
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#172033] border border-[#263244] shadow-sm flex items-center justify-center text-[#38BDF8]">
+            <GraduationCap className="w-9 h-9 text-[#38BDF8]" />
+          </div>
+        );
+      case 'attt-mobile':
+        return (
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#172033] border border-[#263244] shadow-sm flex items-center justify-center text-[#22C55E]">
+            <Car className="w-9 h-9 text-[#22C55E]" />
           </div>
         );
       case 'supportai':
@@ -350,6 +409,444 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
             </div>
             <div className="text-[#94A3B8] font-sans text-xs leading-relaxed pt-1">
               "Yes. Under Section 3 of NovaSaaS Service Terms <span className="text-[#38BDF8] font-mono">[Ref: SLA-2025-V2]</span>, all enterprise tenants receive automated snapshotting every 4 hours with a 99.95% uptime guarantee."
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.id === 'smart-finance-analyzer') {
+      return (
+        <div className="bg-[#172033] rounded-2xl p-4 sm:p-8 text-[#F8FAFC] border border-[#263244] font-mono shadow-2xl">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between pb-4 border-b border-[#263244] text-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[#94A3B8] ml-2">smartfinance-analytics // Diagnostics Console</span>
+            </div>
+            <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Google Gemini 1.5 Active
+            </span>
+          </div>
+
+          {/* Metrics & Diagnostic Summary */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-6">
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-1 md:col-span-1">
+              <div className="text-[10px] font-mono text-[#94A3B8] uppercase">Financial Health Score</div>
+              <div className="text-3xl font-black text-emerald-400">87<span className="text-xs text-[#94A3B8]">/100</span></div>
+              <div className="text-[11px] text-[#38BDF8] font-sans">Grade: Excellent Solvency</div>
+              <div className="w-full bg-[#0B1120] rounded-full h-1.5 mt-2 overflow-hidden">
+                <div className="bg-emerald-400 h-1.5 rounded-full" style={{ width: '87%' }} />
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+              <div className="text-[10px] font-mono text-[#94A3B8] uppercase">Current Liquidity</div>
+              <div className="text-2xl font-black text-[#F8FAFC]">2.42x</div>
+              <div className="text-[11px] text-emerald-400 font-sans">Above 1.5x threshold</div>
+              <div className="text-[10px] text-[#94A3B8]">Instant obligation coverage</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+              <div className="text-[10px] font-mono text-[#94A3B8] uppercase">Profit Margin</div>
+              <div className="text-2xl font-black text-[#F8FAFC]">+18.4%</div>
+              <div className="text-[11px] text-[#38BDF8] font-sans">+3.2% vs previous Q</div>
+              <div className="text-[10px] text-[#94A3B8]">Net income over gross revenue</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+              <div className="text-[10px] font-mono text-[#94A3B8] uppercase">Debt / Equity</div>
+              <div className="text-2xl font-black text-[#F8FAFC]">0.38</div>
+              <div className="text-[11px] text-emerald-400 font-sans">Healthy leverage ratio</div>
+              <div className="text-[10px] text-[#94A3B8]">Low bankruptcy exposure</div>
+            </div>
+          </div>
+
+          {/* Gemini AI Risk Analysis Output */}
+          <div className="mt-4 p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
+            <div className="flex items-center justify-between text-[10px] font-mono">
+              <span className="text-[#38BDF8] font-bold uppercase flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" />
+                Gemini Generative Financial Synthesis
+              </span>
+              <span className="text-emerald-400">0 Critical Risks Detected</span>
+            </div>
+            <div className="bg-[#0B1120] border border-[#263244] p-3 rounded-lg font-sans text-xs text-[#94A3B8] leading-relaxed">
+              "Company operates with strong cash buffer and consistent gross profitability. Revenue trajectory exhibits +14.2% QoQ growth. <strong className="text-[#F8FAFC]">Strategic Recommendation:</strong> Refinance short-term supplier payables within 60 days to unlock an estimated 8.5% additional operational working capital."
+            </div>
+            <div className="flex items-center justify-between pt-2 text-[10px] text-[#94A3B8]">
+              <span>Data source: Q1–Q3 Ingested Statements (CSV)</span>
+              <span className="text-[#38BDF8] flex items-center gap-1 font-mono">
+                <FileDown className="w-3.5 h-3.5" />
+                executive_report_q3.pdf (Generated via PDFKit)
+              </span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.id === 'senior-voice') {
+      return (
+        <div className="bg-[#172033] rounded-2xl p-4 sm:p-8 text-[#F8FAFC] border border-[#263244] font-mono shadow-2xl">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between pb-4 border-b border-[#263244] text-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[#94A3B8] ml-2">seniorvoice-stt-engine // Bilingual Pipeline</span>
+            </div>
+            <span className="text-[#38BDF8] font-semibold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse" />
+              Whisper STT (Darija + French)
+            </span>
+          </div>
+
+          {/* Bilingual Voice Testbed */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+            <div className="p-4 rounded-xl bg-[#111827] border border-red-500/30 space-y-2">
+              <div className="text-[10px] text-red-400 font-bold uppercase flex items-center gap-1.5">
+                <AlertCircle className="w-3.5 h-3.5" />
+                1. Emergency SOS Intent
+              </div>
+              <div className="bg-[#0B1120] p-2.5 rounded border border-[#263244] text-[11px] text-[#F8FAFC]">
+                🗣️ "عاوني · نجدة" / "Au secours !"
+              </div>
+              <div className="text-[10px] text-[#94A3B8]">
+                Triggers loudest alarm, auto-dials primary caregiver, and dispatches SMS location beacon.
+              </div>
+              <div className="text-[10px] text-emerald-400 font-mono">Status: 0.42s Dispatch</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-emerald-500/30 space-y-2">
+              <div className="text-[10px] text-emerald-400 font-bold uppercase flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5" />
+                2. Medication Intake
+              </div>
+              <div className="bg-[#0B1120] p-2.5 rounded border border-[#263244] text-[11px] text-[#F8FAFC]">
+                🗣️ "ذكرني ناكل الدوا متاعي"
+              </div>
+              <div className="text-[10px] text-[#94A3B8]">
+                Logs Doliprane 1000mg for 20:00 (Evening slot). High-contrast visual reminder scheduled.
+              </div>
+              <div className="text-[10px] text-[#38BDF8] font-mono">TTS: Spoken in Tunisian Arabic</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-blue-500/30 space-y-2">
+              <div className="text-[10px] text-[#38BDF8] font-bold uppercase flex items-center gap-1.5">
+                <Mic className="w-3.5 h-3.5" />
+                3. Loved-Ones Calling
+              </div>
+              <div className="bg-[#0B1120] p-2.5 rounded border border-[#263244] text-[11px] text-[#F8FAFC]">
+                🗣️ "عيطلي لـ Mohamed"
+              </div>
+              <div className="text-[10px] text-[#94A3B8]">
+                Entity parser extracts 'Mohamed', resolves contact ID from SQLite, and triggers browser dialer.
+              </div>
+              <div className="text-[10px] text-emerald-400 font-mono">Direct Voice Routing</div>
+            </div>
+          </div>
+
+          {/* Simulated Speech Synthesis Feedback */}
+          <div className="mt-4 p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
+            <div className="text-[10px] text-[#94A3B8] uppercase font-bold flex items-center gap-1.5">
+              <Volume2 className="w-3.5 h-3.5 text-emerald-400" />
+              Live Speech Feedback (Client Web Speech API):
+            </div>
+            <div className="bg-[#0B1120] border border-[#263244] p-3 rounded-lg text-xs leading-relaxed text-[#F8FAFC]">
+              🔊 <em>"حاضر، سجلتلك تذكير الدواء متاعك الليلة مع الثمانية متع الليل."</em>
+              <span className="block text-[10px] text-[#94A3B8] mt-1 font-mono">
+                [Audio: 16kHz mono WebM → Whisper STT → Intent: MEDICATION_ADD → SQLite Commit]
+              </span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.id === 'flutter-ecommerce') {
+      return (
+        <div className="bg-[#172033] rounded-2xl p-4 sm:p-8 text-[#F8FAFC] border border-[#263244] font-mono shadow-2xl">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between pb-4 border-b border-[#263244] text-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[#94A3B8] ml-2">flutter-shop-uikit // Device Viewport</span>
+            </div>
+            <span className="text-[#38BDF8] font-semibold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#02569B] animate-pulse" />
+              Flutter 3.x · 60 FPS
+            </span>
+          </div>
+
+          {/* Modular Architecture Modules */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-[#38BDF8] uppercase flex items-center gap-1.5">
+                <ShoppingBag className="w-3.5 h-3.5" />
+                Discovery & Catalog
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                Dynamic promotional carousels, flash sales countdown timers, category pills, and search autocomplete.
+              </p>
+              <div className="text-[10px] text-emerald-400 font-mono">Shimmer Skeletons Active</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-[#38BDF8] uppercase flex items-center gap-1.5">
+                <CreditCard className="w-3.5 h-3.5" />
+                Cart & Checkout Flow
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                Multi-step checkout with address picker, coupon validation, virtual wallet balance, and payment gateway selection.
+              </p>
+              <div className="text-[10px] text-emerald-400 font-mono">Animated Transitions</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-[#38BDF8] uppercase flex items-center gap-1.5">
+                <Package className="w-3.5 h-3.5" />
+                Order Tracking & Wallet
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                Live delivery status pipeline, return policy bottom sheet, customer review ratings, and transaction histories.
+              </p>
+              <div className="text-[10px] text-emerald-400 font-mono">Decoupled DTO Models</div>
+            </div>
+          </div>
+
+          {/* Screen Architecture Specs */}
+          <div className="mt-4 p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
+            <div className="text-[10px] text-[#94A3B8] uppercase font-bold">Design System & Codebase Architecture:</div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 font-mono text-[10px]">
+              <div className="p-2 rounded bg-[#0B1120] border border-[#263244]">
+                <span className="text-[#94A3B8] block text-[9px]">Typography</span> Plus Jakarta Sans
+              </div>
+              <div className="p-2 rounded bg-[#0B1120] border border-[#263244]">
+                <span className="text-[#94A3B8] block text-[9px]">Routing</span> Named Routes
+              </div>
+              <div className="p-2 rounded bg-[#0B1120] border border-[#263244]">
+                <span className="text-[#94A3B8] block text-[9px]">Screen Count</span> 20+ Production Views
+              </div>
+              <div className="p-2 rounded bg-[#0B1120] border border-[#263244]">
+                <span className="text-[#94A3B8] block text-[9px]">Target</span> Android & iOS
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.id === 'hand-detectors') {
+      return (
+        <div className="bg-[#172033] rounded-2xl p-4 sm:p-8 text-[#F8FAFC] border border-[#263244] font-mono shadow-2xl">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between pb-4 border-b border-[#263244] text-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[#94A3B8] ml-2">mediapipe-gesture-studio // Vision Pipeline</span>
+            </div>
+            <span className="text-cyan-400 font-semibold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+              60 FPS · EMA Smoothed
+            </span>
+          </div>
+
+          {/* Interactive Vision Modules */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-cyan-400 uppercase flex items-center gap-1.5">
+                <Eye className="w-3.5 h-3.5" />
+                1. Neon Hand Tracker
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                21 3D landmarks per hand rendered with Gaussian neon bloom, particle physics trails, and real-time handedness detection.
+              </p>
+              <div className="text-[10px] text-cyan-400 font-mono">hand_detector.py · EMA 0.85</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-[#A855F7] uppercase flex items-center gap-1.5">
+                <Hand className="w-3.5 h-3.5" />
+                2. Air Studio Pro
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                3D air canvas allowing in-air drawing. Stroke width (4–30px) modulates dynamically based on wrist-to-palm distance.
+              </p>
+              <div className="text-[10px] text-[#A855F7] font-mono">air_writing.py · PNG Export</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-emerald-400 uppercase flex items-center gap-1.5">
+                <Activity className="w-3.5 h-3.5" />
+                3. Game AI Studio
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                Rock-Paper-Scissors-Lizard-Spock with Markov predictive engine analyzing user gesture history with pyttsx3 speech commentary.
+              </p>
+              <div className="text-[10px] text-emerald-400 font-mono">rock_paper_scissors.py</div>
+            </div>
+          </div>
+
+          {/* Vision Telemetry Trace */}
+          <div className="mt-4 p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
+            <div className="text-[10px] text-[#94A3B8] uppercase font-bold">Real-Time Landmark Telemetry Trace:</div>
+            <div className="bg-[#0B1120] border border-[#263244] p-2.5 rounded font-mono text-[11px] text-[#F8FAFC]">
+              <span className="text-cyan-400">&gt; MediaPipe: </span>
+              21 Keypoints Identified | Hand: Right | Tip(Index): (x=482, y=214, z=-0.042) | Gesture: [DRAWING] | Brush: 18px #00FFFF
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.id === 'university-absence') {
+      return (
+        <div className="bg-[#172033] rounded-2xl p-4 sm:p-8 text-[#F8FAFC] border border-[#263244] font-mono shadow-2xl">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between pb-4 border-b border-[#263244] text-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[#94A3B8] ml-2">university-absence-os // Session Management</span>
+            </div>
+            <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              RBAC Enabled (3 Portals)
+            </span>
+          </div>
+
+          {/* 3 Role Portals */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-[#38BDF8] uppercase flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                Administrator Portal
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                Full governance of student enrollments, faculty credentials, academic modules, department programs, and global analytics.
+              </p>
+              <div className="text-[10px] text-emerald-400 font-mono">Role: admin (Full CRUD)</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-[#38BDF8] uppercase flex items-center gap-1.5">
+                <ClipboardCheck className="w-3.5 h-3.5" />
+                Professor Portal
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                Schedule Cours, TD, or TP sessions. One-click batch roll-call marking presence, absence, and justification motifs.
+              </p>
+              <div className="text-[10px] text-[#38BDF8] font-mono">Role: professeur (Roll-Call)</div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#111827] border border-[#263244] space-y-2">
+              <div className="text-[11px] font-bold text-[#38BDF8] uppercase flex items-center gap-1.5">
+                <GraduationCap className="w-3.5 h-3.5" />
+                Student Dashboard
+              </div>
+              <p className="text-xs text-[#94A3B8] font-sans">
+                Real-time personal attendance tracking, module absence ratios, medical justification status, and elimination warnings.
+              </p>
+              <div className="text-[10px] text-emerald-400 font-mono">Role: etudiant (Attendance: 94.2%)</div>
+            </div>
+          </div>
+
+          {/* Live Roll-Call Register Simulator */}
+          <div className="mt-4 p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
+            <div className="flex items-center justify-between text-[10px] font-mono">
+              <span className="text-[#38BDF8] font-bold uppercase">
+                Active Session: Génie Logiciel · Architecture Logicielle (TD #04)
+              </span>
+              <span className="text-emerald-400 font-bold">Class Roster: 24/25 Present</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 font-sans text-xs">
+              <div className="p-2.5 rounded bg-[#0B1120] border border-emerald-500/30 flex items-center justify-between">
+                <div>
+                  <div className="font-bold text-[#F8FAFC]">Yassine Ben Amor</div>
+                  <div className="text-[10px] font-mono text-[#94A3B8]">ID: U00014</div>
+                </div>
+                <span className="text-emerald-400 font-mono text-[11px] font-bold">✔ Present</span>
+              </div>
+              <div className="p-2.5 rounded bg-[#0B1120] border border-amber-500/30 flex items-center justify-between">
+                <div>
+                  <div className="font-bold text-[#F8FAFC]">Sarra Mansour</div>
+                  <div className="text-[10px] font-mono text-[#94A3B8]">ID: U00028 · Motif: Medical Cert</div>
+                </div>
+                <span className="text-amber-400 font-mono text-[11px] font-bold">Justified ⏳</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.id === 'attt-mobile') {
+      return (
+        <div className="bg-[#172033] rounded-2xl p-4 sm:p-8 text-[#F8FAFC] border border-[#263244] font-mono shadow-2xl">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between pb-4 border-b border-[#263244] text-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className="text-[#94A3B8] ml-2">attt-reservation // Mobile App Stepper</span>
+            </div>
+            <span className="text-[#22C55E] font-semibold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#1A56A0] animate-pulse" />
+              Figma Parity · Mobile 390px
+            </span>
+          </div>
+
+          {/* Stepper Showcase */}
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 pt-6 font-mono text-xs">
+            <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+              <div className="text-[10px] text-[#38BDF8] font-bold">1. ACCUEIL</div>
+              <div className="text-xs font-bold text-[#F8FAFC]">Prendre un RDV</div>
+              <div className="text-[10px] text-[#94A3B8] font-sans">Plate lookup trigger</div>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+              <div className="text-[10px] text-[#38BDF8] font-bold">2. SERVICE</div>
+              <div className="text-xs font-bold text-[#F8FAFC]">Visite Périodique</div>
+              <div className="text-[10px] text-emerald-400 font-sans">Tarif: 35.000 TND</div>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#111827] border border-[#263244] space-y-1">
+              <div className="text-[10px] text-[#38BDF8] font-bold">3. FORMULAIRE</div>
+              <div className="text-xs font-bold text-[#F8FAFC]">Données Propriétaire</div>
+              <div className="text-[10px] text-[#94A3B8] font-sans">Validation en temps réel</div>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-[#111827] border border-emerald-500/30 space-y-1">
+              <div className="text-[10px] text-emerald-400 font-bold">4. CONFIRMATION</div>
+              <div className="text-xs font-bold text-emerald-400">Reçu & Code Barre</div>
+              <div className="text-[10px] text-[#F8FAFC] font-sans">Centre Sfax Sud</div>
+            </div>
+          </div>
+
+          {/* Mobile Booking Confirmation Card */}
+          <div className="mt-4 p-4 rounded-xl bg-[#111827] border border-[#263244] text-xs space-y-2">
+            <div className="text-[10px] text-[#94A3B8] uppercase font-bold">Digital Reservation Receipt Summary:</div>
+            <div className="bg-[#0B1120] border border-[#263244] p-3 rounded-lg font-sans text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div className="font-bold text-[#F8FAFC] text-sm">Rendez-Vous Confirmé #ATTT-2026-8942</div>
+                <div className="text-[#94A3B8] text-xs mt-0.5">
+                  Véhicule: <strong className="text-[#38BDF8] font-mono">234 تونس 8912</strong> · Date: <strong>18 Septembre 2026 à 09:30</strong>
+                </div>
+              </div>
+              <div className="bg-[#1A56A0] text-white px-3 py-1.5 rounded-md font-mono text-xs font-bold shrink-0 self-start sm:self-auto">
+                Centre: Sfax Sud
+              </div>
             </div>
           </div>
         </div>
