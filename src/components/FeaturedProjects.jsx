@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Bot, Calendar, Network, Sparkles, ChevronDown } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
-import { staggerContainer, fadeInUp } from '../utils/motion';
 
 export default function FeaturedProjects({ onOpenProject }) {
   // High-fidelity, realistic visual preview mockups for each project
@@ -610,15 +609,15 @@ export default function FeaturedProjects({ onOpenProject }) {
         const firstMoreEl = document.getElementById('project-card-4');
         if (firstMoreEl) {
           const navOffset = 85;
-          const elementPosition = firstMoreEl.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+          const elementTop = firstMoreEl.getBoundingClientRect().top + window.scrollY;
+          const targetY = elementTop - navOffset;
 
           window.scrollTo({
-            top: offsetPosition,
+            top: targetY,
             behavior: 'smooth'
           });
         }
-      }, 60);
+      }, 70);
     } else {
       setShowAll(false);
       // When collapsing, smoothly bring user back to the bottom of the base projects
@@ -626,15 +625,15 @@ export default function FeaturedProjects({ onOpenProject }) {
         const baseEl = document.getElementById('project-card-2') || document.getElementById('project-card-3');
         if (baseEl) {
           const navOffset = 85;
-          const elementPosition = baseEl.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+          const elementTop = baseEl.getBoundingClientRect().top + window.scrollY;
+          const targetY = elementTop - navOffset;
 
           window.scrollTo({
-            top: offsetPosition,
+            top: targetY,
             behavior: 'smooth'
           });
         }
-      }, 60);
+      }, 70);
     }
   };
 
@@ -685,21 +684,22 @@ export default function FeaturedProjects({ onOpenProject }) {
           ))}
         </div>
 
-        {/* 2-Column Showcase Grid with Staggered Entrance */}
-        <motion.div 
-          key={activeFilter}
+        {/* 2-Column Showcase Grid */}
+        <div 
           style={{ overflowAnchor: 'none' }}
-          variants={staggerContainer(0.08, 0.05)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6"
         >
           {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               id={`project-card-${index}`}
-              variants={fadeInUp(0.5, 20)}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.35, 
+                ease: [0.22, 1, 0.36, 1], 
+                delay: index >= 4 ? (index - 4) * 0.05 : index * 0.03 
+              }}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
               onClick={() => onOpenProject(project.id)}
               tabIndex={0}
@@ -757,7 +757,7 @@ export default function FeaturedProjects({ onOpenProject }) {
 
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Show More / Show Less Toggle Button */}
         {filteredProjects.length > 4 && (
