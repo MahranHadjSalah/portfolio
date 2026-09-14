@@ -948,7 +948,7 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
             </button>
 
             <a
-              href={project.demoUrl || project.liveUrl}
+              href={`https://wa.me/21656187082?text=${encodeURIComponent(`Hi Mahran, I saw your ${project.title} project and would like to discuss it.`)}`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-mono font-bold px-3.5 py-1.5 rounded-md bg-[#3B82F6] text-white hover:bg-[#2563EB] transition-colors focus-visible:ring-2 focus-visible:ring-[#38BDF8]"

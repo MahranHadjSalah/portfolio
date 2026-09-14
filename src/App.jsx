@@ -22,6 +22,26 @@ export default function App() {
 
   // Sync with URL Pathname and Browser History (Popstate)
   useEffect(() => {
+    // Prevent markdown link conversion [Text](URL) when copying from buttons or links
+    const handleCopy = (e) => {
+      const selection = window.getSelection();
+      if (!selection || selection.isCollapsed) return;
+
+      const selectedText = selection.toString();
+      if (!selectedText) return;
+
+      if (e.clipboardData) {
+        e.clipboardData.setData('text/plain', selectedText);
+        e.clipboardData.setData('text/html', selectedText);
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('copy', handleCopy);
+    return () => document.removeEventListener('copy', handleCopy);
+  }, []);
+
+  useEffect(() => {
     const parseRoute = () => {
       // 1. Check pathname: e.g. /supportai, /smart-finance-analyzer
       const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
