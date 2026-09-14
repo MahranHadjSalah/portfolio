@@ -43,7 +43,7 @@ import {
   CheckSquare,
   FileCheck
 } from 'lucide-react';
-import { GithubIcon, WhatsAppIcon } from './Icons';
+import { GithubIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 import { staggerContainer, fadeInUp, scaleIn, fadeIn } from '../utils/motion';
 
@@ -934,26 +934,17 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
           {project.tagline}
         </motion.p>
 
-        {/* Primary Action Buttons */}
-        <motion.div variants={fadeInUp(0.5, 20)} className="flex flex-wrap items-center justify-center gap-3">
-          <a
-            href={project.demoUrl || project.liveUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#3B82F6] hover:bg-[#2563EB] text-white shadow-lg shadow-[#3B82F6]/20 font-bold text-sm transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] font-sans"
-          >
-            <WhatsAppIcon className="w-4 h-4" />
-            <span>Request Live Demo</span>
-          </a>
-
+        {/* Primary Action Button */}
+        <motion.div variants={fadeInUp(0.5, 20)} className="flex items-center justify-center">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#172033] hover:bg-[#1e2a42] text-[#F8FAFC] font-bold text-sm border border-[#263244] transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] font-sans"
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold text-sm shadow-xl shadow-[#3B82F6]/25 hover:shadow-[#3B82F6]/40 hover:-translate-y-0.5 transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] font-sans group"
           >
-            <GithubIcon className="w-4 h-4" />
+            <GithubIcon className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
             <span>View Repo</span>
+            <ExternalLink className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
           </a>
         </motion.div>
       </motion.section>

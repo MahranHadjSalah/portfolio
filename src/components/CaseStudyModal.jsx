@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { X, CheckCircle2, Layers, Lightbulb, AlertCircle, GitBranch } from 'lucide-react';
-import { GithubIcon, WhatsAppIcon } from './Icons';
+import { GithubIcon } from './Icons';
 
 export default function CaseStudyModal({ project, isOpen, onClose }) {
   useEffect(() => {
@@ -191,26 +191,15 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
 
           {/* Action CTAs */}
           <div className="pt-4 border-t border-[#263244] flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold text-xs font-mono shadow-sm shadow-[#3B82F6]/20 transition-colors"
-              >
-                <span>Request Live Demo</span>
-                <WhatsAppIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#172033] hover:bg-[#1e2a42] text-[#94A3B8] hover:text-[#F8FAFC] border border-[#263244] text-xs font-mono shadow-2xs transition-colors"
-              >
-                <GithubIcon className="w-4 h-4" />
-                <span>View Repo</span>
-              </a>
-            </div>
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg bg-[#3B82F6] hover:bg-[#2563EB] text-white font-bold text-xs font-mono shadow-md shadow-[#3B82F6]/25 hover:shadow-[#3B82F6]/40 hover:-translate-y-0.5 transition-all group"
+            >
+              <GithubIcon className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+              <span>View Repo</span>
+            </a>
 
             <button
               onClick={onClose}
