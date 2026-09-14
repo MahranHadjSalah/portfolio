@@ -598,8 +598,48 @@ export default function FeaturedProjects({ onOpenProject }) {
 
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
+  const handleToggleShowAll = (e) => {
+    if (e && e.currentTarget) {
+      e.currentTarget.blur();
+    }
+
+    if (!showAll) {
+      setShowAll(true);
+      // When opening more projects, smoothly scroll to keep user focused on the FIRST newly opened project
+      setTimeout(() => {
+        const firstMoreEl = document.getElementById('project-card-4');
+        if (firstMoreEl) {
+          const navOffset = 85;
+          const elementPosition = firstMoreEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 60);
+    } else {
+      setShowAll(false);
+      // When collapsing, smoothly bring user back to the bottom of the base projects
+      setTimeout(() => {
+        const baseEl = document.getElementById('project-card-2') || document.getElementById('project-card-3');
+        if (baseEl) {
+          const navOffset = 85;
+          const elementPosition = baseEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 60);
+    }
+  };
+
   return (
-    <section id="work" className="py-20 md:py-28 border-b border-[#263244] relative bg-[#0B1120]">
+    <section id="work" style={{ overflowAnchor: 'none' }} className="py-20 md:py-28 border-b border-[#263244] relative bg-[#0B1120]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -647,16 +687,18 @@ export default function FeaturedProjects({ onOpenProject }) {
 
         {/* 2-Column Showcase Grid with Staggered Entrance */}
         <motion.div 
-          key={`${activeFilter}-${showAll}`}
+          key={activeFilter}
+          style={{ overflowAnchor: 'none' }}
           variants={staggerContainer(0.08, 0.05)}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6"
         >
-          {displayedProjects.map((project) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
+              id={`project-card-${index}`}
               variants={fadeInUp(0.5, 20)}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
               onClick={() => onOpenProject(project.id)}
@@ -719,9 +761,10 @@ export default function FeaturedProjects({ onOpenProject }) {
 
         {/* Show More / Show Less Toggle Button */}
         {filteredProjects.length > 4 && (
-          <div className="mt-10 sm:mt-12 flex justify-center">
+          <div className="mt-10 sm:mt-12 flex justify-center" style={{ overflowAnchor: 'none' }}>
             <button
-              onClick={() => setShowAll(!showAll)}
+              onClick={handleToggleShowAll}
+              style={{ overflowAnchor: 'none' }}
               className="inline-flex items-center gap-2.5 px-7 py-3 rounded-xl bg-[#172033] hover:bg-[#1e2a42] text-[#F8FAFC] hover:text-[#38BDF8] border border-[#263244] hover:border-[#38BDF8]/60 font-mono text-xs sm:text-sm font-bold shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-[#3B82F6]/10 transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] group cursor-pointer"
             >
               <span>{showAll ? 'Show Less' : `Show More Projects (${filteredProjects.length - 4} more)`}</span>
