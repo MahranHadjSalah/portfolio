@@ -609,7 +609,7 @@ export default function FeaturedProjects({ onOpenProject }) {
 
     if (!showAll) {
       isTogglingRef.current = true;
-      const startScrollY = window.scrollY;
+      const startScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
 
       // 1. Synchronously mount the newly expanded projects
       flushSync(() => {
@@ -620,41 +620,65 @@ export default function FeaturedProjects({ onOpenProject }) {
       window.scrollTo(0, startScrollY);
 
       // 3. Normal, natural smooth scroll from SeniorVoice down to the first newly opened project
-      requestAnimationFrame(() => {
+      const scrollDown = () => {
         const firstMoreEl = document.getElementById('project-card-4');
         if (firstMoreEl) {
-          const navOffset = 85;
-          const elementTop = firstMoreEl.getBoundingClientRect().top + window.scrollY;
+          const isMobile = window.innerWidth < 768;
+          const navOffset = isMobile ? 68 : 85;
+          const elementTop = firstMoreEl.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
           const targetY = Math.max(0, elementTop - navOffset);
 
           window.scrollTo({
             top: targetY,
             behavior: 'smooth'
           });
+
+          // Mobile WebKit / Safari fallback if window.scrollTo smooth is inhibited
+          if (isMobile) {
+            setTimeout(() => {
+              const currentY = window.scrollY || window.pageYOffset || 0;
+              if (Math.abs(currentY - startScrollY) < 15) {
+                firstMoreEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }, 100);
+          }
         }
         setTimeout(() => {
           isTogglingRef.current = false;
-        }, 500);
-      });
+        }, 550);
+      };
+
+      // 50ms ensures mobile touch/tap event sequence is fully settled before starting smooth scroll
+      setTimeout(scrollDown, 50);
     } else {
       isTogglingRef.current = true;
       // Smoothly scroll back up to SeniorVoice
       const baseEl = document.getElementById('project-card-3') || document.getElementById('project-card-2');
       if (baseEl) {
-        const navOffset = 85;
-        const elementTop = baseEl.getBoundingClientRect().top + window.scrollY;
+        const isMobile = window.innerWidth < 768;
+        const navOffset = isMobile ? 68 : 85;
+        const elementTop = baseEl.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
         const targetY = Math.max(0, elementTop - navOffset);
 
         window.scrollTo({
           top: targetY,
           behavior: 'smooth'
         });
+
+        if (isMobile) {
+          setTimeout(() => {
+            const currentY = window.scrollY || window.pageYOffset || 0;
+            if (Math.abs(currentY - targetY) > 50) {
+              baseEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
+        }
       }
 
       setTimeout(() => {
         setShowAll(false);
         isTogglingRef.current = false;
-      }, 400);
+      }, 450);
     }
   };
 
@@ -726,7 +750,7 @@ export default function FeaturedProjects({ onOpenProject }) {
               tabIndex={0}
               role="button"
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenProject(project.id); }}
-              className="rounded-xl bg-[#172033] border border-[#3B82F6] hover:border-[#38BDF8] overflow-hidden group cursor-pointer hover:shadow-xl hover:shadow-[#3B82F6]/15 transition-all flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
+              className="scroll-mt-20 sm:scroll-mt-24 rounded-xl bg-[#172033] border border-[#3B82F6] hover:border-[#38BDF8] overflow-hidden group cursor-pointer hover:shadow-xl hover:shadow-[#3B82F6]/15 transition-all flex flex-col justify-between focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
             >
               {/* Top Half: Minimalist Visual Preview Box */}
               {renderCardPreview(project)}
