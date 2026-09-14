@@ -43,7 +43,7 @@ import {
   CheckSquare,
   FileCheck
 } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import { GithubIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 import { staggerContainer, fadeInUp, scaleIn, fadeIn } from '../utils/motion';
 
