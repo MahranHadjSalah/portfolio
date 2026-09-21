@@ -577,6 +577,21 @@ export default function FeaturedProjects({ onOpenProject }) {
   const [activeFilter, setActiveFilter] = React.useState('All');
   const [showAll, setShowAll] = React.useState(false);
 
+  const [isMobile, setIsMobile] = React.useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth < 768;
+  });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const defaultCount = isMobile ? 3 : 4;
+
   const categories = [
     { id: 'All', label: 'All Projects', count: portfolioData.featuredProjects.length },
     { id: 'AI & ML', label: 'AI & LLM', count: 3 },
@@ -597,7 +612,7 @@ export default function FeaturedProjects({ onOpenProject }) {
     return true;
   });
 
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, defaultCount);
 
   const isTogglingRef = React.useRef(false);
 
@@ -606,6 +621,9 @@ export default function FeaturedProjects({ onOpenProject }) {
       e.currentTarget.blur();
     }
     if (isTogglingRef.current) return;
+
+    const firstMoreIndex = isMobile ? 3 : 4;
+    const baseIndex = isMobile ? 2 : 3;
 
     if (!showAll) {
       isTogglingRef.current = true;
@@ -616,14 +634,13 @@ export default function FeaturedProjects({ onOpenProject }) {
         setShowAll(true);
       });
 
-      // 2. Keep the viewport locked at project-card-2 so it doesn't jump to the bottom
+      // 2. Keep the viewport locked at the base projects so it doesn't jump to the bottom
       window.scrollTo(0, startScrollY);
 
-      // 3. Normal, natural smooth scroll from project-card-2 down to the first newly opened project (project-card-3)
+      // 3. Normal, natural smooth scroll down to the first newly opened project
       const scrollDown = () => {
-        const firstMoreEl = document.getElementById('project-card-3');
+        const firstMoreEl = document.getElementById(`project-card-${firstMoreIndex}`);
         if (firstMoreEl) {
-          const isMobile = window.innerWidth < 768;
           const navOffset = isMobile ? 68 : 85;
           const elementTop = firstMoreEl.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
           const targetY = Math.max(0, elementTop - navOffset);
@@ -652,10 +669,9 @@ export default function FeaturedProjects({ onOpenProject }) {
       setTimeout(scrollDown, 50);
     } else {
       isTogglingRef.current = true;
-      // Smoothly scroll back up to project-card-2
-      const baseEl = document.getElementById('project-card-2') || document.getElementById('project-card-1');
+      // Smoothly scroll back up to base project
+      const baseEl = document.getElementById(`project-card-${baseIndex}`) || document.getElementById('project-card-0');
       if (baseEl) {
-        const isMobile = window.innerWidth < 768;
         const navOffset = isMobile ? 68 : 85;
         const elementTop = baseEl.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
         const targetY = Math.max(0, elementTop - navOffset);
@@ -738,12 +754,12 @@ export default function FeaturedProjects({ onOpenProject }) {
             <motion.div
               key={project.id}
               id={`project-card-${index}`}
-              initial={index >= 3 ? { opacity: 0 } : { opacity: 0, y: 16 }}
+              initial={index >= defaultCount ? { opacity: 0 } : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: index >= 3 ? 0.2 : 0.35, 
+                duration: index >= defaultCount ? 0.2 : 0.35, 
                 ease: [0.22, 1, 0.36, 1], 
-                delay: index >= 3 ? 0 : index * 0.03 
+                delay: index >= defaultCount ? 0 : index * 0.03 
               }}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
               onClick={() => onOpenProject(project.id)}
@@ -805,14 +821,14 @@ export default function FeaturedProjects({ onOpenProject }) {
         </div>
 
         {/* Show More / Show Less Toggle Button */}
-        {filteredProjects.length > 3 && (
+        {filteredProjects.length > defaultCount && (
           <div className="mt-10 sm:mt-12 flex justify-center" style={{ overflowAnchor: 'none' }}>
             <button
               onClick={handleToggleShowAll}
               style={{ overflowAnchor: 'none' }}
               className="inline-flex items-center gap-2.5 px-7 py-3 rounded-xl bg-[#172033] hover:bg-[#1e2a42] text-[#F8FAFC] hover:text-[#38BDF8] border border-[#263244] hover:border-[#38BDF8]/60 font-mono text-xs sm:text-sm font-bold shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-[#3B82F6]/10 transition-all focus-visible:ring-2 focus-visible:ring-[#38BDF8] group cursor-pointer"
             >
-              <span>{showAll ? 'Show Less' : `Show More Projects (${filteredProjects.length - 3} more)`}</span>
+              <span>{showAll ? 'Show Less' : `Show More Projects (${filteredProjects.length - defaultCount} more)`}</span>
               <ChevronDown className={`w-4 h-4 text-[#38BDF8] transition-transform duration-300 ${showAll ? 'rotate-180' : 'group-hover:translate-y-0.5'}`} />
             </button>
           </div>
