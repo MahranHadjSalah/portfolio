@@ -7,6 +7,7 @@
     scroll-behavior: smooth;
     background-color: #0B1120;
     color: #F8FAFC;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
   
   /* Clean technical dark scrollbar */
@@ -28,6 +29,189 @@
     outline: 2px solid #38BDF8;
     outline-offset: 2px;
   }
+}
+
+/* ==========================================================================
+   LIGHT MODE DESIGN TOKENS & OVERRIDES
+   Modern, clean, and professional (Linear / Vercel / Stripe aesthetic)
+   ========================================================================== */
+html.light {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* Light mode scrollbar */
+html.light ::-webkit-scrollbar-track {
+  background: #F1F5F9 !important;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1 !important;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8 !important;
+}
+
+/* Canvas / Body background token */
+html.light .bg-\[\#0B1120\],
+html.light [class*="bg-[#0B1120]"] {
+  background-color: #F8FAFC !important;
+}
+
+/* Card / Surface token: Pure crisp white with clean subtle elevation */
+html.light .bg-\[\#172033\],
+html.light [class*="bg-[#172033]"] {
+  background-color: #FFFFFF !important;
+}
+
+/* Secondary surface token (inner bars, chips, badges, window headers) */
+html.light .bg-\[\#111827\],
+html.light [class*="bg-[#111827]"] {
+  background-color: #F1F5F9 !important;
+}
+
+/* Elevated / Hover surface token */
+html.light .bg-\[\#1E293B\],
+html.light [class*="bg-[#1E293B]"] {
+  background-color: #E2E8F0 !important;
+}
+html.light .hover\:bg-\[\#1E293B\]:hover {
+  background-color: #E2E8F0 !important;
+}
+html.light .hover\:bg-\[\#1e2a42\]:hover {
+  background-color: #E2E8F0 !important;
+}
+
+/* Structural border token */
+html.light .border-\[\#263244\],
+html.light [class*="border-[#263244]"] {
+  border-color: #E2E8F0 !important;
+}
+html.light .hover\:border-\[\#263244\]:hover {
+  border-color: #CBD5E1 !important;
+}
+
+/* Primary text token: Deep slate-900 */
+html.light .text-\[\#F8FAFC\],
+html.light [class*="text-[#F8FAFC]"] {
+  color: #0F172A !important;
+}
+
+/* Secondary text token: Slate-600 */
+html.light .text-\[\#94A3B8\],
+html.light [class*="text-[#94A3B8]"] {
+  color: #475569 !important;
+}
+
+/* Cyan / Accent text token: Rich high-contrast sky-600 in light mode */
+html.light .text-\[\#38BDF8\],
+html.light [class*="text-[#38BDF8]"] {
+  color: #0284C7 !important;
+}
+
+/* Focus ring in light mode */
+html.light :focus-visible {
+  outline-color: #0284C7 !important;
+}
+
+/* Rings in light mode */
+html.light .ring-\[\#111827\],
+html.light [class*="ring-[#111827]"] {
+  --tw-ring-color: #F1F5F9 !important;
+}
+
+/* Gradient stops in light mode */
+html.light .from-\[\#0B1120\],
+html.light [class*="from-[#0B1120]"] {
+  --tw-gradient-from: #F8FAFC var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(248, 250, 252, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+html.light .to-\[\#0B1120\],
+html.light [class*="to-[#0B1120]"] {
+  --tw-gradient-to: #F8FAFC var(--tw-gradient-to-position) !important;
+}
+html.light .from-\[\#172033\],
+html.light [class*="from-[#172033]"] {
+  --tw-gradient-from: #FFFFFF var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(255, 255, 255, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+html.light .to-\[\#172033\],
+html.light [class*="to-[#172033]"] {
+  --tw-gradient-to: #FFFFFF var(--tw-gradient-to-position) !important;
+}
+
+/* Border hover tokens in light mode */
+html.light .hover\:border-\[\#38BDF8\]:hover,
+html.light .hover\:border-\[\#38BDF8\]\/40:hover,
+html.light .hover\:border-\[\#38BDF8\]\/50:hover,
+html.light .hover\:border-\[\#38BDF8\]\/60:hover {
+  border-color: #0284C7 !important;
+}
+
+/* Quiet card */
+html.light .quiet-card {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+html.light .quiet-card:hover {
+  border-color: #2563EB !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.1) !important;
+}
+
+/* Dot matrix grid in light mode */
+html.light .bg-tech-grid {
+  background-image: radial-gradient(circle, rgba(2, 132, 199, 0.12) 1px, transparent 1px) !important;
+}
+
+/* Tech lines grid in light mode */
+html.light .bg-tech-lines {
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.8) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.8) 1px, transparent 1px) !important;
+}
+
+/* Display outline typography in light mode */
+html.light .text-outline-blue {
+  -webkit-text-stroke: 1.5px #0284C7;
+  color: transparent;
+}
+@media (min-width: 768px) {
+  html.light .text-outline-blue {
+    -webkit-text-stroke: 2px #0284C7;
+  }
+}
+
+/* Subtle card shadow for project and tech cards in light mode */
+html.light [id^="project-card-"] {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+html.light [id^="project-card-"]:hover {
+  box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.12), 0 8px 12px -6px rgba(37, 99, 235, 0.06) !important;
+}
+
+/* Header blur backdrop in light mode */
+html.light header.bg-\[\#0B1120\]\/85 {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+}
+html.light nav.bg-\[\#172033\]\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Modals backdrop & overlay in light mode */
+html.light .bg-\[\#0B1120\]\/80 {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+html.light .bg-\[\#111827\]\/95 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+/* Selection in light mode */
+html.light ::selection {
+  background-color: rgba(37, 99, 235, 0.15) !important;
+  color: #0284C7 !important;
 }
 
 /* Prefers Reduced Motion Support */

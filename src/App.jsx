@@ -14,8 +14,10 @@ import CommandMenu from './components/CommandMenu';
 import ProjectDetailPage from './components/ProjectDetailPage';
 import BackToTop from './components/BackToTop';
 import { portfolioData } from './data/portfolioData';
+import { useTheme } from './hooks/useTheme';
 
 export default function App() {
+  const { theme, toggleTheme } = useTheme();
   const [selectedCaseStudy, setSelectedCaseStudy] = useState(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isCommandMenuOpen, setIsCommandMenuOpen] = useState(false);
@@ -142,6 +144,8 @@ export default function App() {
           projectId={currentProjectId}
           onBack={handleBackToHome}
           onNavigateProject={handleNavigateProject}
+          theme={theme}
+          toggleTheme={toggleTheme}
         />
 
         {/* Global Developer Resume / CV Modal */}
@@ -171,6 +175,8 @@ export default function App() {
       <Navbar 
         onOpenResume={() => setIsResumeOpen(true)}
         onOpenCommandMenu={() => setIsCommandMenuOpen(true)}
+        theme={theme}
+        toggleTheme={toggleTheme}
       />
       
       <main>

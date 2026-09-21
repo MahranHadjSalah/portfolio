@@ -41,13 +41,15 @@ import {
   BookOpen,
   Car,
   CheckSquare,
-  FileCheck
+  FileCheck,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { GithubIcon, WhatsAppIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 import { staggerContainer, fadeInUp, scaleIn, fadeIn } from '../utils/motion';
 
-export default function ProjectDetailPage({ projectId, onBack, onNavigateProject }) {
+export default function ProjectDetailPage({ projectId, onBack, onNavigateProject, theme = 'dark', toggleTheme }) {
   const [copied, setCopied] = useState(false);
   const [simStep, setSimStep] = useState(0);
 
@@ -937,7 +939,22 @@ export default function ProjectDetailPage({ projectId, onBack, onNavigateProject
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {toggleTheme && (
+              <button
+                onClick={toggleTheme}
+                className="w-8 h-8 rounded-md bg-[#172033] border border-[#263244] flex items-center justify-center text-[#94A3B8] hover:text-[#38BDF8] hover:border-[#3B82F6]/50 transition-colors shadow-xs group"
+                aria-label={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-4 h-4 text-amber-400 group-hover:rotate-45 transition-transform duration-300" />
+                ) : (
+                  <Moon className="w-4 h-4 text-blue-600 group-hover:-rotate-12 transition-transform duration-300" />
+                )}
+              </button>
+            )}
+
             <button
               onClick={copyUrl}
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#172033] hover:bg-[#1e2a42] text-xs font-mono text-[#94A3B8] hover:text-[#F8FAFC] border border-[#263244] transition-colors focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
