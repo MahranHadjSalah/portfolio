@@ -62,7 +62,6 @@ export const experience = [
     product: 'AI sales-agent SaaS for Tunisian e-commerce',
     location: 'Sfax, Tunisia',
     period: '2026 – Present',
-    projectId: 'autoreply',
     bullets: [
       'Built and run a live multi-tenant SaaS where an AI agent answers Facebook Messenger customers and drives sales for merchants.',
       'Agent tuned for Tunisian Darija, with RAG over each merchant’s product catalog (LangChain + FAISS) and per-client multilingual prompt templates.',
@@ -74,33 +73,6 @@ export const experience = [
 ];
 
 export const featuredProjects = [
-  {
-    id: 'autoreply',
-    title: 'AutoReply',
-    kind: 'Founder · Live SaaS',
-    period: '2026 – Present',
-    status: 'live',
-    tagline: 'An AI sales agent that answers Messenger customers in Tunisian Darija and closes sales for merchants.',
-    summary:
-      'A live multi-tenant SaaS for Tunisian e-commerce. Each merchant gets an AI agent connected to their Facebook Page that answers customers in Darija, grounded in the merchant’s own product catalog.',
-    role: 'Founder & AI Engineer — product, architecture, AI, infrastructure and go-to-market.',
-    bullets: [
-      'Live multi-tenant SaaS where an AI agent answers Facebook Messenger customers and drives sales for merchants.',
-      'Agent tuned for Tunisian Darija, with RAG over each merchant’s product catalog (LangChain + FAISS) and per-client multilingual prompt templates.',
-      'Real-time Messenger webhooks and an admin dashboard for knowledge-base management and conversation tracking.',
-      'Production deployment on Hetzner: Docker, Nginx wildcard subdomains, SSL (Certbot), CI/CD with GitHub Actions.',
-      'Go-to-market: Meta App Review & Business Verification, Meta Ads campaigns, Meta Pixel tracking.',
-    ],
-    flow: [
-      { step: 'Messenger webhook', desc: 'Customer message arrives in real time for the merchant’s tenant' },
-      { step: 'Catalog retrieval', desc: 'RAG over the merchant’s product catalog with LangChain + FAISS' },
-      { step: 'Darija agent', desc: 'Per-client multilingual prompt template generates the sales reply' },
-      { step: 'Dashboard', desc: 'Merchant manages the knowledge base and tracks conversations' },
-    ],
-    stack: ['React', 'Vite', 'Express.js', 'LangChain', 'FAISS', 'Meta Messenger API', 'Docker', 'Nginx', 'Hetzner', 'GitHub Actions'],
-    links: { live: 'https://autoreply.online/' },
-    image: null,
-  },
   {
     id: 'supportai',
     title: 'SupportAi',
@@ -155,25 +127,6 @@ export const featuredProjects = [
       { src: '/projects/enterprise-ai/architecture_diagram.png', caption: 'Architecture diagram' },
       { src: '/projects/enterprise-ai/enterprise_ai_platform_blueprint.png', caption: 'Platform blueprint' },
     ],
-  },
-  {
-    id: 'lux-dental',
-    title: 'LUX Dental',
-    kind: 'Full-stack SaaS',
-    period: '2026 – Present',
-    status: 'in-progress',
-    tagline: 'Practice-management SaaS for dental clinics: patients, appointments, treatments and invoicing.',
-    summary:
-      'A SaaS platform for dental clinics to manage patient records, appointments, treatments, and invoicing — a centralized solution to digitize clinical and administrative workflows.',
-    role: 'Full-stack developer — data model, API and role-based interfaces.',
-    bullets: [
-      'Developing a SaaS platform for dental clinics to manage patient records, appointments, treatments, and invoicing.',
-      'Designing role-based interfaces for dentists and assistants, with multi-clinic architecture and customizable dashboards.',
-      'Building a centralized solution to digitize clinical and administrative workflows.',
-    ],
-    stack: ['React', 'Node.js', 'Express.js', 'PostgreSQL', 'REST APIs'],
-    links: {},
-    image: null,
   },
 ];
 

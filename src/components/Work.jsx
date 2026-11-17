@@ -1,28 +1,23 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight, Bot, Network, Workflow, Stethoscope } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Network, Workflow } from 'lucide-react';
 import { featuredProjects, otherProjects } from '../data/portfolioData';
 import { GithubIcon } from './Icons';
 import { Section, Reveal, Card, Chip, StatusBadge } from './ui';
 
-const placeholderIcons = { autoreply: Bot, supportai: Network, 'enterprise-ai': Workflow, 'lux-dental': Stethoscope };
+const placeholderIcons = { supportai: Network, 'enterprise-ai': Workflow };
 
 export default function Work({ onOpenProject }) {
-  const [flagship, ...rest] = featuredProjects;
-
   return (
     <Section
       id="work"
       eyebrow="Selected work"
       title="Products and systems I’ve built"
-      intro="Agentic AI, retrieval and full-stack SaaS — from a live product with paying merchants to an enterprise internship platform."
+      intro="Agentic AI and retrieval systems — an enterprise conversational AI platform from my internship and a LangGraph multi-agent platform."
     >
-      <div className="grid gap-4 md:grid-cols-2">
-        <Reveal className="md:col-span-2">
-          <ProjectCard project={flagship} onOpen={onOpenProject} featured />
-        </Reveal>
-        {rest.map((p, i) => (
-          <Reveal key={p.id} delay={i * 0.05} className={i === rest.length - 1 && rest.length % 2 ? 'md:col-span-2' : ''}>
-            <ProjectCard project={p} onOpen={onOpenProject} />
+      <div className="grid gap-4">
+        {featuredProjects.map((p, i) => (
+          <Reveal key={p.id} delay={i * 0.05}>
+            <ProjectCard project={p} onOpen={onOpenProject} featured />
           </Reveal>
         ))}
       </div>
