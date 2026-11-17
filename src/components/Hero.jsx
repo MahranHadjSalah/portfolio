@@ -75,9 +75,9 @@ export default function Hero() {
               <img
                 src={personal.photo}
                 alt={personal.name}
-                width="480"
-                height="560"
-                className="h-64 w-full object-cover object-top sm:h-full"
+                width="399"
+                height="420"
+                className="aspect-[399/420] w-full object-cover object-top sm:aspect-auto sm:h-full"
               />
             </Card>
             {heroFacts.map((f) => (
