@@ -27,7 +27,7 @@ export const personal = {
   whatsapp: 'https://wa.me/21656187082',
   github: 'https://github.com/MahranHadjSalah',
   linkedin: 'https://www.linkedin.com/in/mahran-hadj-salah-4b98bb393/',
-  photo: '/profile.jpg?v=3',
+  photo: '/profile.jpg?v=4',
 };
 
 // Short, verifiable facts for the hero bento
