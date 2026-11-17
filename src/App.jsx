@@ -1,226 +1,109 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import FeaturedProjects from './components/FeaturedProjects';
-import TechStack from './components/TechStack';
-import Process from './components/Process';
-import ExperienceEducation from './components/ExperienceEducation';
+import Experience from './components/Experience';
+import Work from './components/Work';
+import Skills from './components/Skills';
+import EducationLeadership from './components/EducationLeadership';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import CaseStudyModal from './components/CaseStudyModal';
-import ResumeModal from './components/ResumeModal';
 import CommandMenu from './components/CommandMenu';
 import ProjectDetailPage from './components/ProjectDetailPage';
 import BackToTop from './components/BackToTop';
-import { portfolioData } from './data/portfolioData';
+import { featuredProjects, personal } from './data/portfolioData';
 import { useTheme } from './hooks/useTheme';
+
+const HOME_TITLE = `${personal.name} — Software Engineering Student · AI Engineer`;
+
+function findProject(slug) {
+  if (!slug) return null;
+  const s = slug.toLowerCase().replace(/^project\//, '');
+  return featuredProjects.find((p) => p.id === s) || null;
+}
+
+function projectFromLocation() {
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  const hashMatch = window.location.hash.match(/^#\/?project[/-]([a-z0-9-]+)/i);
+  return findProject(path) || findProject(hashMatch?.[1]);
+}
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState(null);
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [isCommandMenuOpen, setIsCommandMenuOpen] = useState(false);
-  const [currentProjectId, setCurrentProjectId] = useState(null);
+  const [commandOpen, setCommandOpen] = useState(false);
+  const [projectId, setProjectId] = useState(() => projectFromLocation()?.id ?? null);
 
-  // Sync with URL Pathname and Browser History (Popstate)
+  // Keep state in sync with the URL (initial load, back/forward)
   useEffect(() => {
-    // Prevent markdown link conversion [Text](URL) when copying from buttons or links
-    const handleCopy = (e) => {
-      const selection = window.getSelection();
-      if (!selection || selection.isCollapsed) return;
-
-      const selectedText = selection.toString();
-      if (!selectedText) return;
-
-      if (e.clipboardData) {
-        e.clipboardData.setData('text/plain', selectedText);
-        e.clipboardData.setData('text/html', selectedText);
-        e.preventDefault();
+    const sync = () => {
+      const found = projectFromLocation();
+      setProjectId(found?.id ?? null);
+      if (found && window.location.pathname !== `/${found.id}`) {
+        window.history.replaceState(null, '', `/${found.id}`);
       }
     };
-
-    document.addEventListener('copy', handleCopy);
-    return () => document.removeEventListener('copy', handleCopy);
+    sync();
+    window.addEventListener('popstate', sync);
+    return () => window.removeEventListener('popstate', sync);
   }, []);
 
   useEffect(() => {
-    const parseRoute = () => {
-      // 1. Check pathname: e.g. /supportai, /smart-finance-analyzer
-      const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
-      let candidate = rawPath;
-      if (candidate.toLowerCase().startsWith('project/')) {
-        candidate = candidate.slice(8);
-      }
+    const project = featuredProjects.find((p) => p.id === projectId);
+    document.title = project ? `${project.title} — ${personal.name}` : HOME_TITLE;
+  }, [projectId]);
 
-      if (candidate) {
-        const found = portfolioData.featuredProjects.find(
-          (p) => p.id.toLowerCase() === candidate.toLowerCase()
-        );
-        if (found) {
-          setCurrentProjectId(found.id);
-          document.title = `${found.title} — Mahran Hadj Salah`;
-          if (window.location.pathname !== `/${found.id}`) {
-            window.history.replaceState({ projectId: found.id }, '', `/${found.id}`);
-          }
-          return;
-        }
-      }
-
-      // 2. Fallback check for hash: e.g. #/project/supportai or #project-supportai
-      const hash = window.location.hash;
-      const match = hash.match(/^#\/?project\/([a-zA-Z0-9-]+)/) || hash.match(/^#project-([a-zA-Z0-9-]+)/);
-      if (match && match[1]) {
-        const found = portfolioData.featuredProjects.find(
-          (p) => p.id.toLowerCase() === match[1].toLowerCase()
-        );
-        if (found) {
-          setCurrentProjectId(found.id);
-          document.title = `${found.title} — Mahran Hadj Salah`;
-          window.history.replaceState({ projectId: found.id }, '', `/${found.id}`);
-          return;
-        }
-      }
-
-      // 3. Otherwise we are on home page
-      setCurrentProjectId(null);
-      document.title = 'Mahran Hadj Salah — Software Engineering Student | AI & Full-Stack Developer';
-    };
-
-    parseRoute();
-    window.addEventListener('popstate', parseRoute);
-    window.addEventListener('hashchange', parseRoute);
-
-    return () => {
-      window.removeEventListener('popstate', parseRoute);
-      window.removeEventListener('hashchange', parseRoute);
-    };
+  const openProject = useCallback((id) => {
+    window.history.pushState(null, '', `/${id}`);
+    setProjectId(id);
+    window.scrollTo({ top: 0 });
   }, []);
 
-  const handleOpenProject = (id) => {
-    setCurrentProjectId(id);
-    window.history.pushState({ projectId: id }, '', `/${id}`);
-    const found = portfolioData.featuredProjects.find((p) => p.id === id);
-    if (found) {
-      document.title = `${found.title} — Mahran Hadj Salah`;
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleNavigateHome = (targetHash = '#work') => {
-    setCurrentProjectId(null);
-    window.history.pushState(null, '', `/${targetHash}`);
-    document.title = 'Mahran Hadj Salah — Software Engineering Student | AI & Full-Stack Developer';
-    setTimeout(() => {
-      const elId = targetHash.replace(/^#/, '');
-      const el = document.getElementById(elId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+  const navigateHome = useCallback(
+    (hash = '#top') => {
+      const scroll = () => {
+        const el = document.getElementById(hash.replace('#', ''));
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      if (projectId) {
+        window.history.pushState(null, '', `/${hash === '#top' ? '' : hash}`);
+        setProjectId(null);
+        setTimeout(scroll, 50);
       } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.replaceState(null, '', hash === '#top' ? '/' : hash);
+        scroll();
       }
-    }, 50);
-  };
+    },
+    [projectId]
+  );
 
-  const handleBackToHome = () => {
-    handleNavigateHome('#work');
-  };
-
-  const handleNavigateProject = (id) => {
-    setCurrentProjectId(id);
-    window.history.pushState({ projectId: id }, '', `/${id}`);
-    const found = portfolioData.featuredProjects.find((p) => p.id === id);
-    if (found) {
-      document.title = `${found.title} — Mahran Hadj Salah`;
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // If a single project is open, render the dedicated single project page
-  if (currentProjectId) {
-    return (
-      <div className="min-h-screen bg-[#0B1120] text-[#F8FAFC] font-sans selection:bg-[#3B82F6]/30 selection:text-[#38BDF8]">
-        <ProjectDetailPage 
-          projectId={currentProjectId}
-          onBack={handleBackToHome}
-          onNavigateProject={handleNavigateProject}
-          theme={theme}
-          toggleTheme={toggleTheme}
-        />
-
-        {/* Global Developer Resume / CV Modal */}
-        <ResumeModal
-          isOpen={isResumeOpen}
-          onClose={() => setIsResumeOpen(false)}
-        />
-
-        {/* Command Palette (Ctrl+K) */}
-        <CommandMenu
-          isOpen={isCommandMenuOpen}
-          onClose={setIsCommandMenuOpen}
-          onOpenResume={() => setIsResumeOpen(true)}
-          onOpenProject={handleOpenProject}
-          onNavigateHome={handleNavigateHome}
-        />
-
-        {/* Floating Back to Top Button */}
-        <BackToTop />
-      </div>
-    );
-  }
-
-  // Otherwise, render the general home page
   return (
-    <div className="min-h-screen bg-[#0B1120] text-[#F8FAFC] font-sans selection:bg-[#3B82F6]/30 selection:text-[#38BDF8]">
-      <Navbar 
-        onOpenResume={() => setIsResumeOpen(true)}
-        onOpenCommandMenu={() => setIsCommandMenuOpen(true)}
+    <div className="min-h-screen bg-bg text-fg">
+      <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
+        onOpenCommandMenu={() => setCommandOpen(true)}
+        onNavigate={navigateHome}
       />
-      
-      <main>
-        <Hero 
-          onOpenResume={() => setIsResumeOpen(true)} 
-        />
-        <FeaturedProjects 
-          onOpenProject={handleOpenProject}
-          onSelectCaseStudy={(project) => setSelectedCaseStudy(project)} 
-        />
-        <TechStack />
-        <Process />
-        <ExperienceEducation 
-          onOpenResume={() => setIsResumeOpen(true)} 
-        />
-        <About />
-        <Contact />
-      </main>
+
+      {projectId ? (
+        <main>
+          <ProjectDetailPage projectId={projectId} onBack={() => navigateHome('#work')} onNavigateProject={openProject} />
+        </main>
+      ) : (
+        <main>
+          <Hero />
+          <Experience onOpenProject={openProject} />
+          <Work onOpenProject={openProject} />
+          <Skills />
+          <EducationLeadership />
+          <About />
+          <Contact />
+        </main>
+      )}
 
       <Footer />
-
-      {/* Case Study Deep Dive Modal */}
-      <CaseStudyModal
-        project={selectedCaseStudy}
-        isOpen={Boolean(selectedCaseStudy)}
-        onClose={() => setSelectedCaseStudy(null)}
-      />
-
-      {/* Real Developer Resume / CV Modal */}
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-      />
-
-      {/* Command Palette (Ctrl+K) */}
-      <CommandMenu
-        isOpen={isCommandMenuOpen}
-        onClose={setIsCommandMenuOpen}
-        onOpenResume={() => setIsResumeOpen(true)}
-        onOpenProject={handleOpenProject}
-        onNavigateHome={handleNavigateHome}
-      />
-
-      {/* Floating Back to Top Button */}
+      <CommandMenu isOpen={commandOpen} setOpen={setCommandOpen} onOpenProject={openProject} onNavigate={navigateHome} />
       <BackToTop />
     </div>
   );

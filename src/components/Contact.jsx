@@ -1,246 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Check, Copy, Target, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Phone, Copy, Check, ArrowUpRight, Download } from 'lucide-react';
+import { personal, lookingFor, CV_URL } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon, WhatsAppIcon } from './Icons';
-import { portfolioData } from '../data/portfolioData';
-import { staggerContainer, fadeInUp, scaleIn } from '../utils/motion';
+import { Section, Reveal, Card, Button } from './ui';
 
 export default function Contact() {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-      window.innerWidth < 768
-    );
-  });
+  const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      );
-      const isSmallScreen = window.innerWidth < 768;
-      setIsMobile(isMobileDevice || isSmallScreen);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const customMsg = "Hi Mahran, I reviewed your portfolio and would like to discuss an opportunity.";
-
-  const { whatImLookingFor } = portfolioData;
-  const recipientEmail = portfolioData.personal.email;
-  const whatsappUrl = `https://wa.me/${portfolioData.personal.phoneRaw}?text=${encodeURIComponent(customMsg)}`;
-  const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
-    recipientEmail
-  )}&su=${encodeURIComponent('Software Engineering Opportunity')}&body=${encodeURIComponent(customMsg)}`;
-  const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(
-    'Software Engineering Opportunity'
-  )}&body=${encodeURIComponent(customMsg)}`;
-
-  const emailUrl = isMobile ? mailtoUrl : gmailWebUrl;
-  const emailTarget = isMobile ? undefined : '_blank';
-  const emailRel = isMobile ? undefined : 'noreferrer';
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(recipientEmail);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(personal.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${personal.email}`;
+    }
   };
 
+  const channels = [
+    { label: 'LinkedIn', value: 'mahran-hadj-salah', href: personal.linkedin, Icon: LinkedinIcon },
+    { label: 'GitHub', value: 'MahranHadjSalah', href: personal.github, Icon: GithubIcon },
+    { label: 'WhatsApp', value: personal.phone, href: personal.whatsapp, Icon: WhatsAppIcon },
+    { label: 'Phone', value: personal.phone, href: `tel:${personal.phone.replace(/\s/g, '')}`, Icon: Phone },
+  ];
+
   return (
-    <section id="contact" className="py-28 md:py-36 border-b border-[#263244] relative bg-[#0B1120]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <motion.div 
-          variants={staggerContainer(0.1, 0)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="max-w-3xl mb-14 space-y-3"
-        >
-          <motion.div variants={fadeInUp(0.4, 15)} className="text-xs font-mono text-[#38BDF8] font-bold tracking-wider uppercase">
-            // 06 · Contact & Inquiries
-          </motion.div>
-          <motion.h2 variants={fadeInUp(0.5, 20)} className="text-3xl sm:text-5xl font-extrabold text-[#F8FAFC] tracking-tight font-sans">
-            Let's build something.
-          </motion.h2>
-          <motion.p variants={fadeInUp(0.5, 20)} className="text-base sm:text-lg text-[#94A3B8] leading-relaxed font-sans">
-            I'm currently seeking engineering opportunities where I can solve real friction, architect scalable backends, and build intelligent software products.
-          </motion.p>
-        </motion.div>
-
-        {/* What I'm Looking For (Conversion Box) */}
-        <motion.div 
-          variants={scaleIn(0.5, 0.98)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="p-6 sm:p-7 rounded-xl bg-[#172033] border border-[#263244] shadow-xs mb-10 max-w-5xl space-y-3.5"
-        >
-          <div className="flex items-center gap-2 text-xs font-mono text-[#38BDF8] font-bold uppercase tracking-wider">
-            <Target className="w-4 h-4" />
-            <span>{whatImLookingFor.title}</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5">
-            {whatImLookingFor.opportunities.map((opp, idx) => (
-              <div 
-                key={idx}
-                className="p-3 rounded-lg bg-[#0B1120] border border-[#263244] text-xs font-mono text-[#F8FAFC] font-semibold flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] shrink-0" />
-                <span>{opp}</span>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-xs sm:text-sm text-[#94A3B8] font-sans pt-1">
-            {whatImLookingFor.note}
-          </p>
-        </motion.div>
-
-        {/* 4 Primary Channel Cards - Disciplined & Quiet */}
-        <motion.div 
-          variants={staggerContainer(0.08, 0.1)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-        >
-          
-          {/* LinkedIn First */}
-          <motion.a
-            variants={fadeInUp(0.5, 20)}
-            whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-            href={portfolioData.personal.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="p-5 sm:p-6 rounded-xl bg-[#172033] border border-[#263244] hover:border-[#3B82F6]/60 hover:shadow-lg transition-all flex flex-col justify-between group focus-visible:ring-2 focus-visible:ring-[#38BDF8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1120]"
-          >
+    <Section id="contact" eyebrow="Contact" title="Let’s work together">
+      <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr]">
+        <Reveal>
+          <Card className="flex h-full flex-col justify-between gap-10 p-6 sm:p-10">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-9 h-9 rounded-lg bg-[#3B82F6]/15 border border-[#3B82F6]/30 flex items-center justify-center text-[#38BDF8] group-hover:scale-105 transition-all">
-                  <LinkedinIcon className="w-4 h-4" />
-                </div>
-                <span className="text-[11px] font-mono text-[#38BDF8] font-semibold">Network</span>
-              </div>
-
-              <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">LinkedIn</h3>
-              <p className="text-xs text-[#94A3B8] font-sans">
-                Professional network and background verification.
+              <p className="text-lg leading-relaxed text-muted sm:text-xl">
+                I’m looking for <span className="text-fg">{lookingFor.slice(0, 2).join(' and ').toLowerCase()}</span>, plus
+                backend / full-stack and AI product roles. {personal.workPreference}.
               </p>
             </div>
-
-            <div className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#38BDF8] group-hover:text-[#F8FAFC] transition-colors">
-              in/mahran-hadj-salah ↗
-            </div>
-          </motion.a>
-
-          {/* Email Second */}
-          <motion.div 
-            variants={fadeInUp(0.5, 20)}
-            whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-            className="p-5 sm:p-6 rounded-xl bg-[#172033] border border-[#263244] hover:border-[#3B82F6]/60 hover:shadow-lg transition-all flex flex-col justify-between group"
-          >
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-9 h-9 rounded-lg bg-[#111827] border border-[#263244] flex items-center justify-center text-[#F8FAFC] group-hover:scale-105 transition-transform">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <button
-                  onClick={copyEmail}
-                  className="text-xs font-mono text-[#94A3B8] hover:text-[#F8FAFC] flex items-center gap-1 focus-visible:ring-2 focus-visible:ring-[#38BDF8] px-2 py-0.5 rounded bg-[#0B1120] border border-[#263244]"
-                  title="Copy email"
-                >
-                  {copiedEmail ? <Check className="w-3.5 h-3.5 text-[#38BDF8]" /> : <Copy className="w-3.5 h-3.5 text-[#94A3B8]" />}
-                  <span>{copiedEmail ? "Copied" : "Copy"}</span>
-                </button>
-              </div>
-
-              <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">Email</h3>
-              <a 
-                href={emailUrl}
-                target={emailTarget}
-                rel={emailRel}
-                className="text-xs font-mono text-[#38BDF8] hover:underline break-all focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
+              <p className="text-sm text-subtle">Email</p>
+              <a
+                href={`mailto:${personal.email}`}
+                className="mt-1 block break-all text-xl font-semibold text-fg hover:text-accent sm:text-2xl"
               >
-                {recipientEmail}
+                {personal.email}
               </a>
-            </div>
-
-            <a
-              href={emailUrl}
-              target={emailTarget}
-              rel={emailRel}
-              className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8] transition-colors focus-visible:ring-2 focus-visible:ring-[#38BDF8]"
-            >
-              {isMobile ? "Open in Mail App ↗" : "Compose in Gmail ↗"}
-            </a>
-          </motion.div>
-
-          {/* WhatsApp Third */}
-          <motion.a
-            variants={fadeInUp(0.5, 20)}
-            whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="p-5 sm:p-6 rounded-xl bg-[#172033] border border-[#263244] hover:border-[#3B82F6]/60 hover:shadow-lg transition-all flex flex-col justify-between group focus-visible:ring-2 focus-visible:ring-[#38BDF8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1120]"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-9 h-9 rounded-lg bg-[#111827] border border-[#263244] flex items-center justify-center text-[#F8FAFC] group-hover:scale-105 transition-transform">
-                  <WhatsAppIcon className="w-4 h-4" />
-                </div>
-                <span className="text-[11px] font-mono text-[#94A3B8]">Instant</span>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button href={`mailto:${personal.email}`}>
+                  <Mail className="h-4 w-4" /> Send an email
+                </Button>
+                <Button variant="secondary" onClick={copyEmail}>
+                  {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  {copied ? 'Copied' : 'Copy address'}
+                </Button>
+                <Button variant="ghost" href={CV_URL} download>
+                  <Download className="h-4 w-4" /> CV (PDF)
+                </Button>
               </div>
-
-              <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">WhatsApp</h3>
-              <p className="text-xs text-[#94A3B8] font-sans">
-                Direct messaging and real-time project discussions.
-              </p>
             </div>
+          </Card>
+        </Reveal>
 
-            <div className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#38BDF8] font-semibold">
-              wa.me/{portfolioData.personal.phoneRaw}
+        <Reveal delay={0.08}>
+          <Card className="divide-y divide-line">
+            {channels.map(({ label, value, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-5 transition-colors hover:bg-surface-2/60"
+              >
+                <span className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-bg text-muted group-hover:text-fg">
+                  <Icon className="h-4 w-4" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm text-subtle">{label}</span>
+                  <span className="block truncate text-fg">{value}</span>
+                </span>
+                <ArrowUpRight className="h-4 w-4 text-subtle transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fg" />
+              </a>
+            ))}
+            <div className="p-5 text-sm text-muted">
+              Based in {personal.location} · {personal.timezone}
             </div>
-          </motion.a>
-
-          {/* GitHub Fourth */}
-          <motion.a
-            variants={fadeInUp(0.5, 20)}
-            whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-            href={portfolioData.personal.github}
-            target="_blank"
-            rel="noreferrer"
-            className="p-5 sm:p-6 rounded-xl bg-[#172033] border border-[#263244] hover:border-[#3B82F6]/60 hover:shadow-lg transition-all flex flex-col justify-between group focus-visible:ring-2 focus-visible:ring-[#38BDF8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1120]"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-9 h-9 rounded-lg bg-[#111827] border border-[#263244] flex items-center justify-center text-[#F8FAFC] group-hover:text-[#38BDF8] group-hover:scale-105 transition-all">
-                  <GithubIcon className="w-4 h-4" />
-                </div>
-                <span className="text-[11px] font-mono text-[#94A3B8]">Code</span>
-              </div>
-
-              <h3 className="text-base font-bold text-[#F8FAFC] mb-1 font-sans">GitHub</h3>
-              <p className="text-xs text-[#94A3B8] font-sans">
-                Open repositories, production code, and architecture.
-              </p>
-            </div>
-
-            <div className="pt-4 mt-4 border-t border-[#263244] text-xs font-mono text-[#94A3B8] group-hover:text-[#38BDF8] transition-colors">
-              github.com/MahranHadjSalah ↗
-            </div>
-          </motion.a>
-
-        </motion.div>
-
+          </Card>
+        </Reveal>
       </div>
-    </section>
+    </Section>
   );
 }

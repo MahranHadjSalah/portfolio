@@ -346,12 +346,17 @@ export function TechIcon({ name, className = "w-3.5 h-3.5 shrink-0" }) {
 
     // AI, LLM & ML
     case "LangGraph & LangChain":
+    case "LangChain":
+    case "LangGraph":
       return <LangChainIcon className={className} />;
     case "RAG & FAISS":
+    case "FAISS":
       return <FaissIcon className={className} />;
     case "Whisper (STT)":
       return <WhisperIcon className={className} />;
     case "Groq & Ollama":
+    case "Groq":
+    case "Ollama":
       return <GroqIcon className={className} />;
     case "Scikit-Learn (Pipelines)":
       return <ScikitLearnIcon className={className} />;
@@ -364,8 +369,10 @@ export function TechIcon({ name, className = "w-3.5 h-3.5 shrink-0" }) {
     case "FastAPI":
       return <FastApiIcon className={className} />;
     case "Node.js":
+    case "Node.js / Express":
       return <NodeIcon className={className} />;
     case "Express":
+    case "Express.js":
       return <ExpressIcon className={className} />;
     case "REST APIs":
       return <RestApiIcon className={className} />;
@@ -384,6 +391,7 @@ export function TechIcon({ name, className = "w-3.5 h-3.5 shrink-0" }) {
 
     // DevOps & Cloud
     case "Hetzner VPS":
+    case "Hetzner":
       return <HetznerIcon className={className} />;
     case "Docker":
       return <DockerIcon className={className} />;
@@ -400,15 +408,17 @@ export function TechIcon({ name, className = "w-3.5 h-3.5 shrink-0" }) {
     case "n8n Workflows":
       return <N8nIcon className={className} />;
     case "Meta Graph API":
+    case "Meta Messenger API":
       return <MetaIcon className={className} />;
     case "Postman":
       return <PostmanIcon className={className} />;
     case "PostgreSQL":
+    case "pgvector":
       return <PostgresIcon className={className} />;
     case "Redis":
       return <RedisIcon className={className} />;
 
     default:
-      return <span className="text-[#38BDF8] text-[10px]">✔</span>;
+      return null;
   }
 }

@@ -1,50 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="theme-color" content="#0B1120" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
     <meta name="robots" content="index, follow" />
-    
-    <!-- Primary Meta Tags -->
-    <title>Mahran Hadj Salah — Software Engineering Student | AI & Full-Stack Developer</title>
-    <meta name="title" content="Mahran Hadj Salah — Software Engineering Student | AI & Full-Stack Developer" />
-    <meta name="description" content="Software Engineering student at ISIMS (Université de Sfax) building production AI agents, SaaS platforms, GraphRAG systems, and full-stack software." />
+
+    <title>Mahran Hadj Salah — Software Engineering Student · AI Engineer</title>
+    <meta name="description" content="Second-year software engineering student at ISIMS Sfax focused on LLMs and agentic AI. Founder of AutoReply, an AI sales-agent SaaS, and AI engineering intern working on RAG, GraphRAG and LangGraph multi-agent systems." />
     <meta name="author" content="Mahran Hadj Salah" />
-    <meta name="keywords" content="Mahran Hadj Salah, Hadj Salah Mahran, Software Engineering Student, ISIMS, Université de Sfax, AI Engineer, Full-Stack Developer, GraphRAG, LangGraph, FastAPI, React, Hetzner, Autoreply, SeniorVoice, Tunisia Developer" />
 
-    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Mahran Hadj Salah — Software Engineering Student | AI & Full-Stack Developer" />
-    <meta property="og:description" content="Software Engineering student at ISIMS building production AI agents, GraphRAG systems, and full-stack SaaS applications." />
+    <meta property="og:title" content="Mahran Hadj Salah — Software Engineering Student · AI Engineer" />
+    <meta property="og:description" content="LLM agents, RAG / GraphRAG and full-stack SaaS. Founder of AutoReply. AI Engineering Intern at Your Best Solution." />
     <meta property="og:image" content="/profile.jpg" />
-    <meta property="og:site_name" content="Mahran Hadj Salah Portfolio" />
+    <meta property="og:site_name" content="Mahran Hadj Salah" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mahran Hadj Salah — Software Engineering Student · AI Engineer" />
+    <meta name="twitter:description" content="LLM agents, RAG / GraphRAG and full-stack SaaS. Founder of AutoReply." />
+    <meta name="twitter:image" content="/profile.jpg" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Mahran Hadj Salah — Software Engineering Student | AI & Full-Stack Developer" />
-    <meta property="twitter:description" content="Software Engineering student building production AI agents, GraphRAG systems, and full-stack SaaS applications." />
-    <meta property="twitter:image" content="/profile.jpg" />
-
-    <!-- Structured Data (JSON-LD) for Search Engines & Recruiter Indexing -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Mahran Hadj Salah",
       "alternateName": "Hadj Salah Mahran",
-      "jobTitle": "Software Engineering Student & Full-Stack AI Developer",
+      "jobTitle": "Software Engineering Student · AI Engineer",
       "affiliation": {
         "@type": "EducationalOrganization",
         "name": "ISIMS — Institut Supérieur d'Informatique et de Multimédia de Sfax"
       },
-      "alumniOf": "ISIMS — Université de Sfax",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Sfax",
-        "addressCountry": "Tunisia"
-      },
+      "address": { "@type": "PostalAddress", "addressLocality": "Sfax", "addressCountry": "Tunisia" },
+      "knowsAbout": ["Large Language Models", "Agentic AI", "RAG", "GraphRAG", "LangGraph", "FastAPI", "React"],
       "sameAs": [
         "https://github.com/MahranHadjSalah",
         "https://www.linkedin.com/in/mahran-hadj-salah-4b98bb393/",
@@ -53,12 +43,22 @@
     }
     </script>
 
-    <!-- Google Fonts: Inter & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Apply saved theme before paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('portfolio-theme');
+          if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          document.documentElement.classList.toggle('dark', t === 'dark');
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-[#0B1120] text-[#F8FAFC] font-sans antialiased selection:bg-[#3B82F6]/30 selection:text-[#38BDF8] min-h-screen overflow-x-hidden">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -1,178 +1,126 @@
-import React, { useState, useEffect } from 'react';
-import { Search, FolderGit2, Cpu, User, GraduationCap, Copy, Check, FileText, ArrowRight, MessageSquare } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import React, { useEffect, useState } from 'react';
+import { Search, FolderGit2, Hash, FileText, Copy, Check, MessageSquare } from 'lucide-react';
+import { featuredProjects, navLinks, personal, CV_URL } from '../data/portfolioData';
 
-export default function CommandMenu({ isOpen, onClose, onOpenResume, onOpenProject, onNavigateHome }) {
+export default function CommandMenu({ isOpen, setOpen, onOpenProject, onNavigate }) {
   const [query, setQuery] = useState('');
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const onKey = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        onClose ? onClose(!isOpen) : null;
+        setOpen((v) => !v);
       }
-      if (e.key === 'Escape' && isOpen) {
-        onClose(false);
-      }
+      if (e.key === 'Escape') setOpen(false);
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [setOpen]);
+
+  useEffect(() => {
+    if (!isOpen) setQuery('');
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
-  const navigateTo = (target) => {
-    onClose(false);
-    if (onNavigateHome) {
-      onNavigateHome(target);
-    } else {
-      window.location.href = `/${target}`;
-    }
-  };
-
-  const openProject = (id) => {
-    onClose(false);
-    if (onOpenProject) {
-      onOpenProject(id);
-    } else {
-      window.history.pushState({ projectId: id }, '', `/${id}`);
-      window.dispatchEvent(new PopStateEvent('popstate'));
-    }
+  const run = (fn) => () => {
+    setOpen(false);
+    fn();
   };
 
   const actions = [
-    {
-      label: "Project: Enterprise AI Platform — Multi-Agent OS",
+    ...featuredProjects.map((p) => ({
+      group: 'Projects',
+      label: p.title,
+      hint: p.kind,
       icon: FolderGit2,
-      action: () => openProject('enterprise-ai')
-    },
+      action: run(() => onOpenProject(p.id)),
+    })),
+    ...navLinks.map((l) => ({
+      group: 'Sections',
+      label: l.label,
+      icon: Hash,
+      action: run(() => onNavigate(l.href)),
+    })),
     {
-      label: "Project: Smart Finance Analyzer — Financial AI",
-      icon: FolderGit2,
-      action: () => openProject('smart-finance-analyzer')
-    },
-    {
-      label: "Project: Flutter Shop UI Kit — Mobile App",
-      icon: FolderGit2,
-      action: () => openProject('flutter-ecommerce')
-    },
-    {
-      label: "Project: SupportAi — GraphRAG Knowledge Engine",
-      icon: FolderGit2,
-      action: () => openProject('supportai')
-    },
-    {
-      label: "Project: SeniorVoice — AI Voice Assistant",
-      icon: FolderGit2,
-      action: () => openProject('senior-voice')
-    },
-    {
-      label: "View All Projects Overview",
-      icon: FolderGit2,
-      action: () => navigateTo('#work')
-    },
-    {
-      label: "Explore Engineering Stack",
-      icon: Cpu,
-      action: () => navigateTo('#engineering')
-    },
-    {
-      label: "How I Build (Engineering Process)",
-      icon: ArrowRight,
-      action: () => navigateTo('#process')
-    },
-    {
-      label: "Experience & Education Timeline",
-      icon: GraduationCap,
-      action: () => navigateTo('#experience')
-    },
-    {
-      label: "Read About Me",
-      icon: User,
-      action: () => navigateTo('#about')
-    },
-    {
-      label: "View / Print Resume (CV)",
+      group: 'Actions',
+      label: 'Download CV (PDF)',
       icon: FileText,
-      action: () => {
-        onClose(false);
-        if (onOpenResume) onOpenResume();
-      }
+      action: run(() => window.open(CV_URL, '_blank', 'noopener')),
     },
     {
-      label: "Chat on WhatsApp (+216 56 187 082)",
+      group: 'Actions',
+      label: 'Chat on WhatsApp',
       icon: MessageSquare,
-      action: () => {
-        window.open(portfolioData.personal.whatsapp, '_blank');
-        onClose(false);
-      }
+      action: run(() => window.open(personal.whatsapp, '_blank', 'noopener')),
     },
     {
-      label: "Copy Email Address",
+      group: 'Actions',
+      label: copied ? 'Email copied' : 'Copy email address',
       icon: copied ? Check : Copy,
       action: () => {
-        navigator.clipboard.writeText(portfolioData.personal.email);
+        navigator.clipboard?.writeText(personal.email);
         setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      }
-    }
+        setTimeout(() => setCopied(false), 1500);
+      },
+    },
   ];
 
-  const filtered = actions.filter((item) =>
-    item.label.toLowerCase().includes(query.toLowerCase())
-  );
+  const q = query.trim().toLowerCase();
+  const filtered = actions.filter((a) => `${a.label} ${a.hint || ''}`.toLowerCase().includes(q));
+  const groups = [...new Set(filtered.map((a) => a.group))];
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-start justify-center pt-24 sm:pt-32 px-4 bg-[#0B1120]/80 backdrop-blur-sm animate-in fade-in duration-150"
-      onClick={() => onClose(false)}
+    <div
+      className="fixed inset-0 z-[60] flex items-start justify-center bg-black/40 px-4 pt-24 backdrop-blur-sm sm:pt-32"
+      onClick={() => setOpen(false)}
     >
-      <div 
-        className="w-full max-w-lg rounded-xl bg-[#172033] border border-[#263244] shadow-2xl overflow-hidden font-mono text-xs"
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Command menu"
+        className="w-full max-w-lg overflow-hidden rounded-2xl border border-line bg-surface shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center px-4 py-3 border-b border-[#263244] bg-[#111827]">
-          <Search className="w-4 h-4 text-[#94A3B8] mr-2.5" />
+        <div className="flex items-center gap-2.5 border-b border-line px-4">
+          <Search className="h-4 w-4 text-subtle" />
           <input
             autoFocus
             type="text"
-            placeholder="Type a command or jump to section..."
+            placeholder="Search projects, sections, actions…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent text-[#F8FAFC] placeholder:text-[#94A3B8]/60 focus:outline-none text-xs"
+            onKeyDown={(e) => e.key === 'Enter' && filtered[0]?.action()}
+            className="h-12 w-full bg-transparent text-sm text-fg placeholder:text-subtle focus:outline-none"
           />
-          <kbd className="px-1.5 py-0.5 rounded bg-[#172033] text-[10px] text-[#94A3B8] border border-[#263244] shadow-2xs">
-            ESC
-          </kbd>
+          <kbd className="rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-subtle">ESC</kbd>
         </div>
 
-        <div className="max-h-72 overflow-y-auto p-2 space-y-1">
-          {filtered.length === 0 ? (
-            <div className="p-4 text-center text-[#94A3B8]">No commands found.</div>
-          ) : (
-            filtered.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <button
-                  key={idx}
-                  onClick={item.action}
-                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#111827] transition-colors group"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Icon className="w-4 h-4 text-[#38BDF8] group-hover:scale-110 transition-transform" />
-                    <span>{item.label}</span>
-                  </div>
-                  <span className="text-[10px] text-[#94A3B8] group-hover:text-[#38BDF8]">Jump ↵</span>
-                </button>
-              );
-            })
-          )}
-        </div>
-
-        <div className="px-4 py-2 bg-[#111827] border-t border-[#263244] flex items-center justify-between text-[10px] text-[#94A3B8]">
-          <span>Navigation Quick Actions</span>
-          <span>Press ESC to close</span>
+        <div className="max-h-80 overflow-y-auto p-2">
+          {filtered.length === 0 && <p className="p-6 text-center text-sm text-subtle">No results.</p>}
+          {groups.map((g) => (
+            <div key={g} className="mb-1">
+              <p className="px-3 pb-1 pt-2 text-[11px] font-medium uppercase tracking-wider text-subtle">{g}</p>
+              {filtered
+                .filter((a) => a.group === g)
+                .map((a) => {
+                  const Icon = a.icon;
+                  return (
+                    <button
+                      key={a.label}
+                      type="button"
+                      onClick={a.action}
+                      className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+                    >
+                      <Icon className="h-4 w-4 shrink-0 text-subtle" />
+                      <span className="flex-1">{a.label}</span>
+                      {a.hint && <span className="truncate text-xs text-subtle">{a.hint}</span>}
+                    </button>
+                  );
+                })}
+            </div>
+          ))}
         </div>
       </div>
     </div>

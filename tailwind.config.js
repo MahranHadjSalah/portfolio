@@ -1,70 +1,39 @@
 /** @type {import('tailwindcss').Config} */
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        tech: {
-          bg: '#0B1120',
-          secondary: '#111827',
-          card: '#172033',
-          cardHover: '#1E293B',
-          primary: '#3B82F6',
-          bright: '#38BDF8',
-          text: '#F8FAFC',
-          muted: '#94A3B8',
-          border: '#263244',
-          borderHover: 'rgba(59, 130, 246, 0.4)',
-        },
-        brand: {
-          primary: '#3B82F6',
-          dark: '#1D4ED8',
-          accent: '#38BDF8',
-          bg: '#0B1120',
-          surface: '#172033',
-          text: '#F8FAFC',
-          muted: '#94A3B8',
-          border: '#263244',
-        },
-        dark: {
-          950: '#050608',
-          900: '#090a0f',
-          850: '#0e1117',
-          800: '#141820',
-          750: '#1a202c',
-          700: '#222938',
-        },
-        teal: {
-          primary: '#0F766E',
-          dark: '#115E59',
-          accent: '#E6FFFA',
-        },
-        emerald: {
-          glow: '#10b981',
-          accent: '#059669',
-          bright: '#34d399',
-          faint: 'rgba(16, 185, 129, 0.08)',
-        }
+        bg: token('bg'),
+        surface: token('surface'),
+        'surface-2': token('surface-2'),
+        line: token('line'),
+        'line-strong': token('line-strong'),
+        fg: token('fg'),
+        muted: token('muted'),
+        subtle: token('subtle'),
+        accent: token('accent'),
+        'accent-fg': token('accent-fg'),
+        success: token('success'),
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['Geist', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"Geist Mono"', '"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
+      fontSize: {
+        display: ['clamp(2.75rem, 6vw, 4.5rem)', { lineHeight: '1.02', letterSpacing: '-0.035em' }],
+        h2: ['clamp(1.875rem, 3.5vw, 2.75rem)', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
       },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-6px)' },
-        }
-      }
+      maxWidth: {
+        content: '72rem',
+      },
+      boxShadow: {
+        card: '0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -12px rgb(0 0 0 / 0.12)',
+      },
     },
   },
   plugins: [],
-}
+};
